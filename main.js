@@ -1,36 +1,41 @@
 /**
- * Healthysticks Interactivity
- * Handles scroll effects and animations
+ * Healthysticks Shared JavaScript
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Header Scroll Effect
-    const header = document.getElementById('main-header');
+function toggleLanguage() {
+    const body = document.body;
+    const toggleBtnText = document.getElementById('lang-toggle-text');
     
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled', 'py-4');
-            header.classList.remove('py-6');
-        } else {
-            header.classList.remove('scrolled', 'py-4');
-            header.classList.add('py-6');
-        }
-    });
+    if (body.classList.contains('lang-active-es')) {
+        body.classList.remove('lang-active-es');
+        localStorage.setItem('preferred-lang', 'en');
+        if (toggleBtnText) toggleBtnText.innerText = 'ES';
+    } else {
+        body.classList.add('lang-active-es');
+        localStorage.setItem('preferred-lang', 'es');
+        if (toggleBtnText) toggleBtnText.innerText = 'EN';
+    }
+}
 
-    // Intersection Observer for Fade-in Animations
-    const observerOptions = {
-        threshold: 0.1
-    };
+// Persist language across pages
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred-lang');
+    const body = document.body;
+    const toggleBtnText = document.getElementById('lang-toggle-text');
 
+    if (savedLang === 'es') {
+        body.classList.add('lang-active-es');
+        if (toggleBtnText) toggleBtnText.innerText = 'EN';
+    }
+
+    // Intersection Observer for fade-in
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 });

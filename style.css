@@ -1,4 +1,19 @@
-/* Healthysticks Custom Styles */
+/* Healthysticks Shared Styles */
+:root {
+    --oatmeal: #F8F5F2;
+    --forest-green: #4A7C59;
+}
+
+body {
+    background-color: var(--oatmeal);
+    color: #1f2937; /* gray-800 */
+}
+
+[lang="es"] { display: none; }
+.lang-active-es [lang="en"] { display: none; }
+.lang-active-es [lang="es"] { display: block; }
+.lang-active-es span[lang="es"] { display: inline; }
+.lang-active-es span[lang="en"] { display: none; }
 
 .fade-in {
     opacity: 0;
@@ -9,10 +24,4 @@
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-header.scrolled {
-    background-color: rgba(248, 245, 242, 0.95);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
