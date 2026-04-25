@@ -9,11 +9,20 @@ body {
     color: #1f2937; /* gray-800 */
 }
 
-[lang="es"] { display: none; }
-.lang-active-es [lang="en"] { display: none; }
-.lang-active-es [lang="es"] { display: block; }
-.lang-active-es span[lang="es"] { display: inline; }
-.lang-active-es span[lang="en"] { display: none; }
+/* Language Visibility Logic */
+/* Default: Hide the other language based on the root html lang attribute */
+html[lang="en"] [lang="es"] { display: none; }
+html[lang="es"] [lang="en"] { display: none; }
+
+/* Ensure block/inline display when visible */
+html[lang="en"] [lang="en"],
+html[lang="es"] [lang="es"] { 
+    display: initial; 
+}
+
+/* Toggle mode support (Legacy/Compatibility) */
+.lang-active-es [lang="en"] { display: none !important; }
+.lang-active-es [lang="es"] { display: block !important; }
 
 .fade-in {
     opacity: 0;
