@@ -18,6 +18,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body class="bg-oatmeal font-sans">
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
@@ -25,22 +29,59 @@
             <a href="/en" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="/en" class="text-sm font-medium hover:text-forest-green">Home</a>
-                <a href="/en/About-us" class="text-sm font-bold text-forest-green">About Us</a>
-                <a href="/en/Services" class="text-sm font-medium hover:text-forest-green">Services</a>
-                <a href="/en/Hours" class="text-sm font-medium hover:text-forest-green">Hours</a>
+                <a href="/en/Sample-Collection" class="text-sm font-medium hover:text-forest-green">Sample Collection</a>
+                <a href="/en/Chiropractic" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
+                <a href="/en/Naturopathy" class="text-sm font-medium hover:text-forest-green">Naturopathy</a>
+                <a href="/en/Microneedling" class="text-sm font-bold text-forest-green">Microneedling</a>
                 <a href="/en/Contact-Us" class="text-sm font-medium hover:text-forest-green">Contact</a>
-                <a href="/About-us" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
+                <a href="/" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
             </nav>
         </div>
     </header>
+
     <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Advanced Microneedling</h1>
-            <div class="prose prose-lg text-gray-600">
-                <p>Experience the ultimate in skin rejuvenation. Our precision microneedling treatments stimulate collagen production for smoother, firmer, and more youthful-looking skin.</p>
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Advanced Microneedling</h1>
+                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Experience the ultimate in skin rejuvenation. Our precision microneedling treatments stimulate collagen production for smoother, firmer, and more youthful-looking skin.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-card shadow-soft-elevation overflow-hidden fade-in mb-20">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-10 md:p-16 flex flex-col justify-center">
+                        <h2 class="text-2xl font-bold font-serif mb-6 text-forest-green">How It Works</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            Microneedling uses tiny, sterilized needles to create controlled micro-injuries in the skin. This triggers the body's natural healing process, producing new collagen and elastin to repair and refine the skin's texture.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
+                                <span>Reduces fine lines and wrinkles</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
+                                <span>Improves skin tone and elasticity</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
+                                <span>Minimizes pores and scars</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-forest-green text-white p-10 md:p-16 flex flex-col justify-center items-center text-center">
+                        <h3 class="text-3xl font-bold font-serif mb-6">Renew Your Glow</h3>
+                        <p class="mb-10 opacity-90">Book a consultation to see if microneedling is right for your skin goals.</p>
+                        <a href="/en/Contact-Us" class="bg-white text-forest-green px-12 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+
     <footer class="py-12 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6 text-center">
             <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>

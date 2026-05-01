@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | HealthySticks</title>
+    <title>Naturopathy | HealthySticks</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -18,6 +18,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body class="bg-oatmeal font-sans">
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
@@ -25,22 +29,72 @@
             <a href="/en" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="/en" class="text-sm font-medium hover:text-forest-green">Home</a>
-                <a href="/en/About-us" class="text-sm font-bold text-forest-green">About Us</a>
-                <a href="/en/Services" class="text-sm font-medium hover:text-forest-green">Services</a>
-                <a href="/en/Hours" class="text-sm font-medium hover:text-forest-green">Hours</a>
+                <a href="/en/Sample-Collection" class="text-sm font-medium hover:text-forest-green">Sample Collection</a>
+                <a href="/en/Chiropractic" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
+                <a href="/en/Naturopathy" class="text-sm font-bold text-forest-green">Naturopathy</a>
+                <a href="/en/Microneedling" class="text-sm font-medium hover:text-forest-green">Microneedling</a>
                 <a href="/en/Contact-Us" class="text-sm font-medium hover:text-forest-green">Contact</a>
-                <a href="/About-us" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
+                <a href="/" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
             </nav>
         </div>
     </header>
+
     <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Our Story</h1>
-            <div class="prose prose-lg text-gray-600">
-                <p>We are dedicated to bridging the gap between ancient botanical wisdom and modern precision science. Our mission is to simplify your wellness journey with evidence-based solutions.</p>
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Evidence-Based Naturopathy</h1>
+                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Naturopathic medicine focuses on identifying and treating the root cause of illness using natural, evidence-based therapies. 
+                    We combine clinical nutrition, botanical medicine, and lifestyle counseling to restore your body's innate ability to heal.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 fade-in">
+                <div class="bg-white p-10 rounded-card shadow-soft-elevation border border-gray-50">
+                    <h2 class="text-2xl font-bold font-serif mb-6 text-forest-green border-b border-gray-100 pb-4">Our Approach</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="bg-forest-green/10 text-forest-green rounded-full p-1 mr-4 mt-1">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Clinical Nutrition</h4>
+                                <p class="text-sm text-gray-500">Tailored dietary plans to optimize health and prevent disease.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-forest-green/10 text-forest-green rounded-full p-1 mr-4 mt-1">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Botanical Medicine</h4>
+                                <p class="text-sm text-gray-500">Using plant-based extracts for safe and effective healing.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-forest-green/10 text-forest-green rounded-full p-1 mr-4 mt-1">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Lifestyle Counseling</h4>
+                                <p class="text-sm text-gray-500">Practical strategies for stress management and wellness.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-forest-green text-white p-10 rounded-card shadow-lg flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold font-serif mb-6">Start Your Path to Wellness</h3>
+                    <p class="mb-8 opacity-90 leading-relaxed">
+                        Schedule an initial consultation to discuss your health goals and develop a personalized treatment plan.
+                    </p>
+                    <a href="/en/Contact-Us" class="bg-white text-forest-green text-center px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
+                        Schedule Consultation
+                    </a>
+                </div>
             </div>
         </div>
     </main>
+
     <footer class="py-12 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6 text-center">
             <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>

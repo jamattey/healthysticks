@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Medicals & Sample Collection | HealthySticks</title>
+    <meta name="description" content="Certified medical tests and sample collections for truckers and transport professionals.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        'trucker-blue': '#0f172a',
+                        'road-gray': '#334155',
+                        'safety-orange': '#f97316',
+                        'industrial-white': '#f8fafc'
+                    },
+                    fontFamily: { 
+                        'rugged': ['"Inter"', 'sans-serif'],
+                        'serif': ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .rugged-header {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 900;
+        }
+        .road-texture {
+            background-color: #0f172a;
+            background-image: url("https://www.transparenttextures.com/patterns/asphalt-dark.png");
+        }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-industrial-white font-rugged text-trucker-blue">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-trucker-blue text-white border-b-4 border-safety-orange shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/en" class="text-2xl font-black italic tracking-tighter">HEALTHY<span class="text-safety-orange">STICKS</span> <span class="text-xs uppercase tracking-widest not-italic ml-2 border-l border-white/20 pl-2">Driver Services</span></a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="/en" class="text-sm font-bold hover:text-safety-orange transition-colors">Home</a>
+                <a href="/en/Sample-Collection" class="text-sm font-bold text-safety-orange">Sample Collection</a>
+                <a href="/en/Chiropractic" class="text-sm font-bold hover:text-safety-orange transition-colors">Chiropractic</a>
+                <a href="/en/Naturopathy" class="text-sm font-bold hover:text-safety-orange transition-colors">Naturopathy</a>
+                <a href="/en/Microneedling" class="text-sm font-bold hover:text-safety-orange transition-colors">Microneedling</a>
+                <a href="/en/Contact-Us" class="text-sm font-bold hover:text-safety-orange transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <!-- Hero Section -->
+        <section class="road-texture text-white py-20 mb-16 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-trucker-blue to-transparent opacity-80"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl fade-in">
+                    <div class="inline-block bg-safety-orange text-trucker-blue px-4 py-1 font-black mb-6 skew-x-[-12deg]">
+                        CERTIFIED MEDICAL EXAMS
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-none rugged-header">
+                        GET YOUR MEDICAL<br><span class="text-safety-orange">TESTS DONE FAST.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-10 font-bold max-w-xl">
+                        No-nonsense, professional medical exams and sample collections for truckers and CDL holders.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/en/Contact-Us" class="bg-safety-orange text-white px-8 py-4 text-xl font-black hover:bg-orange-600 transition-all uppercase skew-x-[-12deg]">
+                            <span class="skew-x-[12deg] inline-block">BOOK TEST NOW</span>
+                        </a>
+                        <div class="flex items-center text-gray-400 font-bold">
+                            <svg class="w-6 h-6 mr-2 text-safety-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            WALK-INS WELCOME
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative Element -->
+            <div class="absolute bottom-0 right-0 w-1/3 h-full hidden lg:block opacity-20 pointer-events-none">
+                <svg viewBox="0 0 100 100" class="h-full w-full fill-white">
+                    <path d="M0,100 L50,0 L100,100 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="container mx-auto px-6 mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CDL Physicals -->
+                <div class="bg-white border-l-8 border-trucker-blue p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">🚛</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">CDL Medical Exams</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Certified DOT physicals to keep you compliant and on the road. Fast processing and instant results.
+                    </p>
+                </div>
+
+                <!-- Drug Testing -->
+                <div class="bg-white border-l-8 border-safety-orange p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">🧪</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">Drug & Alcohol Testing</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Secure, confidential sample collection for workplace compliance and random testing.
+                    </p>
+                </div>
+
+                <!-- Specialized Tests -->
+                <div class="bg-white border-l-8 border-trucker-blue p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">Specialized Screenings</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Medical screenings tailored to the physical demands of long-haul transport and heavy machinery operation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="container mx-auto px-6 max-w-5xl">
+            <div class="bg-road-gray text-white p-12 rounded-lg relative overflow-hidden shadow-2xl">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black uppercase mb-8 tracking-widest border-b-2 border-safety-orange pb-4 inline-block">Professional Service for Pros</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <p class="text-lg font-bold mb-6">
+                                We know your time is money. That's why we've optimized our sample collection and testing process to be as efficient as possible.
+                            </p>
+                            <ul class="space-y-4 font-bold text-gray-300">
+                                <li class="flex items-center"><span class="w-2 h-2 bg-safety-orange mr-3"></span> Certified Medical Examiners</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-safety-orange mr-3"></span> DOT Compliant Facilities</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-safety-orange mr-3"></span> Same-Day Appointments</li>
+                            </ul>
+                        </div>
+                        <div class="bg-trucker-blue p-8 border border-white/10">
+                            <h4 class="text-safety-orange font-black uppercase mb-4 italic">What to Bring:</h4>
+                            <ul class="text-sm space-y-2 opacity-90">
+                                <li>• Valid Driver's License</li>
+                                <li>• Current Medical Certificate (if renewing)</li>
+                                <li>• List of current medications</li>
+                                <li>• Glasses or hearing aids (if used)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Industrial Background Pattern -->
+                <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <svg fill="currentColor" viewBox="0 0 100 100"><rect width="100" height="10" y="10" /><rect width="100" height="10" y="30" /><rect width="100" height="10" y="50" /><rect width="100" height="10" y="70" /><rect width="100" height="10" y="90" /></svg>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 bg-trucker-blue text-white border-t-8 border-road-gray">
+        <div class="container mx-auto px-6 text-center">
+            <div class="font-black italic text-2xl mb-4">HEALTHY<span class="text-safety-orange">STICKS</span></div>
+            <p class="text-xs font-bold opacity-50 uppercase tracking-[0.2em]">&copy; 2026 HealthySticks. All rights reserved. Built for the road.</p>
+        </div>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>
