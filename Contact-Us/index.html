@@ -18,6 +18,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body class="bg-oatmeal font-sans">
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
@@ -25,22 +29,77 @@
             <a href="/" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="/" class="text-sm font-medium hover:text-forest-green">Inicio</a>
-                <a href="/About-us" class="text-sm font-bold text-forest-green">Sobre Nosotros</a>
-                <a href="/Services" class="text-sm font-medium hover:text-forest-green">Servicios</a>
-                <a href="/Hours" class="text-sm font-medium hover:text-forest-green">Horarios</a>
-                <a href="/Contact-Us" class="text-sm font-medium hover:text-forest-green">Contacto</a>
-                <a href="/en/About-us" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
+                <a href="/Sample-Collection" class="text-sm font-medium hover:text-forest-green">Examen Médico del DOT</a>
+                <a href="/Quiropractica" class="text-sm font-medium hover:text-forest-green">Quiropráctica</a>
+                <a href="/Naturopatia" class="text-sm font-medium hover:text-forest-green">Naturopatía</a>
+                <a href="/Microneedling" class="text-sm font-medium hover:text-forest-green">Micropunción</a>
+                <a href="/Contact-Us" class="text-sm font-bold text-forest-green">Contacto</a>
+                <a href="/en" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
             </nav>
         </div>
     </header>
+
     <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Póngase en Contacto</h1>
-            <div class="prose prose-lg text-gray-600">
-                <p>Correo: contacto@healthysticks.life<br>Teléfono: +1 (555) 123-4567<br>Dirección: 123 Wellness Way, Science City, ST 12345</p>
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-16 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Póngase en Contacto</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Ya sea que esté buscando curación natural o pruebas médicas especializadas, estamos aquí para ayudarle.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 fade-in">
+                <!-- Información de Contacto -->
+                <div class="bg-white p-10 rounded-card shadow-soft-elevation border border-gray-50">
+                    <h2 class="text-2xl font-bold font-serif mb-8 text-forest-green border-b border-gray-100 pb-4">Información de la Clínica</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-forest-green/10 text-forest-green rounded-full p-2"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Dirección</h4>
+                                <p class="text-gray-500">123 Wellness Way, Science City, ST 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-forest-green/10 text-forest-green rounded-full p-2"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Teléfono</h4>
+                                <p class="text-gray-500">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-forest-green/10 text-forest-green rounded-full p-2"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Correo Electrónico</h4>
+                                <p class="text-gray-500">contact@healthysticks.life</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="bg-forest-green text-white p-10 rounded-card shadow-lg">
+                    <h2 class="text-2xl font-bold font-serif mb-6">Envíenos un Mensaje</h2>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-1 opacity-80">Nombre</label>
+                            <input type="text" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-white transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-1 opacity-80">Correo Electrónico</label>
+                            <input type="email" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 focus:outline-none focus:border-white transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-1 opacity-80">Mensaje</label>
+                            <textarea class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 h-32 focus:outline-none focus:border-white transition-all"></textarea>
+                        </div>
+                        <button class="w-full bg-white text-forest-green font-bold py-3 rounded-full hover:bg-gray-100 transition-all uppercase tracking-widest mt-4">Enviar Mensaje</button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
+
     <footer class="py-12 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6 text-center">
             <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>

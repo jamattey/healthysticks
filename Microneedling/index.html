@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microneedling | HealthySticks</title>
+    <title>Micropunción | HealthySticks</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -18,6 +18,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body class="bg-oatmeal font-sans">
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
@@ -25,22 +29,59 @@
             <a href="/" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="/" class="text-sm font-medium hover:text-forest-green">Inicio</a>
-                <a href="/About-us" class="text-sm font-bold text-forest-green">Sobre Nosotros</a>
-                <a href="/Services" class="text-sm font-medium hover:text-forest-green">Servicios</a>
-                <a href="/Hours" class="text-sm font-medium hover:text-forest-green">Horarios</a>
+                <a href="/Sample-Collection" class="text-sm font-medium hover:text-forest-green">Examen Médico del DOT</a>
+                <a href="/Quiropractica" class="text-sm font-medium hover:text-forest-green">Quiropráctica</a>
+                <a href="/Naturopatia" class="text-sm font-medium hover:text-forest-green">Naturopatía</a>
+                <a href="/Microneedling" class="text-sm font-bold text-forest-green">Micropunción</a>
                 <a href="/Contact-Us" class="text-sm font-medium hover:text-forest-green">Contacto</a>
-                <a href="/en/About-us" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
+                <a href="/en" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
             </nav>
         </div>
     </header>
+
     <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Microneedling Avanzado</h1>
-            <div class="prose prose-lg text-gray-600">
-                <p>Experimente lo último en rejuvenecimiento de la piel. Nuestros tratamientos de microneedling de precisión estimulan la producción de colágeno para una piel más suave, firme y de aspecto más juvenil.</p>
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Micropunción Avanzada</h1>
+                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Experimente lo último en rejuvenecimiento de la piel. Nuestros tratamientos de micropunción de precisión estimulan la producción de colágeno para una piel más suave, firme y de aspecto más juvenil.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-card shadow-soft-elevation overflow-hidden fade-in mb-20">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-10 md:p-16 flex flex-col justify-center">
+                        <h2 class="text-2xl font-bold font-serif mb-6 text-forest-green">Cómo Funciona</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            La micropunción utiliza agujas diminutas y esterilizadas para crear microlesiones controladas en la piel. Esto desencadena el proceso de curación natural del cuerpo, produciendo nuevo colágeno y elastina para reparar y refinar la textura de la piel.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
+                                <span>Reduce las líneas finas y las arrugas</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
+                                <span>Mejora el tono y la elasticidad de la piel</span>
+                            </li>
+                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
+                                <span>Minimiza los poros y las cicatrices</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-forest-green text-white p-10 md:p-16 flex flex-col justify-center items-center text-center">
+                        <h3 class="text-3xl font-bold font-serif mb-6">Renueve su Resplandor</h3>
+                        <p class="mb-10 opacity-90">Reserve una consulta para ver si la micropunción es adecuada para sus objetivos de piel.</p>
+                        <a href="/Contact-Us" class="bg-white text-forest-green px-12 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
+                            Reservar Ahora
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+
     <footer class="py-12 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6 text-center">
             <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>

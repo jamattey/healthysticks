@@ -12,24 +12,32 @@
                 extend: {
                     colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
                     fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
-                    borderRadius: { 'card': '12px' }
+                    borderRadius: { 'card': '12px' },
+                    boxShadow: {
+                        'soft-elevation': '0 4px 20px -2px rgba(0, 0, 0, 0.05)'
+                    }
                 }
             }
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
-<body class="bg-oatmeal font-sans">
+<body class="bg-oatmeal font-sans text-gray-900">
 
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="/" class="text-sm font-bold text-forest-green">Inicio</a>
-                <a href="/About-us" class="text-sm font-medium hover:text-forest-green">Sobre Nosotros</a>
-                <a href="/Services" class="text-sm font-medium hover:text-forest-green">Servicios</a>
-                <a href="/Hours" class="text-sm font-medium hover:text-forest-green">Horarios</a>
+                <a href="/Sample-Collection" class="text-sm font-medium hover:text-forest-green">Examen Médico del DOT</a>
+                <a href="/Quiropractica" class="text-sm font-medium hover:text-forest-green">Quiropráctica</a>
+                <a href="/Naturopatia" class="text-sm font-medium hover:text-forest-green">Naturopatía</a>
+                <a href="/Microneedling" class="text-sm font-medium hover:text-forest-green">Micropunción</a>
                 <a href="/Contact-Us" class="text-sm font-medium hover:text-forest-green">Contacto</a>
                 <a href="/en" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
             </nav>
@@ -37,20 +45,93 @@
     </header>
 
     <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 text-center">
+        <!-- Sección Hero -->
+        <section class="container mx-auto px-6 text-center mb-32 fade-in">
             <h1 class="text-4xl md:text-7xl font-bold font-serif mb-6 text-gray-900 leading-tight">Raíces Naturales.<br>Ciencia Refinada.</h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Simplifique su camino hacia el bienestar con HealthySticks.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <a href="/Microneedling" class="bg-white p-8 rounded-card shadow-sm hover:shadow-md transition-all">
-                    <h3 class="text-xl font-bold font-serif mb-2">Microneedling</h3>
-                    <p class="text-sm text-gray-500">Tratamientos avanzados para la renovación de la piel.</p>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Simplifique su camino hacia el bienestar con HealthySticks. Unimos la sabiduría antigua y la ciencia de precisión moderna para ayudarle a prosperar.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+                <a href="/Quiropractica" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
+                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Quiropráctica</h3>
+                    <p class="text-sm text-gray-500 mb-4">Ajustes espinales de precisión para una salud óptima.</p>
+                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Saber Más →</span>
                 </a>
-                <a href="/Naturopatia" class="bg-white p-8 rounded-card shadow-sm hover:shadow-md transition-all">
-                    <h3 class="text-xl font-bold font-serif mb-2">Naturopatía</h3>
-                    <p class="text-sm text-gray-500">Medicina natural basada en la evidencia.</p>
+                <a href="/Naturopatia" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
+                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Naturopatía</h3>
+                    <p class="text-sm text-gray-500 mb-4">Medicina natural basada en la evidencia.</p>
+                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Saber Más →</span>
+                </a>
+                <a href="/Microneedling" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
+                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Micropunción</h3>
+                    <p class="text-sm text-gray-500 mb-4">Tratamientos avanzados para la renovación de la piel.</p>
+                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Saber Más →</span>
                 </a>
             </div>
-        </div>
+        </section>
+
+        <!-- Sección Sobre Nosotros -->
+        <section class="bg-white py-24 border-y border-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Nuestra Historia</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        En HealthySticks, nos dedicamos a cerrar la brecha entre la antigua sabiduría botánica y la ciencia de precisión moderna. 
+                        Nuestra misión es simplificar su viaje de bienestar con soluciones basadas en la evidencia que tratan a la persona en su totalidad, no solo los síntomas.
+                    </p>
+                </div>
+
+                <!-- Sección de Los Cinco Pilares -->
+                <div class="bg-oatmeal/50 rounded-card p-10 md:p-16 shadow-inner fade-in">
+                    <h3 class="text-2xl font-bold font-serif text-center mb-12 text-forest-green uppercase tracking-widest">Los Cinco Pilares de la Salud</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="text-center">
+                            <div class="text-xl font-bold mb-2">Nutrición</div>
+                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold mb-2">Acupuntura</div>
+                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold mb-2">Hierbas</div>
+                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
+                        <div class="text-center">
+                            <div class="text-xl font-bold mb-1">Tuina</div>
+                            <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">(Trabajo Corporal)</div>
+                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold mb-1">Qi Gong</div>
+                            <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">(Movimiento Corporal)</div>
+                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <p class="text-center text-forest-green font-serif italic text-xl border-t border-gray-100 pt-10">
+                        "Los Cinco Pilares apoyan el equilibrio y el flujo suave de la energía"
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección CTA Exámenes para Conductores -->
+        <section class="py-24 bg-forest-green text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8">Exámenes Médicos Especializados</h2>
+                <p class="text-lg md:text-xl opacity-90 mb-12 max-w-2xl mx-auto">
+                    Proporcionamos pruebas médicas certificadas y recolección de muestras para camioneros y profesionales del transporte. 
+                    Vuelva a la carretera más rápido con nuestro servicio profesional y simplificado.
+                </p>
+                <a href="/Sample-Collection" class="bg-white text-forest-green px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
+                    Exámenes Médicos del DOT
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer class="py-12 bg-white border-t border-gray-100">

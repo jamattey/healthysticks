@@ -18,6 +18,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body class="bg-oatmeal font-sans">
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
@@ -25,11 +29,12 @@
             <a href="/" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="/" class="text-sm font-medium hover:text-forest-green">Inicio</a>
-                <a href="/About-us" class="text-sm font-medium hover:text-forest-green">Sobre Nosotros</a>
-                <a href="/Services" class="text-sm font-medium hover:text-forest-green font-bold text-forest-green">Servicios</a>
-                <a href="/Hours" class="text-sm font-medium hover:text-forest-green">Horarios</a>
+                <a href="/Sample-Collection" class="text-sm font-medium hover:text-forest-green">Examen Médico del DOT</a>
+                <a href="/Quiropractica" class="text-sm font-bold text-forest-green">Quiropráctica</a>
+                <a href="/Naturopatia" class="text-sm font-medium hover:text-forest-green">Naturopatía</a>
+                <a href="/Microneedling" class="text-sm font-medium hover:text-forest-green">Micropunción</a>
                 <a href="/Contact-Us" class="text-sm font-medium hover:text-forest-green">Contacto</a>
-                <a href="/en/Services/Chiropractic" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
+                <a href="/en" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
             </nav>
         </div>
     </header>
