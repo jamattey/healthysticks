@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acupuncture | HealthySticks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    borderRadius: { 'card': '12px' }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-oatmeal font-sans">
+    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="../" class="text-sm font-medium hover:text-forest-green">Home</a>
+                <a href="../Sample-Collection/" class="text-sm font-medium hover:text-forest-green">DOT Tests</a>
+                <a href="../Chiropractic/" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
+                <a href="./" class="text-sm font-bold text-forest-green">Acupuncture</a>
+                <a href="../Naturopathy/" class="text-sm font-medium hover:text-forest-green">Naturopathy</a>
+                <a href="../Microneedling/" class="text-sm font-medium hover:text-forest-green">Microneedling</a>
+                <a href="../Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contact</a>
+                <a href="../../" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Acupuncture & TCM</h1>
+                <div class="bg-forest-green/5 border border-forest-green/20 rounded-xl p-6 mb-8 max-w-2xl mx-auto">
+                    <p class="text-forest-green font-bold text-sm uppercase tracking-widest mb-2">Insurance Information</p>
+                    <p class="text-gray-700">In-network for Acupuncture only: <span class="font-bold">BCBS PPO, United Health Care/Optum, Aetna, Cigna</span></p>
+                </div>
+                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Acupuncture is a key component of traditional Chinese medicine (TCM). It involves the insertion of very thin needles through your skin at strategic points on your body to balance your energy flow and stimulate healing.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 fade-in">
+                <div class="bg-white p-10 rounded-card shadow-soft-elevation border border-gray-50">
+                    <h2 class="text-2xl font-bold font-serif mb-8 text-forest-green border-b border-gray-100 pb-4">Key Benefits</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700 font-medium">Chronic Pain Management</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700 font-medium">Mental Health Support</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700 font-medium">Digestive Health</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700 font-medium">Sleep Improvement</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-gray-700 font-medium">Women's Health</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-forest-green text-white p-10 rounded-card shadow-lg flex flex-col justify-center text-center">
+                    <h3 class="text-2xl font-bold font-serif mb-6">Experience Natural Healing</h3>
+                    <p class="mb-8 opacity-90 leading-relaxed">
+                        Restore balance and vitality to your life through time-tested traditional techniques.
+                    </p>
+                    <a href="../Contact-Us/" class="bg-white text-forest-green px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
+                        Book Appointment
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 md:p-16 rounded-card shadow-sm border border-gray-50 fade-in">
+                <h2 class="text-3xl font-bold font-serif mb-8 text-gray-900">Our Approach</h2>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Acupuncture involves the insertion of very thin needles through your skin at strategic points on your body. A key component of traditional Chinese medicine, acupuncture is most commonly used to treat pain. Increasingly, it is being used for overall wellness, including stress management.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Traditional Chinese medicine explains acupuncture as a technique for balancing the flow of energy or life force — known as qi or chi (CHEE) — believed to flow through pathways (meridians) in your body. By inserting needles into specific points along these meridians, acupuncture practitioners believe that your energy flow will re-balance.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
+                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
+                    <div class="text-sm text-gray-500 space-y-2">
+                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
+                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
+                    <div class="text-sm text-gray-500 space-y-1">
+                        <p>Monday: 8:30am – 11am</p>
+                        <p>Tuesday: Closed</p>
+                        <p>Wednesday: 5pm – 7pm</p>
+                        <p>Friday: 2pm – 7pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 pt-8">
+                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
+                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
