@@ -5,355 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Precision Wellness Sticks | HealthySticks</title>
     <meta name="description" content="Explore our range of precision-engineered wellness sticks. Targeted support for immunity, energy, and sleep using high-purity clinical-grade botanicals.">
+    
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    borderRadius: { 'card': '12px' }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --oatmeal: #F8F5F2;
-            --forest-green: #4A7C59;
-            --white: #ffffff;
-            --gray-100: #f3f4f6;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-900: #111827;
-        }
-
-        /* ===== BASE STYLES ===== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--oatmeal);
-            color: var(--gray-900);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 80px 0;
-        }
-
-        /* ===== HEADER ===== */
-        .site-header {
-            background-color: rgba(248, 245, 242, 0.95);
-            border-bottom: 1px solid var(--gray-100);
-            padding: 16px 0;
-        }
-
-        .header-inner {
-            display: block;
-            text-align: center;
-        }
-
-        .site-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--forest-green);
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--gray-600);
-            padding: 8px 12px;
-            margin: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--forest-green);
-        }
-
-        .nav-link-active {
-            font-weight: 700;
-            color: var(--forest-green);
-        }
-
-        .btn-portal {
-            display: inline-block;
-            background-color: var(--forest-green);
-            color: var(--white);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 8px 16px;
-            border-radius: 50px;
-            margin: 4px;
-        }
-
-        .btn-lang {
-            display: inline-block;
-            border: 1px solid var(--forest-green);
-            color: var(--forest-green);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 50px;
-            margin: 4px;
-        }
-
-        .btn-lang:hover {
-            background-color: var(--forest-green);
-            color: var(--white);
-        }
-
-        /* ===== HERO ===== */
-        .hero-section {
-            text-align: center;
-            padding: 80px 0 60px;
-        }
-
-        .hero-title {
-            font-size: 36px;
-            color: var(--gray-900);
-            margin-bottom: 16px;
-        }
-
-        .hero-subtitle {
-            font-size: 16px;
-            color: var(--gray-500);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ===== PRODUCTS GRID ===== */
-        .products-grid {
-            display: block;
-        }
-
-        .product-card {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 32px;
-            border: 1px solid var(--gray-100);
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        .product-icon {
-            width: 64px;
-            height: 64px;
-            background-color: rgba(74, 124, 89, 0.1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 32px;
-            color: var(--forest-green);
-            font-size: 28px;
-        }
-
-        .product-title {
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-
-        .product-description {
-            font-size: 15px;
-            color: var(--gray-600);
-            margin-bottom: 32px;
-        }
-
-        .product-ingredients {
-            list-style: none;
-            font-size: 14px;
-            color: var(--gray-400);
-            margin-bottom: 32px;
-        }
-
-        .product-ingredients li {
-            margin-bottom: 8px;
-        }
-
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background-color: var(--oatmeal);
-            border-top: 1px solid var(--gray-100);
-            padding: 64px 0 32px;
-        }
-
-        .footer-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .footer-col {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        .footer-heading {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: var(--gray-500);
-            margin-bottom: 8px;
-        }
-
-        .footer-text a:hover {
-            color: var(--forest-green);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-100);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 11px;
-            color: var(--gray-400);
-            max-width: 800px;
-            margin: 0 auto 24px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
-            .header-inner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .site-logo {
-                margin-bottom: 0;
-            }
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .products-grid {
-                display: flex;
-                gap: 32px;
-            }
-
-            .product-card {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .footer-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .footer-col {
-                flex: 1;
-                margin-bottom: 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="font-sans">
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="index.html" class="site-logo">HealthySticks</a>
-                <nav>
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="science.html" class="nav-link">Our Science</a>
-                    <a href="products.html" class="nav-link nav-link-active">Products</a>
-                    <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" class="btn-portal">Patient Portal</a>
-                </nav>
-            </div>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-sm font-medium hover:text-forest-green transition-colors">
+                    <span lang="en">Home</span><span lang="es">Inicio</span>
+                </a>
+                <a href="science.html" class="text-sm font-medium hover:text-forest-green transition-colors">
+                    <span lang="en">Our Science</span><span lang="es">Nuestra Ciencia</span>
+                </a>
+                <a href="products.html" class="text-sm font-bold text-forest-green">
+                    <span lang="en">Products</span><span lang="es">Productos</span>
+                </a>
+                <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" class="text-sm font-medium hover:text-forest-green transition-colors">
+                    <span lang="en">Patient Portal</span><span lang="es">Portal del Paciente</span>
+                </a>
+                <button onclick="toggleLanguage()" class="border border-forest-green text-forest-green px-4 py-1 rounded-full text-xs font-bold hover:bg-forest-green hover:text-white transition-all">
+                    <span id="lang-toggle-text">ES</span>
+                </button>
+            </nav>
+
+            <button class="md:hidden text-forest-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <h1 class="hero-title">Precision Formulations</h1>
-                <p class="hero-subtitle">Targeted support for your daily rhythms. Zero fillers, maximum bio-availability.</p>
-            </div>
-        </section>
+    <main class="pt-32">
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4 text-gray-900">
+                        <span lang="en">Precision Formulations</span><span lang="es">Formulaciones de Precisión</span>
+                    </h1>
+                    <p class="text-gray-500 max-w-2xl mx-auto">
+                        <span lang="en">Targeted support for your daily rhythms. Zero fillers, maximum bio-availability.</span>
+                        <span lang="es">Soporte específico para sus ritmos diarios. Cero rellenos, máxima bio-disponibilidad.</span>
+                    </p>
+                </div>
 
-        <!-- Products Grid -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-icon">&#128737;</div>
-                        <h3 class="product-title">Immunity</h3>
-                        <p class="product-description">A robust shield of antioxidants and vital minerals to keep your baseline unbreakable.</p>
-                        <ul class="product-ingredients">
-                            <li>- Elderberry Extract</li>
-                            <li>- Zinc Bio-Chelate</li>
-                            <li>- Vitamin C (Clinical Grade)</li>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Product 1 -->
+                    <div class="bg-white p-10 rounded-card border border-gray-100 shadow-sm fade-in">
+                        <div class="w-16 h-16 bg-forest-green/10 rounded-2xl flex items-center justify-center mb-8 text-forest-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif mb-4">Immunity</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            <span lang="en">A robust shield of antioxidants and vital minerals to keep your baseline unbreakable.</span>
+                            <span lang="es">Un escudo robusto de antioxidantes y minerales vitales para mantener su línea base inquebrantable.</span>
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2 mb-10">
+                            <li>• Elderberry Extract</li>
+                            <li>• Zinc Bio-Chelate</li>
+                            <li>• Vitamin C (Clinical Grade)</li>
                         </ul>
                     </div>
 
-                    <div class="product-card">
-                        <div class="product-icon">&#9889;</div>
-                        <h3 class="product-title">Energy</h3>
-                        <p class="product-description">Nootropic-enhanced clarity for deep work sessions and cognitive longevity.</p>
-                        <ul class="product-ingredients">
-                            <li>- Organic Green Tea L-Theanine</li>
-                            <li>- Lion&apos;s Mane Extract</li>
-                            <li>- B-Vitamin Complex</li>
+                    <!-- Product 2 -->
+                    <div class="bg-white p-10 rounded-card border border-gray-100 shadow-sm fade-in">
+                        <div class="w-16 h-16 bg-forest-green/10 rounded-2xl flex items-center justify-center mb-8 text-forest-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif mb-4">Energy</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            <span lang="en">Nootropic-enhanced clarity for deep work sessions and cognitive longevity.</span>
+                            <span lang="es">Claridad mejorada con nootrópicos para sesiones de trabajo profundo y longevidad cognitiva.</span>
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2 mb-10">
+                            <li>• Organic Green Tea L-Theanine</li>
+                            <li>• Lion's Mane Extract</li>
+                            <li>• B-Vitamin Complex</li>
                         </ul>
                     </div>
 
-                    <div class="product-card">
-                        <div class="product-icon">&#127769;</div>
-                        <h3 class="product-title">Sleep</h3>
-                        <p class="product-description">Gentle botanical extracts to facilitate rapid onset and deep restorative recovery.</p>
-                        <ul class="product-ingredients">
-                            <li>- Magnesium Bisglycinate</li>
-                            <li>- Valerian Root (Organic)</li>
-                            <li>- Melatonin-Free Formula</li>
+                    <!-- Product 3 -->
+                    <div class="bg-white p-10 rounded-card border border-gray-100 shadow-sm fade-in">
+                        <div class="w-16 h-16 bg-forest-green/10 rounded-2xl flex items-center justify-center mb-8 text-forest-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold font-serif mb-4">Sleep</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            <span lang="en">Gentle botanical extracts to facilitate rapid onset and deep restorative recovery.</span>
+                            <span lang="es">Extractos botánicos suaves para facilitar el inicio rápido y una recuperación restauradora profunda.</span>
+                        </p>
+                        <ul class="text-sm text-gray-400 space-y-2 mb-10">
+                            <li>• Magnesium Bisglycinate</li>
+                            <li>• Valerian Root (Organic)</li>
+                            <li>• Melatonin-Free Formula</li>
                         </ul>
                     </div>
                 </div>
@@ -361,34 +127,39 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">HealthySticks</div>
-                    <p class="footer-description">Healthy Sticks PLLC - Nature-rooted, science-refined wellness in Lombard, IL.</p>
+    <!-- Footer -->
+    <footer class="py-16 bg-oatmeal border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
+                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Contact</h4>
-                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
-                    <p class="footer-text"><a href="mailto:questions@healthysticks.life">questions@healthysticks.life</a></p>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
+                    <div class="text-sm text-gray-500 space-y-2">
+                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
+                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Hours</h4>
-                    <p class="footer-text">Monday: 8:30am - 11am</p>
-                    <p class="footer-text">Tuesday: Closed</p>
-                    <p class="footer-text">Wednesday: 5pm - 7pm</p>
-                    <p class="footer-text">Friday: 2pm - 7pm</p>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
+                    <div class="text-sm text-gray-500 space-y-1">
+                        <p>Monday: 8:30am – 11am</p>
+                        <p>Tuesday: Closed</p>
+                        <p>Wednesday: 5pm – 7pm</p>
+                        <p>Friday: 2pm – 7pm</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. All rights reserved.</p>
+            <div class="border-t border-gray-200 pt-8">
+                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
+                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="main.js"></script>
 </body>
 </html>

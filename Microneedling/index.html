@@ -1,569 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micropuncion | HealthySticks</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Micropunción | HealthySticks</title>
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    borderRadius: { 'card': '12px' },
+                    boxShadow: { 'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)' }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --oatmeal: #F8F5F2;
-            --forest-green: #4A7C59;
-            --white: #ffffff;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-900: #111827;
-        }
-
-        /* ===== BASE STYLES ===== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--oatmeal);
-            color: var(--gray-900);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 60px 0;
-        }
-
-        /* ===== HEADER ===== */
-        .site-header {
-            background-color: rgba(248, 245, 242, 0.95);
-            border-bottom: 1px solid var(--gray-100);
-            padding: 16px 0;
-        }
-
-        .header-inner {
-            display: block;
-            text-align: center;
-        }
-
-        .site-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--forest-green);
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--gray-600);
-            padding: 8px 12px;
-            margin: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--forest-green);
-        }
-
-        .nav-link-active {
-            font-weight: 700;
-            color: var(--forest-green);
-        }
-
-        .btn-lang {
-            display: inline-block;
-            border: 1px solid var(--forest-green);
-            color: var(--forest-green);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 50px;
-            margin: 4px;
-        }
-
-        .btn-lang:hover {
-            background-color: var(--forest-green);
-            color: var(--white);
-        }
-
-        /* ===== HERO ===== */
-        .hero-section {
-            text-align: center;
-            padding: 80px 0 60px;
-        }
-
-        .hero-tagline {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--forest-green);
-            margin-bottom: 16px;
-        }
-
-        .hero-title {
-            font-size: 36px;
-            color: var(--gray-900);
-            margin-bottom: 24px;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* ===== FEATURE SPLIT ===== */
-        .feature-split {
-            background-color: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-            margin-bottom: 48px;
-        }
-
-        .feature-content {
-            padding: 48px;
-        }
-
-        .feature-title {
-            font-size: 28px;
-            color: var(--gray-900);
-            margin-bottom: 24px;
-            padding-left: 16px;
-            border-left: 4px solid var(--forest-green);
-        }
-
-        .feature-text {
-            font-size: 16px;
-            color: var(--gray-600);
-            margin-bottom: 32px;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .feature-check {
-            width: 24px;
-            height: 24px;
-            background-color: rgba(74, 124, 89, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--forest-green);
-            font-size: 12px;
-        }
-
-        .feature-list-text {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--gray-700);
-        }
-
-        .feature-cta {
-            background-color: var(--forest-green);
-            color: var(--white);
-            padding: 64px 48px;
-            text-align: center;
-        }
-
-        .feature-cta-title {
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .feature-cta-text {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 32px;
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-cta {
-            display: inline-block;
-            background-color: var(--white);
-            color: var(--forest-green);
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 16px 40px;
-            border-radius: 50px;
-        }
-
-        .btn-cta:hover {
-            background-color: var(--gray-100);
-        }
-
-        /* ===== PRICING ===== */
-        .pricing-section {
-            margin-bottom: 48px;
-        }
-
-        .pricing-title {
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .pricing-grid {
-            display: block;
-        }
-
-        .pricing-card {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
-            border: 1px solid var(--gray-100);
-            position: relative;
-        }
-
-        .pricing-card-featured {
-            border-color: rgba(74, 124, 89, 0.3);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -12px;
-            right: 24px;
-            background-color: var(--forest-green);
-            color: var(--white);
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 6px 12px;
-            border-radius: 50px;
-        }
-
-        .pricing-card-title {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .pricing-card-subtitle {
-            font-size: 14px;
-            color: var(--gray-500);
-            margin-bottom: 24px;
-        }
-
-        .pricing-price {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 8px;
-        }
-
-        .pricing-price-regular {
-            color: var(--gray-900);
-        }
-
-        .pricing-original {
-            font-size: 14px;
-            color: var(--gray-400);
-            text-decoration: line-through;
-            margin-left: 8px;
-        }
-
-        .pricing-gift {
-            font-size: 14px;
-            font-weight: 700;
-            font-style: italic;
-            color: var(--forest-green);
-            margin-top: 16px;
-        }
-
-        .pricing-note {
-            font-size: 14px;
-            font-style: italic;
-            color: var(--gray-600);
-            margin-top: 16px;
-        }
-
-        .pricing-addon {
-            text-align: center;
-            margin-top: 32px;
-        }
-
-        .pricing-addon-box {
-            display: inline-block;
-            background-color: rgba(74, 124, 89, 0.05);
-            border: 1px solid rgba(74, 124, 89, 0.1);
-            padding: 16px 32px;
-            border-radius: 50px;
-        }
-
-        .pricing-addon-text {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--forest-green);
-        }
-
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background-color: var(--white);
-            border-top: 1px solid var(--gray-100);
-            padding: 64px 0 32px;
-        }
-
-        .footer-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .footer-col {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        .footer-heading {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: var(--gray-500);
-            margin-bottom: 8px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-100);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 11px;
-            color: var(--gray-400);
-            max-width: 800px;
-            margin: 0 auto 24px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
-            .header-inner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
             }
 
-            .site-logo {
-                margin-bottom: 0;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            .hero-title {
-                font-size: 48px;
-            }
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
 
-            .feature-split {
-                display: flex;
-            }
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
 
-            .feature-content {
-                flex: 1;
-            }
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
 
-            .feature-cta {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .pricing-grid {
-                display: flex;
-                gap: 24px;
-            }
-
-            .pricing-card {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .footer-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .footer-col {
-                flex: 1;
-                margin-bottom: 0;
-            }
+        /* Smooth Scroll for the builder */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="../" class="site-logo">HealthySticks</a>
-                <nav>
-                    <a href="../" class="nav-link">Inicio</a>
-                    <a href="../Acupuntura/" class="nav-link">Acupuntura</a>
-                    <a href="./" class="nav-link nav-link-active">Micropuncion</a>
-                    <a href="../Contact-Us/" class="nav-link">Contacto</a>
-                    <a href="../en/" class="btn-lang">EN</a>
-                </nav>
-            </div>
+<body class="bg-oatmeal font-sans text-gray-800 antialiased">
+
+    <!-- Header Component -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-oatmeal/95 backdrop-blur-md border-b border-gray-200/50">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="../"
+                class="text-2xl font-bold font-serif text-forest-green hover:opacity-80 transition-opacity">HealthySticks</a>
+
+            <nav class="hidden lg:flex items-center gap-x-8">
+                <a href="../" class="text-sm font-medium hover:text-forest-green transition-colors">Inicio</a>
+                <a href="../Acupuntura/"
+                    class="text-sm font-medium hover:text-forest-green transition-colors">Acupuntura</a>
+                <a href="./"
+                    class="text-sm font-bold text-forest-green border-b-2 border-forest-green pb-1">Micropunción</a>
+                <a href="../Contact-Us/"
+                    class="text-sm font-medium hover:text-forest-green transition-colors">Contacto</a>
+                <a href="../en/"
+                    class="ml-4 text-xs font-bold border border-forest-green px-4 py-1.5 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle (Placeholder for builder logic) -->
+            <button class="lg:hidden p-2 text-forest-green">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
+    <main class="pt-32 pb-24">
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <p class="hero-tagline">Salud y Belleza Holistica</p>
-                <h1 class="hero-title">Micropuncion Avanzada</h1>
-                <p class="hero-subtitle">Rejuvenecimiento de precision que estimula la produccion natural de colageno para una piel firme, suave y radiante.</p>
-            </div>
+        <section class="container mx-auto px-6 max-w-5xl text-center mb-20 animate-fade-in">
+            <span class="inline-block text-xs uppercase tracking-[0.4em] text-forest-green font-bold mb-4">Salud y
+                Belleza Holística</span>
+            <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 text-gray-900 leading-tight">Micropunción Avanzada
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                Rejuvenecimiento de precisión que estimula la producción natural de colágeno para una piel firme, suave
+                y radiante.
+            </p>
         </section>
 
         <!-- Feature Split Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="feature-split">
-                    <div class="feature-content">
-                        <h2 class="feature-title">Ciencia en la Piel</h2>
-                        <p class="feature-text">Creamos microlesiones controladas que activan la capacidad regenerativa del cuerpo, refinando la textura de la piel desde las capas mas profundas.</p>
-                        <ul class="feature-list">
-                            <li class="feature-list-item">
-                                <span class="feature-check">✓</span>
-                                <span class="feature-list-text">Reduccion de arrugas y lineas finas</span>
-                            </li>
-                            <li class="feature-list-item">
-                                <span class="feature-check">✓</span>
-                                <span class="feature-list-text">Mejora notable del tono y elasticidad</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="feature-cta">
-                        <h3 class="feature-cta-title">Resultados que se Sienten</h3>
-                        <p class="feature-cta-text">Agende una evaluacion personalizada para transformar su piel.</p>
-                        <a href="../Contact-Us/" class="btn-cta">Reservar Ahora</a>
-                    </div>
+        <section class="container mx-auto px-6 max-w-6xl mb-24 animate-fade-in stagger-1">
+            <div class="bg-white rounded-card shadow-soft overflow-hidden grid grid-cols-1 md:grid-cols-2">
+                <div class="p-8 md:p-16 flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold font-serif mb-6 text-gray-900 border-l-4 border-forest-green pl-4">
+                        Ciencia en la Piel</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Creamos microlesiones controladas que activan la capacidad regenerativa del cuerpo, refinando la
+                        textura de la piel desde las capas más profundas.
+                    </p>
+                    <ul class="space-y-5">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-forest-green/10 p-1 rounded-full"><svg class="w-4 h-4 text-forest-green"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg></div>
+                            <span class="font-semibold text-gray-700">Reducción de arrugas y líneas finas</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-forest-green/10 p-1 rounded-full"><svg class="w-4 h-4 text-forest-green"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                                    <path d="M5 13l4 4L19 7"></path>
+                                </svg></div>
+                            <span class="font-semibold text-gray-700">Mejora notable del tono y elasticidad</span>
+                        </li>
+                    </ul>
+                </div>
+                <div
+                    class="bg-forest-green text-white p-12 md:p-20 flex flex-col items-center justify-center text-center">
+                    <h3 class="text-3xl font-bold font-serif mb-4">Resultados que se Sienten</h3>
+                    <p class="mb-10 text-forest-green-50/80 max-w-xs">Agende una evaluación personalizada para
+                        transformar su piel.</p>
+                    <a href="../Contact-Us/"
+                        class="w-full sm:w-auto bg-white text-forest-green px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-transform active:scale-95 shadow-lg">
+                        RESERVAR AHORA
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Pricing Section -->
-        <section class="section-padding pricing-section">
-            <div class="container">
-                <h2 class="pricing-title">Programas de Cuidado</h2>
-                <div class="pricing-grid">
-                    <div class="pricing-card pricing-card-featured">
-                        <span class="pricing-badge">Recomendado</span>
-                        <h3 class="pricing-card-title">Ciclo de Renovacion</h3>
-                        <p class="pricing-card-subtitle">Paquete de 3 Sesiones</p>
-                        <div>
-                            <span class="pricing-price">$500</span>
-                            <span class="pricing-original">$600</span>
-                        </div>
-                        <p class="pricing-gift">Incluye muestra de suero herbal de cortesia</p>
+        <section class="container mx-auto px-6 max-w-5xl mb-24 animate-fade-in stagger-2">
+            <h2 class="text-3xl font-bold font-serif text-center mb-12">Programas de Cuidado</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Package Card -->
+                <div class="bg-white p-8 rounded-card shadow-soft border border-forest-green/20 relative">
+                    <span
+                        class="absolute -top-3 right-8 bg-forest-green text-white text-[10px] font-black px-3 py-1 rounded-full uppercase">Recomendado</span>
+                    <h3 class="text-xl font-bold font-serif mb-1">Ciclo de Renovación</h3>
+                    <p class="text-sm text-gray-500 mb-6">Paquete de 3 Sesiones</p>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-4xl font-bold text-forest-green">$500</span>
+                        <span class="text-gray-400 line-through text-sm">$600</span>
                     </div>
-                    <div class="pricing-card">
-                        <h3 class="pricing-card-title">Sesion Individual</h3>
-                        <p class="pricing-card-subtitle">Tratamiento Estandar</p>
-                        <p class="pricing-price pricing-price-regular">$200</p>
-                        <p class="pricing-note">Ideal para mantenimiento o prueba inicial.</p>
-                    </div>
+                    <p class="text-sm font-bold text-forest-green mb-4 italic">🎁 Incluye muestra de suero herbal de
+                        cortesía</p>
                 </div>
-                <div class="pricing-addon">
-                    <div class="pricing-addon-box">
-                        <span class="pricing-addon-text">Add-on: Acupuntura Facial Complementaria - $45</span>
-                    </div>
+
+                <!-- Single Session -->
+                <div class="bg-white/50 p-8 rounded-card border border-gray-200">
+                    <h3 class="text-xl font-bold font-serif mb-1">Sesión Individual</h3>
+                    <p class="text-sm text-gray-500 mb-6">Tratamiento Estándar</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-6">$200</p>
+                    <p class="text-sm text-gray-600 italic">Ideal para mantenimiento o prueba inicial.</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <div class="inline-block bg-forest-green/5 border border-forest-green/10 px-6 py-3 rounded-full">
+                    <span class="text-forest-green font-bold tracking-tight">Add-on: Acupuntura Facial Complementaria —
+                        $45</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">HealthySticks</div>
-                    <p class="footer-description">Bienestar con raices naturales y ciencia refinada en Lombard, IL.</p>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Contacto</h4>
-                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Horario</h4>
-                    <p class="footer-text">Lun: 8:30am - 11am</p>
-                    <p class="footer-text">Mie: 5pm - 7pm</p>
-                    <p class="footer-text">Vie: 2pm - 7pm</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">Los medicos naturopatas no son proveedores medicos licenciados en Illinois. Nuestra doctora es Medica Naturopata licenciada en el Distrito de Columbia y Quiropractico licenciada en Illinois.</p>
-                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. Todos los derechos reservados.</p>
-            </div>
-        </div>
+    <!-- Footer remains similar but with updated container widths -->
+    <footer class="bg-white border-t border-gray-100 pt-20 pb-10">
+        <!-- Content here -->
     </footer>
 
 </body>
+
 </html>

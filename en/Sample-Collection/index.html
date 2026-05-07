@@ -3,692 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOT Tests &amp; Physicals for CDL Drivers | HealthySticks</title>
+    <title>DOT Tests & Physicals for CDL Drivers | HealthySticks</title>
     <meta name="description" content="Certified DOT tests, physicals, and medical exams for truckers, CDL holders, and transport professionals.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        'trucker-blue': '#0f172a',
+                        'road-gray': '#334155',
+                        'safety-orange': '#f97316',
+                        'industrial-white': '#f8fafc'
+                    },
+                    fontFamily: { 
+                        'rugged': ['"Inter"', 'sans-serif'],
+                        'serif': ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --trucker-blue: #0f172a;
-            --road-gray: #334155;
-            --safety-orange: #f97316;
-            --industrial-white: #f8fafc;
-            --white: #ffffff;
-        }
-
-        /* ===== BASE STYLES ===== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--industrial-white);
-            color: var(--trucker-blue);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
+        .rugged-header {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             font-weight: 900;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 60px 0;
-        }
-
-        /* ===== HEADER ===== */
-        .site-header {
-            background-color: var(--trucker-blue);
-            color: var(--white);
-            border-bottom: 4px solid var(--safety-orange);
-            padding: 16px 0;
-        }
-
-        .header-inner {
-            display: block;
-            text-align: center;
-        }
-
-        .site-logo {
-            font-size: 22px;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: -1px;
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .site-logo-accent {
-            color: var(--safety-orange);
-        }
-
-        .site-logo-subtitle {
-            font-size: 11px;
-            font-weight: 400;
-            font-style: normal;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-left: 12px;
-            padding-left: 12px;
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--white);
-            padding: 8px 12px;
-            margin: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--safety-orange);
-        }
-
-        .nav-link-active {
-            color: var(--safety-orange);
-        }
-
-        /* ===== HERO ===== */
-        .hero-section {
-            background-color: var(--trucker-blue);
-            color: var(--white);
-            padding: 80px 0;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background-color: var(--safety-orange);
-            color: var(--trucker-blue);
-            font-size: 12px;
-            font-weight: 900;
-            padding: 8px 16px;
-            margin-bottom: 24px;
-            transform: skewX(-12deg);
-        }
-
-        .hero-badge-text {
-            display: inline-block;
-            transform: skewX(12deg);
-        }
-
-        .hero-title {
-            font-size: 36px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-
-        .hero-title-accent {
-            color: var(--safety-orange);
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 500px;
-            margin-bottom: 40px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .btn-hero {
-            display: inline-block;
-            background-color: var(--safety-orange);
-            color: var(--white);
-            font-size: 16px;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 16px 32px;
-            transform: skewX(-12deg);
-        }
-
-        .btn-hero-text {
-            display: inline-block;
-            transform: skewX(12deg);
-        }
-
-        .btn-hero:hover {
-            background-color: #ea580c;
-        }
-
-        .hero-walkins {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .hero-walkins-icon {
-            color: var(--safety-orange);
-        }
-
-        /* ===== SERVICES GRID ===== */
-        .services-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-left: 8px solid var(--trucker-blue);
-            padding: 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-card-orange {
-            border-left-color: var(--safety-orange);
-        }
-
-        .service-icon {
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
-
-        .service-title {
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-        }
-
-        .service-text {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--road-gray);
-        }
-
-        /* ===== PRICING SECTION ===== */
-        .pricing-section {
-            margin-bottom: 48px;
-        }
-
-        .pricing-title {
-            font-size: 28px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 16px;
-            border-bottom: 4px solid var(--safety-orange);
-            display: inline-block;
-        }
-
-        .pricing-title-wrapper {
-            text-align: center;
-        }
-
-        .pricing-grid {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .pricing-card {
-            background-color: var(--white);
-            border-top: 8px solid var(--trucker-blue);
-            padding: 40px;
-            margin-bottom: 24px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .pricing-card-orange {
-            border-top-color: var(--safety-orange);
-        }
-
-        .pricing-label {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--road-gray);
-            margin-bottom: 16px;
-        }
-
-        .pricing-value {
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--trucker-blue);
-            margin-bottom: 8px;
-        }
-
-        .pricing-desc {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--road-gray);
-        }
-
-        .pricing-addon {
-            background-color: var(--trucker-blue);
-            color: var(--white);
-            padding: 24px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .pricing-addon-text {
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .pricing-addon-price {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--safety-orange);
-            margin-right: 8px;
-        }
-
-        /* ===== WHAT TO BRING ===== */
-        .bring-section {
-            background-color: var(--road-gray);
-            color: var(--white);
-            padding: 48px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .bring-title {
-            font-size: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--safety-orange);
-        }
-
-        .bring-intro {
-            font-size: 16px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 32px;
-        }
-
-        .bring-list {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .bring-list-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .bring-bullet {
-            width: 10px;
-            height: 10px;
-            background-color: var(--safety-orange);
-            flex-shrink: 0;
-            margin-top: 6px;
-        }
-
-        .bring-list-text {
-            font-size: 15px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .bring-note {
-            background-color: var(--trucker-blue);
-            border-left: 4px solid var(--safety-orange);
-            padding: 24px;
-            margin-bottom: 32px;
-        }
-
-        .bring-note-label {
-            color: var(--safety-orange);
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-right: 8px;
-        }
-
-        .bring-note-text {
-            font-size: 15px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .bring-cta {
-            background-color: rgba(249, 115, 22, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            padding: 32px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .bring-cta-text {
-            font-size: 18px;
-            font-weight: 900;
-        }
-
-        .bring-cta-accent {
-            color: var(--safety-orange);
-        }
-
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background-color: var(--trucker-blue);
-            color: var(--white);
-            border-top: 8px solid var(--road-gray);
-            padding: 64px 0 32px;
-        }
-
-        .footer-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .footer-col {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .footer-logo {
-            font-size: 22px;
-            font-weight: 900;
-            font-style: italic;
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            opacity: 0.6;
-        }
-
-        .footer-heading {
-            font-size: 12px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--safety-orange);
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            opacity: 0.7;
-            margin-bottom: 8px;
-        }
-
-        .footer-text a:hover {
-            color: var(--safety-orange);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 11px;
-            opacity: 0.4;
-            max-width: 800px;
-            margin: 0 auto 24px;
-        }
-
-        .footer-copyright {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.5;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
-            .header-inner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .site-logo {
-                margin-bottom: 0;
-            }
-
-            .hero-title {
-                font-size: 56px;
-            }
-
-            .services-grid {
-                display: flex;
-                gap: 24px;
-            }
-
-            .service-card {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .pricing-grid {
-                display: flex;
-                gap: 24px;
-            }
-
-            .pricing-card {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .footer-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .footer-col {
-                flex: 1;
-                margin-bottom: 0;
-            }
-        }
+        .road-texture {
+            background-color: #0f172a;
+            background-image: url("https://www.transparenttextures.com/patterns/asphalt-dark.png");
+        }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body>
+<body class="bg-industrial-white font-rugged text-trucker-blue">
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="../" class="site-logo">
-                    HEALTHY<span class="site-logo-accent">STICKS</span>
-                    <span class="site-logo-subtitle">Driver Services</span>
-                </a>
-                <nav>
-                    <a href="../" class="nav-link">Home</a>
-                    <a href="./" class="nav-link nav-link-active">DOT Tests</a>
-                    <a href="../Chiropractic/" class="nav-link">Chiropractic</a>
-                    <a href="../Acupuncture/" class="nav-link">Acupuncture</a>
-                    <a href="../Naturopathy/" class="nav-link">Naturopathy</a>
-                    <a href="../Microneedling/" class="nav-link">Microneedling</a>
-                    <a href="../Contact-Us/" class="nav-link">Contact</a>
-                </nav>
-            </div>
+    <header class="fixed top-0 left-0 w-full z-50 bg-trucker-blue text-white border-b-4 border-safety-orange shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../" class="text-2xl font-black italic tracking-tighter">HEALTHY<span class="text-safety-orange">STICKS</span> <span class="text-xs uppercase tracking-widest not-italic ml-2 border-l border-white/20 pl-2">Driver Services</span></a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="../" class="text-sm font-bold hover:text-safety-orange transition-colors">Home</a>
+                <a href="./" class="text-sm font-bold text-safety-orange">DOT Tests</a>
+                <a href="../Chiropractic/" class="text-sm font-bold hover:text-safety-orange transition-colors">Chiropractic</a>
+                <a href="../Acupuncture/" class="text-sm font-bold hover:text-safety-orange transition-colors">Acupuncture</a>
+                <a href="../Naturopathy/" class="text-sm font-bold hover:text-safety-orange transition-colors">Naturopathy</a>
+                <a href="../Microneedling/" class="text-sm font-bold hover:text-safety-orange transition-colors">Microneedling</a>
+                <a href="../Contact-Us/" class="text-sm font-bold hover:text-safety-orange transition-colors">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
+    <main class="pt-32 pb-20">
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-badge">
-                    <span class="hero-badge-text">CERTIFIED MEDICAL EXAMS</span>
-                </div>
-                <h1 class="hero-title">GET YOUR MEDICAL<br><span class="hero-title-accent">TESTS DONE FAST.</span></h1>
-                <p class="hero-subtitle">No-nonsense, professional DOT tests and medical exams for truckers and CDL holders.</p>
-                <div class="hero-actions">
-                    <a href="../Contact-Us/" class="btn-hero">
-                        <span class="btn-hero-text">BOOK TEST NOW</span>
-                    </a>
-                    <div class="hero-walkins">
-                        <span class="hero-walkins-icon">&#10003;</span>
-                        <span>WALK-INS WELCOME</span>
+        <section class="road-texture text-white py-20 mb-16 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-trucker-blue to-transparent opacity-80"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl fade-in">
+                    <div class="inline-block bg-safety-orange text-trucker-blue px-4 py-1 font-black mb-6 skew-x-[-12deg]">
+                        CERTIFIED MEDICAL EXAMS
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-none rugged-header">
+                        GET YOUR MEDICAL<br><span class="text-safety-orange">TESTS DONE FAST.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-10 font-bold max-w-xl">
+                        No-nonsense, professional DOT tests and medical exams for truckers and CDL holders.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="../Contact-Us/" class="bg-safety-orange text-white px-8 py-4 text-xl font-black hover:bg-orange-600 transition-all uppercase skew-x-[-12deg]">
+                            <span class="skew-x-[12deg] inline-block">BOOK TEST NOW</span>
+                        </a>
+                        <div class="flex items-center text-gray-400 font-bold">
+                            <svg class="w-6 h-6 mr-2 text-safety-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            WALK-INS WELCOME
+                        </div>
                     </div>
                 </div>
+            </div>
+            <!-- Decorative Element -->
+            <div class="absolute bottom-0 right-0 w-1/3 h-full hidden lg:block opacity-20 pointer-events-none">
+                <svg viewBox="0 0 100 100" class="h-full w-full fill-white">
+                    <path d="M0,100 L50,0 L100,100 Z" />
+                </svg>
             </div>
         </section>
 
         <!-- Services Grid -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">&#128666;</div>
-                        <h3 class="service-title">CDL Medical Exams</h3>
-                        <p class="service-text">Certified DOT physicals to keep you compliant and on the road. Fast processing and instant results.</p>
-                    </div>
-                    <div class="service-card service-card-orange">
-                        <div class="service-icon">&#129514;</div>
-                        <h3 class="service-title">Drug &amp; Alcohol Testing</h3>
-                        <p class="service-text">Secure, confidential DOT testing for workplace compliance and random screening.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">&#9881;</div>
-                        <h3 class="service-title">Specialized Screenings</h3>
-                        <p class="service-text">Medical screenings tailored to the physical demands of long-haul transport and heavy machinery operation.</p>
-                    </div>
+        <section class="container mx-auto px-6 mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CDL Physicals -->
+                <div class="bg-white border-l-8 border-trucker-blue p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">🚛</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">CDL Medical Exams</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Certified DOT physicals to keep you compliant and on the road. Fast processing and instant results.
+                    </p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Pricing Section -->
-        <section class="section-padding pricing-section">
-            <div class="container">
-                <div class="pricing-title-wrapper">
-                    <h2 class="pricing-title">Pricing</h2>
+                <!-- Drug Testing -->
+                <div class="bg-white border-l-8 border-safety-orange p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">🧪</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">Drug & Alcohol Testing</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Secure, confidential DOT testing for workplace compliance and random screening.
+                    </p>
                 </div>
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <div class="pricing-label">Individual Rate</div>
-                        <div class="pricing-value">$85</div>
-                        <p class="pricing-desc">per individual</p>
-                    </div>
-                    <div class="pricing-card pricing-card-orange">
-                        <div class="pricing-label">Fleet Pricing</div>
-                        <div class="pricing-value">$80</div>
-                        <p class="pricing-desc">per driver (under 20 drivers)</p>
-                    </div>
-                    <div class="pricing-card">
-                        <div class="pricing-label">Fleet Pricing</div>
-                        <div class="pricing-value">$75</div>
-                        <p class="pricing-desc">per driver (20 or more drivers)</p>
-                    </div>
-                </div>
-                <div class="pricing-addon">
-                    <p class="pricing-addon-text">
-                        <span class="pricing-addon-price">+$25</span> Add-on Adjustment
+
+                <!-- Specialized Tests -->
+                <div class="bg-white border-l-8 border-trucker-blue p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">Specialized Screenings</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Medical screenings tailored to the physical demands of long-haul transport and heavy machinery operation.
                     </p>
                 </div>
             </div>
         </section>
 
+        <!-- Pricing Section -->
+        <section id="pricing" class="container mx-auto px-6 max-w-5xl mb-24">
+            <h2 class="text-3xl md:text-4xl font-black uppercase mb-10 tracking-widest text-center">
+                <span class="border-b-4 border-safety-orange pb-3">Pricing</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Individual Rate -->
+                <div class="bg-white border-t-8 border-trucker-blue p-10 shadow-xl text-center hover:translate-y-[-4px] transition-all">
+                    <p class="text-sm font-bold uppercase tracking-widest text-road-gray mb-4">Individual Rate</p>
+                    <p class="text-5xl font-black text-trucker-blue mb-2">$85</p>
+                    <p class="text-road-gray font-bold">per individual</p>
+                </div>
+
+                <!-- Fleet Under 20 -->
+                <div class="bg-white border-t-8 border-safety-orange p-10 shadow-xl text-center hover:translate-y-[-4px] transition-all">
+                    <p class="text-sm font-bold uppercase tracking-widest text-road-gray mb-4">Fleet Pricing</p>
+                    <p class="text-5xl font-black text-trucker-blue mb-2">$80</p>
+                    <p class="text-road-gray font-bold">per driver <span class="text-sm">(under 20 drivers)</span></p>
+                </div>
+
+                <!-- Fleet 20+ -->
+                <div class="bg-white border-t-8 border-trucker-blue p-10 shadow-xl text-center hover:translate-y-[-4px] transition-all">
+                    <p class="text-sm font-bold uppercase tracking-widest text-road-gray mb-4">Fleet Pricing</p>
+                    <p class="text-5xl font-black text-trucker-blue mb-2">$75</p>
+                    <p class="text-road-gray font-bold">per driver <span class="text-sm">(20 or more drivers)</span></p>
+                </div>
+            </div>
+
+            <!-- Add-on -->
+            <div class="mt-8 bg-trucker-blue text-white p-6 rounded-lg text-center shadow-lg">
+                <p class="font-bold text-lg">
+                    <span class="text-safety-orange font-black text-2xl mr-2">+$25</span> Add-on Adjustment
+                </p>
+            </div>
+        </section>
+
         <!-- What to Bring Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="bring-section">
-                    <h2 class="bring-title">What to Bring to Your DOT Exam</h2>
-                    <p class="bring-intro">Thank you for scheduling your DOT physical exam. To help your appointment go smoothly and avoid delays, please bring the following items with you:</p>
-                    <ul class="bring-list">
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">A valid driver&apos;s license or state ID</span>
+        <section id="what-to-bring" class="container mx-auto px-6 max-w-4xl mb-24">
+            <div class="bg-road-gray text-white p-10 md:p-14 rounded-lg relative overflow-hidden shadow-2xl">
+                <div class="relative z-10">
+                    <h2 class="text-2xl md:text-3xl font-black uppercase mb-6 tracking-wider border-b-2 border-safety-orange pb-4">
+                        What to Bring to Your DOT Exam
+                    </h2>
+
+                    <p class="text-lg font-bold text-gray-300 mb-10 leading-relaxed">
+                        Thank you for scheduling your DOT physical exam. To help your appointment go smoothly and avoid delays, please bring the following items with you:
+                    </p>
+
+                    <ul class="space-y-5 mb-12">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">A valid driver's license or state ID</span>
                         </li>
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">Your current Medical Examiner&apos;s Certificate (if you have one)</span>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">Your current Medical Examiner's Certificate (if you have one)</span>
                         </li>
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">A complete list of your medications (including doses and prescribing providers)</span>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">A complete list of your medications (including doses and prescribing providers)</span>
                         </li>
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">Glasses or contact lenses (if used for driving)</span>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">Glasses or contact lenses (if used for driving)</span>
                         </li>
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">Hearing aids (if worn)</span>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">Hearing aids (if worn)</span>
                         </li>
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">Medical records for recent surgeries, heart conditions, diabetes, sleep apnea, or other chronic conditions</span>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">Medical records for recent surgeries, heart conditions, diabetes, sleep apnea, or other chronic conditions</span>
                         </li>
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">CPAP compliance report (at least 90 days of data)</span>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">CPAP compliance report (at least 90 days of data)</span>
                         </li>
-                        <li class="bring-list-item">
-                            <span class="bring-bullet"></span>
-                            <span class="bring-list-text">Clearance letters from specialists (if previously required by DOT)</span>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-2.5 h-2.5 bg-safety-orange rounded-sm mt-2 mr-4"></span>
+                            <span class="font-bold text-gray-200 leading-relaxed">Clearance letters from specialists (if previously required by DOT)</span>
                         </li>
                     </ul>
-                    <div class="bring-note">
-                        <span class="bring-note-label">Note:</span>
-                        <span class="bring-note-text">Your urine sample will be collected in-office for the required urinalysis.</span>
+
+                    <!-- Urinalysis Note -->
+                    <div class="bg-trucker-blue border-l-4 border-safety-orange p-6 rounded mb-12">
+                        <p class="font-bold text-gray-300 leading-relaxed">
+                            <span class="text-safety-orange font-black uppercase mr-2">Note:</span>
+                            Your urine sample will be collected in-office for the required urinalysis.
+                        </p>
                     </div>
-                    <div class="bring-cta">
-                        <p class="bring-cta-text">Please complete <span class="bring-cta-accent">section one</span> of the Medical Examination Report Form prior to your arrival.</p>
+
+                    <!-- Call to Action -->
+                    <div class="text-center bg-safety-orange/10 border border-safety-orange/30 p-8 rounded-lg">
+                        <p class="text-xl font-black text-white leading-relaxed">
+                            Please complete <span class="text-safety-orange">section one</span> of the Medical Examination Report Form prior to your arrival.
+                        </p>
                     </div>
+                </div>
+
+                <!-- Industrial Background Pattern -->
+                <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <svg fill="currentColor" viewBox="0 0 100 100"><rect width="100" height="10" y="10" /><rect width="100" height="10" y="30" /><rect width="100" height="10" y="50" /><rect width="100" height="10" y="70" /><rect width="100" height="10" y="90" /></svg>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">HEALTHY<span class="site-logo-accent">STICKS</span></div>
-                    <p class="footer-description">Healthy Sticks PLLC - Nature-rooted, science-refined wellness in Lombard, IL.</p>
+    <footer class="py-16 bg-trucker-blue text-white border-t-8 border-road-gray">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="font-black italic text-2xl mb-4">HEALTHY<span class="text-safety-orange">STICKS</span></div>
+                    <p class="text-sm opacity-60 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Contact</h4>
-                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
-                    <p class="footer-text"><a href="mailto:questions@healthysticks.life">questions@healthysticks.life</a></p>
+                <div>
+                    <h4 class="font-black text-sm uppercase tracking-widest mb-4 text-safety-orange">Contact</h4>
+                    <div class="text-sm opacity-70 space-y-2">
+                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                        <p><a href="tel:+16304479857" class="hover:text-safety-orange transition-colors">(630) 447-9857</a></p>
+                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-safety-orange transition-colors">questions@healthysticks.life</a></p>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Hours</h4>
-                    <p class="footer-text">Monday: 8:30am - 11am</p>
-                    <p class="footer-text">Tuesday: Closed</p>
-                    <p class="footer-text">Wednesday: 5pm - 7pm</p>
-                    <p class="footer-text">Friday: 2pm - 7pm</p>
+                <div>
+                    <h4 class="font-black text-sm uppercase tracking-widest mb-4 text-safety-orange">Hours</h4>
+                    <div class="text-sm opacity-70 space-y-1">
+                        <p>Monday: 8:30am – 11am</p>
+                        <p>Tuesday: Closed</p>
+                        <p>Wednesday: 5pm – 7pm</p>
+                        <p>Friday: 2pm – 7pm</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. All rights reserved. Built for the road.</p>
+            <div class="border-t border-white/10 pt-8">
+                <p class="text-xs opacity-40 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
+                <p class="text-xs font-bold opacity-50 uppercase tracking-[0.2em] text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved. Built for the road.</p>
             </div>
         </div>
     </footer>
 
+    <script src="/main.js"></script>
 </body>
 </html>

@@ -1,567 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naturopathy | HealthySticks</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    borderRadius: { 'card': '12px' }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --oatmeal: #F8F5F2;
-            --forest-green: #4A7C59;
-            --white: #ffffff;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-900: #111827;
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        /* ===== BASE STYLES ===== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--oatmeal);
-            color: var(--gray-900);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 60px 0;
-        }
-
-        /* ===== HEADER ===== */
-        .site-header {
-            background-color: rgba(248, 245, 242, 0.95);
-            border-bottom: 1px solid var(--gray-100);
-            padding: 16px 0;
-        }
-
-        .header-inner {
-            display: block;
-            text-align: center;
-        }
-
-        .site-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--forest-green);
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--gray-600);
-            padding: 8px 12px;
-            margin: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--forest-green);
-        }
-
-        .nav-link-active {
-            font-weight: 700;
-            color: var(--forest-green);
-            text-decoration: underline;
-            text-underline-offset: 8px;
-        }
-
-        .btn-lang {
-            display: inline-block;
-            border: 1px solid var(--forest-green);
-            color: var(--forest-green);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 50px;
-            margin: 4px;
-        }
-
-        .btn-lang:hover {
-            background-color: var(--forest-green);
-            color: var(--white);
-        }
-
-        /* ===== HERO ===== */
-        .hero-section {
-            text-align: center;
-            padding: 80px 0 60px;
-        }
-
-        .hero-title {
-            font-size: 36px;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-        }
-
-        .hero-title-accent {
-            color: var(--forest-green);
-        }
-
-        .hero-tagline {
-            font-size: 14px;
-            font-weight: 700;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--forest-green);
-            margin-bottom: 32px;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* ===== PRINCIPLES SECTION ===== */
-        .principles-box {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 48px 32px;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--gray-100);
-            margin-bottom: 48px;
-        }
-
-        .principles-title {
-            font-size: 28px;
-            color: var(--forest-green);
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .principles-grid {
-            display: block;
-        }
-
-        .principle-column {
-            margin-bottom: 32px;
-        }
-
-        .principle-item {
-            margin-bottom: 32px;
-        }
-
-        .principle-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .principle-bullet {
-            width: 8px;
-            height: 8px;
-            background-color: var(--forest-green);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .principle-text {
-            font-size: 14px;
-            color: var(--gray-500);
-            padding-left: 20px;
-        }
-
-        /* ===== FOCUS & CTA SECTION ===== */
-        .focus-grid {
-            display: block;
-        }
-
-        .focus-card {
-            background-color: var(--forest-green);
-            color: var(--white);
-            padding: 48px;
-            border-radius: 12px;
-            margin-bottom: 32px;
-        }
-
-        .focus-card-title {
-            font-size: 22px;
-            margin-bottom: 32px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            letter-spacing: 1px;
-        }
-
-        .focus-list {
-            list-style: none;
-            margin-bottom: 48px;
-        }
-
-        .focus-list-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .focus-bullet {
-            width: 20px;
-            height: 20px;
-            background-color: var(--white);
-            color: var(--forest-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            flex-shrink: 0;
-        }
-
-        .btn-focus {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: var(--white);
-            color: var(--forest-green);
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 16px 32px;
-            border-radius: 50px;
-        }
-
-        .btn-focus:hover {
-            background-color: var(--oatmeal);
-        }
-
-        .focus-content {
-            padding: 16px 0;
-        }
-
-        .focus-content-title {
-            font-size: 28px;
-            color: var(--forest-green);
-            margin-bottom: 24px;
-        }
-
-        .focus-content-text {
-            font-size: 16px;
-            color: var(--gray-600);
-            margin-bottom: 16px;
-        }
-
-        .focus-quote {
-            font-size: 14px;
-            font-style: italic;
-            color: var(--gray-400);
-            margin-top: 32px;
-            padding-top: 32px;
-            border-top: 1px solid var(--gray-200);
-        }
-
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background-color: var(--white);
-            border-top: 1px solid var(--gray-100);
-            padding: 64px 0 32px;
-        }
-
-        .footer-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .footer-col {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        .footer-heading {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: var(--gray-500);
-            margin-bottom: 8px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-100);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 11px;
-            color: var(--gray-400);
-            max-width: 800px;
-            margin: 0 auto 24px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
-            .header-inner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
-            .site-logo {
-                margin-bottom: 0;
-            }
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .principles-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .principle-column {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .focus-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .focus-card {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .focus-content {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .footer-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .footer-col {
-                flex: 1;
-                margin-bottom: 0;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
-<body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="../" class="site-logo">HealthySticks</a>
-                <nav>
-                    <a href="../" class="nav-link">Home</a>
-                    <a href="../Sample-Collection/" class="nav-link">DOT Tests</a>
-                    <a href="../Chiropractic/" class="nav-link">Chiropractic</a>
-                    <a href="../Acupuncture/" class="nav-link">Acupuncture</a>
-                    <a href="./" class="nav-link nav-link-active">Naturopathy</a>
-                    <a href="../Microneedling/" class="nav-link">Microneedling</a>
-                    <a href="../Contact-Us/" class="nav-link">Contact</a>
-                </nav>
-            </div>
+<body class="bg-oatmeal font-sans text-gray-900">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="../" class="text-sm font-medium hover:text-forest-green">Home</a>
+                <a href="../Sample-Collection/" class="text-sm font-medium hover:text-forest-green">DOT Tests</a>
+                <a href="../Chiropractic/" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
+                <a href="../Acupuncture/" class="text-sm font-medium hover:text-forest-green">Acupuncture</a>
+                <a href="./" class="text-sm font-bold text-forest-green underline underline-offset-8">Naturopathy</a>
+                <a href="../Microneedling/" class="text-sm font-medium hover:text-forest-green">Microneedling</a>
+                <a href="../Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <h1 class="hero-title">Evidence-Based<br><span class="hero-title-accent">Naturopathy</span></h1>
-                <p class="hero-tagline">"Nature-rooted, science-refined wellness"</p>
-                <p class="hero-subtitle">Naturopathic medicine focuses on identifying and treating the root cause of illness using natural, evidence-based therapies. We combine clinical nutrition, botanical medicine, and lifestyle counseling to restore your body&apos;s innate ability to heal.</p>
-            </div>
-        </section>
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-5xl">
 
-        <!-- Principles Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="principles-box">
-                    <h2 class="principles-title">The 6 Principles</h2>
-                    <div class="principles-grid">
-                        <div class="principle-column">
-                            <div class="principle-item">
-                                <div class="principle-name">
-                                    <span class="principle-bullet"></span>
-                                    <span>The Healing Power of Nature</span>
-                                </div>
-                                <p class="principle-text">Trusting the body&apos;s inherent wisdom and its ability to heal itself when given the right support.</p>
-                            </div>
-                            <div class="principle-item">
-                                <div class="principle-name">
-                                    <span class="principle-bullet"></span>
-                                    <span>Identify and Treat the Cause</span>
-                                </div>
-                                <p class="principle-text">Looking beyond symptoms to find and address the underlying reasons for illness.</p>
-                            </div>
-                            <div class="principle-item">
-                                <div class="principle-name">
-                                    <span class="principle-bullet"></span>
-                                    <span>First Do No Harm</span>
-                                </div>
-                                <p class="principle-text">Utilizing the most natural, least invasive, and least toxic therapies first.</p>
-                            </div>
+            <!-- Hero -->
+            <div class="text-center mb-16 fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 text-gray-900 leading-tight">Evidence-Based
+                    <br><span class="text-forest-green">Naturopathy</span></h1>
+                <p class="text-sm font-bold text-forest-green mb-8 uppercase tracking-[0.3em] italic">"Nature-rooted,
+                    science-refined wellness"</p>
+                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Naturopathic medicine focuses on identifying and treating the root cause of illness using natural,
+                    evidence-based therapies. We combine clinical nutrition, botanical medicine, and lifestyle
+                    counseling to restore your body's innate ability to heal.
+                </p>
+            </div>
+
+            <!-- Principles Section -->
+            <div class="mb-20 fade-in bg-white p-10 md:p-16 rounded-card shadow-sm border border-gray-100">
+                <h2 class="text-3xl font-bold font-serif text-center mb-12 text-forest-green">The 6 Principles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>The Healing Power of Nature
+                            </h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Trusting the body's inherent wisdom
+                                and its ability to heal itself when given the right support.</p>
                         </div>
-                        <div class="principle-column">
-                            <div class="principle-item">
-                                <div class="principle-name">
-                                    <span class="principle-bullet"></span>
-                                    <span>Doctor as Teacher</span>
-                                </div>
-                                <p class="principle-text">Educating and empowering patients to take responsibility for their own health.</p>
-                            </div>
-                            <div class="principle-item">
-                                <div class="principle-name">
-                                    <span class="principle-bullet"></span>
-                                    <span>Treat the Whole Person</span>
-                                </div>
-                                <p class="principle-text">Acknowledging the complex interplay of physical, emotional, and environmental factors.</p>
-                            </div>
-                            <div class="principle-item">
-                                <div class="principle-name">
-                                    <span class="principle-bullet"></span>
-                                    <span>Prevention</span>
-                                </div>
-                                <p class="principle-text">Emphasizing proactive care and lifestyle choices to maintain optimal health.</p>
-                            </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Identify and Treat the
+                                Cause</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Looking beyond symptoms to find and
+                                address the underlying reasons for illness.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>First Do No Harm</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Utilizing the most natural, least
+                                invasive, and least toxic therapies first.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Doctor as Teacher</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Educating and empowering patients to
+                                take responsibility for their own health.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Treat the Whole Person</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Acknowledging the complex interplay of
+                                physical, emotional, and environmental factors.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Prevention</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Emphasizing proactive care and
+                                lifestyle choices to maintain optimal health.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Focus & CTA Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="focus-grid">
-                    <div class="focus-card">
-                        <h2 class="focus-card-title">Primary Focus Areas</h2>
-                        <ul class="focus-list">
-                            <li class="focus-list-item">
-                                <span class="focus-bullet">&#9679;</span>
-                                <span>Digestive Health &amp; Gut Issues</span>
+            <!-- Focus Areas & Description -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 fade-in">
+                <div class="bg-forest-green text-white p-12 rounded-card shadow-lg flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold font-serif mb-8 border-b border-white/20 pb-4 tracking-wide">
+                            Primary Focus Areas</h2>
+                        <ul class="space-y-5">
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Digestive Health & Gut Issues</span>
                             </li>
-                            <li class="focus-list-item">
-                                <span class="focus-bullet">&#9679;</span>
-                                <span>Women&apos;s Health &amp; Hormones</span>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Women’s Health & Hormones</span>
                             </li>
-                            <li class="focus-list-item">
-                                <span class="focus-bullet">&#9679;</span>
-                                <span>Stress, Mood &amp; Anxiety Support</span>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Stress, Mood & Anxiety Support</span>
                             </li>
-                            <li class="focus-list-item">
-                                <span class="focus-bullet">&#9679;</span>
-                                <span>Chronic Pain Management</span>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Chronic Pain Management</span>
                             </li>
-                            <li class="focus-list-item">
-                                <span class="focus-bullet">&#9679;</span>
-                                <span>Longevity &amp; General Wellness</span>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Longevity & General Wellness</span>
                             </li>
                         </ul>
-                        <a href="../Contact-Us/" class="btn-focus">Start Your Journey</a>
                     </div>
-
-                    <div class="focus-content">
-                        <h2 class="focus-content-title">Holistic, Individualized<br>Naturopathic Care</h2>
-                        <p class="focus-content-text">Treating the whole person means looking at the root cause of the issues and using natural therapies to help support you on your wellness journey.</p>
-                        <p class="focus-content-text">Our doctor works with you to individualize your plan, utilizing specialized testing and natural protocols to help you reach your specific health goals - whether you&apos;re managing a chronic condition or optimizing your vitality.</p>
-                        <p class="focus-quote">"Naturopathic care focuses on the whole person. Our doctor works with you to individualize your plan to help reach your specific health goals."</p>
+                    <div class="mt-12">
+                        <a href="../Contact-Us/"
+                            class="bg-white text-forest-green block text-center px-8 py-4 rounded-full text-sm font-bold hover:bg-oatmeal transition-all uppercase tracking-widest shadow-md">
+                            Start Your Journey
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center px-4">
+                    <h2 class="text-3xl font-bold font-serif mb-6 text-forest-green leading-tight">Holistic,
+                        Individualized <br>Naturopathic Care</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Treating the whole person means looking at the root cause of the issues and using natural
+                        therapies to help support you on your wellness journey.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Our doctor works with you to individualize your plan, utilizing specialized testing and natural
+                        protocols to help you reach your specific health goals—whether you're managing a chronic
+                        condition or optimizing your vitality.
+                    </p>
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <p class="text-xs italic text-gray-400 leading-relaxed">
+                            "Naturopathic care focuses on the whole person. Our doctor works with you to individualize
+                            your plan to help reach your specific health goals."
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+
+        </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">HealthySticks</div>
-                    <p class="footer-description">Healthy Sticks PLLC - Nature-rooted, science-refined wellness in Lombard, IL.</p>
+    <!-- Footer -->
+    <footer class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
+                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted,
+                        science-refined wellness in Lombard, IL.</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Contact</h4>
-                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
+                    <div class="text-sm text-gray-500 space-y-2">
+                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630)
+                                447-9857</a></p>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Hours</h4>
-                    <p class="footer-text">Mon: 8:30am - 11am</p>
-                    <p class="footer-text">Wed: 5pm - 7pm</p>
-                    <p class="footer-text">Fri: 2pm - 7pm</p>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
+                    <div class="text-sm text-gray-500 space-y-1">
+                        <p>Mon: 8:30am – 11am</p>
+                        <p>Wed: 5pm – 7pm</p>
+                        <p>Fri: 2pm – 7pm</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. All rights reserved.</p>
+            <div class="border-t border-gray-100 pt-8">
+                <p class="text-[10px] text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6 px-4">
+                    Information and services offered on this website are for wellness education and lifestyle support
+                    only and are not a substitute for medical diagnosis or treatment. Naturopathic doctors are not
+                    licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the
+                    District of Columbia and a licensed Chiropractic Physician in Illinois.
+                </p>
+                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights
+                    reserved.</p>
             </div>
         </div>
     </footer>
 
 </body>
+
 </html>

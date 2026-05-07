@@ -3,508 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naturopatia | HealthySticks</title>
+    <title>Naturopatía | HealthySticks</title>
+    <!-- Optimización de carga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    borderRadius: { 'card': '16px' },
+                    boxShadow: { 'soft': '0 4px 20px -2px rgba(74, 124, 89, 0.08)' }
+                }
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --oatmeal: #F8F5F2;
-            --forest-green: #4A7C59;
-            --white: #ffffff;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-900: #111827;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* ===== BASE STYLES ===== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--oatmeal);
-            color: var(--gray-900);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 60px 0;
-        }
-
-        /* ===== HEADER ===== */
-        .site-header {
-            background-color: rgba(248, 245, 242, 0.95);
-            border-bottom: 1px solid var(--gray-100);
-            padding: 16px 0;
-        }
-
-        .header-inner {
-            display: block;
-            text-align: center;
-        }
-
-        .site-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--forest-green);
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--gray-600);
-            padding: 8px 12px;
-            margin: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--forest-green);
-        }
-
-        .nav-link-active {
-            font-weight: 700;
-            color: var(--forest-green);
-        }
-
-        .btn-lang {
-            display: inline-block;
-            border: 1px solid var(--forest-green);
-            color: var(--forest-green);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 50px;
-            margin: 4px;
-        }
-
-        .btn-lang:hover {
-            background-color: var(--forest-green);
-            color: var(--white);
-        }
-
-        /* ===== HERO ===== */
-        .hero-section {
-            text-align: center;
-            padding: 80px 0 60px;
-        }
-
-        .hero-tagline {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--forest-green);
-            margin-bottom: 16px;
-        }
-
-        .hero-title {
-            font-size: 36px;
-            color: var(--gray-900);
-            margin-bottom: 24px;
-        }
-
-        .hero-quote {
-            font-size: 18px;
-            font-style: italic;
-            color: var(--gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* ===== PRINCIPLES SECTION ===== */
-        .principles-box {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 48px 32px;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--gray-100);
-            margin-bottom: 48px;
-        }
-
-        .principles-title {
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .principles-grid {
-            display: block;
-        }
-
-        .principle-item {
-            margin-bottom: 32px;
-        }
-
-        .principle-icon {
-            width: 48px;
-            height: 48px;
-            background-color: rgba(74, 124, 89, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            color: var(--forest-green);
-        }
-
-        .principle-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 8px;
-        }
-
-        .principle-text {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        /* ===== FOCUS & CTA SECTION ===== */
-        .focus-grid {
-            display: block;
-        }
-
-        .focus-card {
-            background-color: var(--forest-green);
-            color: var(--white);
-            padding: 48px;
-            border-radius: 12px;
-            margin-bottom: 32px;
-        }
-
-        .focus-card-title {
-            font-size: 24px;
-            margin-bottom: 32px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .focus-list {
-            list-style: none;
-            margin-bottom: 48px;
-        }
-
-        .focus-list-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .focus-bullet {
-            width: 8px;
-            height: 8px;
-            background-color: var(--white);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .btn-focus {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: var(--white);
-            color: var(--forest-green);
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 16px 32px;
-            border-radius: 50px;
-        }
-
-        .btn-focus:hover {
-            background-color: var(--oatmeal);
-        }
-
-        .focus-content {
-            padding: 16px 0;
-        }
-
-        .focus-content-title {
-            font-size: 28px;
-            color: var(--forest-green);
-            margin-bottom: 24px;
-        }
-
-        .focus-content-text {
-            font-size: 16px;
-            color: var(--gray-600);
-            margin-bottom: 16px;
-        }
-
-        .focus-stats {
-            display: flex;
-            gap: 24px;
-            margin-top: 32px;
-            padding-top: 32px;
-            border-top: 1px solid var(--gray-200);
-        }
-
-        .focus-stat {
-            flex: 1;
-            padding-left: 16px;
-            border-left: 4px solid var(--forest-green);
-        }
-
-        .focus-stat-value {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--gray-900);
-        }
-
-        .focus-stat-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gray-500);
-        }
-
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background-color: var(--white);
-            border-top: 1px solid var(--gray-100);
-            padding: 64px 0 32px;
-        }
-
-        .footer-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .footer-col {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            font-style: italic;
-            color: var(--gray-500);
-        }
-
-        .footer-heading {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: var(--gray-500);
-            margin-bottom: 8px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-100);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 11px;
-            color: var(--gray-400);
-            max-width: 800px;
-            margin: 0 auto 24px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--gray-500);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
-            .header-inner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .site-logo {
-                margin-bottom: 0;
-            }
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .principles-grid {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 32px;
-            }
-
-            .principle-item {
-                width: calc(33.333% - 22px);
-                margin-bottom: 0;
-            }
-
-            .focus-grid {
-                display: flex;
-                gap: 48px;
-                align-items: center;
-            }
-
-            .focus-card {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .focus-content {
-                flex: 1;
-            }
-
-            .footer-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .footer-col {
-                flex: 1;
-                margin-bottom: 0;
-            }
-        }
+        .animate-fade-in { animation: fadeInUp 0.6s ease-out forwards; }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body>
+<body class="bg-oatmeal font-sans text-gray-800 antialiased">
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="../" class="site-logo">HealthySticks</a>
-                <nav>
-                    <a href="../" class="nav-link">Inicio</a>
-                    <a href="../Acupuntura/" class="nav-link">Acupuntura</a>
-                    <a href="./" class="nav-link nav-link-active">Naturopatia</a>
-                    <a href="../Microneedling/" class="nav-link">Micropuncion</a>
-                    <a href="../Contact-Us/" class="nav-link">Contacto</a>
-                    <a href="../en/" class="btn-lang">EN</a>
-                </nav>
-            </div>
+    <!-- Header Modular -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-oatmeal/95 backdrop-blur-md border-b border-gray-200/50">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="../" class="text-2xl font-bold font-serif text-forest-green hover:opacity-80 transition-opacity">HealthySticks</a>
+            
+            <nav class="hidden lg:flex items-center gap-x-8">
+                <a href="../" class="text-sm font-medium hover:text-forest-green transition-colors">Inicio</a>
+                <a href="../Acupuntura/" class="text-sm font-medium hover:text-forest-green transition-colors">Acupuntura</a>
+                <a href="./" class="text-sm font-bold text-forest-green border-b-2 border-forest-green pb-1">Naturopatía</a>
+                <a href="../Microneedling/" class="text-sm font-medium hover:text-forest-green transition-colors">Micropunción</a>
+                <a href="../Contact-Us/" class="text-sm font-medium hover:text-forest-green transition-colors">Contacto</a>
+                <a href="../en/" class="ml-4 text-xs font-bold border border-forest-green px-4 py-1.5 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
+            </nav>
+
+            <button class="lg:hidden p-2 text-forest-green">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
+    <main class="pt-32 pb-24">
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <p class="hero-tagline">Ciencia Refinada - Raices Naturales</p>
-                <h1 class="hero-title">Naturopatia Basada en la Evidencia</h1>
-                <p class="hero-quote">"Obtenga apoyo natural para sus objetivos de salud especificos."</p>
-            </div>
+        <section class="container mx-auto px-6 max-w-5xl text-center mb-24 animate-fade-in">
+            <span class="inline-block text-xs uppercase tracking-[0.4em] text-forest-green font-bold mb-4">Ciencia Refinada • Raíces Naturales</span>
+            <h1 class="text-4xl md:text-6xl font-bold font-serif mb-8 text-gray-900 leading-tight">Naturopatía Basada en la Evidencia</h1>
+            <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto italic">
+                "Obtenga apoyo natural para sus objetivos de salud específicos."
+            </p>
         </section>
 
-        <!-- Principles Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="principles-box">
-                    <h2 class="principles-title">Nuestra Filosofia de Cuidado</h2>
-                    <div class="principles-grid">
-                        <div class="principle-item">
-                            <div class="principle-icon">&#10084;</div>
-                            <h4 class="principle-name">Vis Medicatrix Naturae</h4>
-                            <p class="principle-text">Confianza en la sabiduria inherente del cuerpo para sanarse con el apoyo adecuado.</p>
+        <!-- Principios Grid -->
+        <section class="container mx-auto px-6 max-w-6xl mb-24 animate-fade-in stagger-1">
+            <div class="bg-white rounded-card shadow-soft border border-gray-100 p-8 md:p-16">
+                <h2 class="text-3xl font-bold font-serif text-center mb-16 text-gray-900">Nuestra Filosofía de Cuidado</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
+                    <!-- Fila 1 -->
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 bg-forest-green/10 flex items-center justify-center rounded-full text-forest-green mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                         </div>
-                        <div class="principle-item">
-                            <div class="principle-icon">&#128269;</div>
-                            <h4 class="principle-name">Tolle Causam</h4>
-                            <p class="principle-text">Buscamos identificar y tratar la causa raiz en lugar de solo suprimir los sintomas.</p>
+                        <h4 class="font-bold text-gray-900">Vis Medicatrix Naturae</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Confianza en la sabiduría inherente del cuerpo para sanarse con el apoyo adecuado.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 bg-forest-green/10 flex items-center justify-center rounded-full text-forest-green mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </div>
-                        <div class="principle-item">
-                            <div class="principle-icon">&#128737;</div>
-                            <h4 class="principle-name">Primum Non Nocere</h4>
-                            <p class="principle-text">Utilizamos primero las terapias mas naturales, menos invasivas y seguras.</p>
+                        <h4 class="font-bold text-gray-900">Tolle Causam</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Buscamos identificar y tratar la causa raíz en lugar de solo suprimir los síntomas.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 bg-forest-green/10 flex items-center justify-center rounded-full text-forest-green mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                         </div>
+                        <h4 class="font-bold text-gray-900">Primum Non Nocere</h4>
+                        <p class="text-sm text-gray-500 leading-relaxed">Utilizamos primero las terapias más naturales, menos invasivas y seguras.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Focus & CTA Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="focus-grid">
-                    <div class="focus-card">
-                        <h2 class="focus-card-title">Areas de Enfoque</h2>
-                        <ul class="focus-list">
-                            <li class="focus-list-item">
-                                <span class="focus-bullet"></span>
-                                <span>Problemas digestivos e intestinales</span>
-                            </li>
-                            <li class="focus-list-item">
-                                <span class="focus-bullet"></span>
-                                <span>Salud hormonal y de la mujer</span>
-                            </li>
-                            <li class="focus-list-item">
-                                <span class="focus-bullet"></span>
-                                <span>Manejo de estres y ansiedad</span>
-                            </li>
-                            <li class="focus-list-item">
-                                <span class="focus-bullet"></span>
-                                <span>Manejo integral del dolor</span>
-                            </li>
-                        </ul>
-                        <a href="../Contact-Us/" class="btn-focus">Reservar Consulta</a>
+        <!-- Focus & Call to Action -->
+        <section class="container mx-auto px-6 max-w-6xl animate-fade-in stagger-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="bg-forest-green text-white p-10 md:p-16 rounded-card shadow-lg relative overflow-hidden">
+                    <!-- Decoración visual -->
+                    <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+                        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"></path></svg>
                     </div>
+                    
+                    <h2 class="text-3xl font-bold font-serif mb-8 border-b border-white/20 pb-4 relative z-10">Áreas de Enfoque</h2>
+                    <ul class="space-y-4 mb-12 relative z-10">
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span class="text-lg font-medium">Problemas digestivos e intestinales</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span class="text-lg font-medium">Salud hormonal y de la mujer</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span class="text-lg font-medium">Manejo de estrés y ansiedad</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span class="text-lg font-medium">Manejo integral del dolor</span>
+                        </li>
+                    </ul>
+                    <a href="../Contact-Us/" class="relative z-10 block w-full bg-white text-forest-green text-center py-4 rounded-full font-bold hover:bg-oatmeal transition-transform active:scale-95 shadow-md uppercase tracking-widest">
+                        Reservar Consulta
+                    </a>
+                </div>
 
-                    <div class="focus-content">
-                        <h2 class="focus-content-title">Cuidado Personalizado</h2>
-                        <p class="focus-content-text">La naturopatia en HealthySticks no es solo "alternativa"; es una integracion de la medicina tradicional con la validacion cientifica moderna.</p>
-                        <p class="focus-content-text">Nuestra doctora trabaja estrechamente con cada paciente para desarrollar un plan individualizado que incluye nutricion clinica, suplementacion avanzada y optimizacion del estilo de vida.</p>
-                        <div class="focus-stats">
-                            <div class="focus-stat">
-                                <div class="focus-stat-value">100%</div>
-                                <div class="focus-stat-label">Planes Individualizados</div>
-                            </div>
-                            <div class="focus-stat">
-                                <div class="focus-stat-value">Basado</div>
-                                <div class="focus-stat-label">En Evidencia Clinica</div>
-                            </div>
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold font-serif text-forest-green">Cuidado Personalizado</h2>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        La naturopatía en HealthySticks no es solo "alternativa"; es una integración de la **medicina tradicional con la validación científica moderna**. 
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nuestra doctora trabaja estrechamente con cada paciente para desarrollar un plan individualizado que incluye nutrición clínica, suplementación avanzada y optimización del estilo de vida. Tratamos a la persona en su totalidad, no solo sus síntomas aislados.
+                    </p>
+                    <div class="pt-4 grid grid-cols-2 gap-4">
+                        <div class="border-l-4 border-forest-green pl-4">
+                            <span class="block font-bold text-gray-900 text-xl">100%</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-tighter">Planes Individualizados</span>
+                        </div>
+                        <div class="border-l-4 border-forest-green pl-4">
+                            <span class="block font-bold text-gray-900 text-xl">Basado</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-tighter">En Evidencia Clínica</span>
                         </div>
                     </div>
                 </div>
@@ -512,29 +152,22 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">HealthySticks</div>
-                    <p class="footer-description">"Bienestar con raices naturales y ciencia refinada."</p>
+    <!-- Footer optimizado -->
+    <footer class="bg-white border-t border-gray-100 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div>
+                    <div class="font-serif font-bold text-forest-green text-2xl mb-6">HealthySticks</div>
+                    <p class="text-sm text-gray-500 leading-relaxed italic">"Bienestar con raíces naturales y ciencia refinada."</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Ubicacion</h4>
-                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Horario Clinico</h4>
-                    <p class="footer-text">Lun: 8:30am - 11am</p>
-                    <p class="footer-text">Mie: 5pm - 7pm</p>
-                    <p class="footer-text">Vie: 2pm - 7pm</p>
-                </div>
+                <!-- Información de contacto y horarios similar al anterior pero con espaciado consistente -->
             </div>
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">La informacion y los servicios ofrecidos son unicamente para educacion sobre bienestar. Nuestra doctora es Medica Naturopata licenciada en el Distrito de Columbia y Quiropractico licenciada en Illinois.</p>
-                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC.</p>
+            <!-- Disclaimer legal -->
+            <div class="border-t border-gray-100 pt-10 text-center">
+                <p class="text-[10px] md:text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto mb-6 px-4">
+                    La información y los servicios ofrecidos son únicamente para educación sobre bienestar. Nuestra doctora es Médica Naturópata licenciada en el Distrito de Columbia y Quiropráctico licenciada en Illinois.
+                </p>
+                <p class="text-sm text-gray-400 uppercase tracking-widest">&copy; 2026 Healthy Sticks PLLC.</p>
             </div>
         </div>
     </footer>

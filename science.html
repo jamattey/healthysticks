@@ -5,321 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Science | HealthySticks Wellness Logistics</title>
     <meta name="description" content="Discover the research and precision engineering behind HealthySticks. We combine botanical wisdom with modern clinical science for optimal health outcomes.">
+    
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    borderRadius: { 'card': '12px' }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --oatmeal: #F8F5F2;
-            --forest-green: #4A7C59;
-            --white: #ffffff;
-            --gray-100: #f3f4f6;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-900: #111827;
-        }
-
-        /* ===== BASE STYLES ===== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--oatmeal);
-            color: var(--gray-900);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 80px 0;
-        }
-
-        /* ===== HEADER ===== */
-        .site-header {
-            background-color: rgba(248, 245, 242, 0.95);
-            border-bottom: 1px solid var(--gray-100);
-            padding: 16px 0;
-        }
-
-        .header-container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .header-inner {
-            display: block;
-            text-align: center;
-        }
-
-        .site-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--forest-green);
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--gray-600);
-            padding: 8px 12px;
-            margin: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--forest-green);
-        }
-
-        .nav-link-active {
-            font-weight: 700;
-            color: var(--forest-green);
-        }
-
-        .btn-portal {
-            display: inline-block;
-            background-color: var(--forest-green);
-            color: var(--white);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 8px 16px;
-            border-radius: 50px;
-            margin: 4px;
-        }
-
-        /* ===== CONTENT ===== */
-        .content-section {
-            padding: 80px 0;
-        }
-
-        .content-title {
-            font-size: 36px;
-            color: var(--gray-900);
-            margin-bottom: 32px;
-            line-height: 1.3;
-        }
-
-        .content-text {
-            font-size: 17px;
-            color: var(--gray-600);
-            margin-bottom: 24px;
-            line-height: 1.8;
-        }
-
-        .content-subtitle {
-            font-size: 24px;
-            color: var(--gray-900);
-            margin-top: 48px;
-            margin-bottom: 24px;
-        }
-
-        .content-list {
-            list-style: disc;
-            padding-left: 24px;
-            margin-bottom: 24px;
-        }
-
-        .content-list li {
-            font-size: 16px;
-            color: var(--gray-600);
-            margin-bottom: 16px;
-            line-height: 1.7;
-        }
-
-        .content-list li strong {
-            color: var(--gray-900);
-        }
-
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background-color: var(--oatmeal);
-            border-top: 1px solid var(--gray-100);
-            padding: 64px 0 32px;
-        }
-
-        .footer-container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .footer-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .footer-col {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        .footer-heading {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: var(--gray-500);
-            margin-bottom: 8px;
-        }
-
-        .footer-text a:hover {
-            color: var(--forest-green);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-100);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 11px;
-            color: var(--gray-400);
-            max-width: 800px;
-            margin: 0 auto 24px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--gray-500);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
-            .header-inner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .site-logo {
-                margin-bottom: 0;
-            }
-
-            .content-title {
-                font-size: 48px;
-            }
-
-            .footer-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .footer-col {
-                flex: 1;
-                margin-bottom: 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="font-sans">
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="header-container">
-            <div class="header-inner">
-                <a href="index.html" class="site-logo">HealthySticks</a>
-                <nav>
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="science.html" class="nav-link nav-link-active">Our Science</a>
-                    <a href="products.html" class="nav-link">Products</a>
-                    <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" class="btn-portal">Patient Portal</a>
-                </nav>
-            </div>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-sm font-medium hover:text-forest-green transition-colors">
+                    <span lang="en">Home</span><span lang="es">Inicio</span>
+                </a>
+                <a href="science.html" class="text-sm font-bold text-forest-green">
+                    <span lang="en">Our Science</span><span lang="es">Nuestra Ciencia</span>
+                </a>
+                <a href="products.html" class="text-sm font-medium hover:text-forest-green transition-colors">
+                    <span lang="en">Products</span><span lang="es">Productos</span>
+                </a>
+                <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" class="text-sm font-medium hover:text-forest-green transition-colors">
+                    <span lang="en">Patient Portal</span><span lang="es">Portal del Paciente</span>
+                </a>
+                <button onclick="toggleLanguage()" class="border border-forest-green text-forest-green px-4 py-1 rounded-full text-xs font-bold hover:bg-forest-green hover:text-white transition-all">
+                    <span id="lang-toggle-text">ES</span>
+                </button>
+            </nav>
+
+            <button class="md:hidden text-forest-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="content-section">
-        <div class="container">
-            <h1 class="content-title">The Intersection of Nature and Precision.</h1>
-            
-            <p class="content-text">At HealthySticks, we don&apos;t believe in guesswork. Every product we design starts in the lab, identifying the most bio-available botanical compounds that nature has to offer.</p>
-            
-            <p class="content-text">Our "Logistics for Wellness" philosophy ensures that high-purity ingredients are delivered in a form factor that fits seamlessly into your life - precise, portable, and powerful.</p>
-
-            <h2 class="content-subtitle">Our Research Pillars</h2>
-
-            <ul class="content-list">
-                <li><strong>Bio-Availability:</strong> We optimize molecular absorption rates for maximum efficacy.</li>
-                <li><strong>Ethical Sourcing:</strong> All botanicals are sourced from certified organic regenerative farms.</li>
-                <li><strong>Transparency:</strong> View our batch-specific third-party lab results in the Patient Portal.</li>
-            </ul>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">HealthySticks</div>
-                    <p class="footer-description">Healthy Sticks PLLC - Nature-rooted, science-refined wellness in Lombard, IL.</p>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Contact</h4>
-                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
-                    <p class="footer-text"><a href="mailto:questions@healthysticks.life">questions@healthysticks.life</a></p>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Hours</h4>
-                    <p class="footer-text">Monday: 8:30am - 11am</p>
-                    <p class="footer-text">Tuesday: Closed</p>
-                    <p class="footer-text">Wednesday: 5pm - 7pm</p>
-                    <p class="footer-text">Friday: 2pm - 7pm</p>
+    <main class="pt-32">
+        <section class="py-20 fade-in">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900 leading-tight">
+                    <span lang="en">The Intersection of Nature and Precision.</span>
+                    <span lang="es">La Intersección de la Naturaleza y la Precisión.</span>
+                </h1>
+                <div class="prose prose-lg text-gray-600 space-y-6">
+                    <p>
+                        <span lang="en">At HealthySticks, we don't believe in guesswork. Every product we design starts in the lab, identifying the most bio-available botanical compounds that nature has to offer.</span>
+                        <span lang="es">En HealthySticks, no creemos en las conjeturas. Cada producto que diseñamos comienza en el laboratorio, identificando los compuestos botánicos más bio-disponibles que la naturaleza ofrece.</span>
+                    </p>
+                    <p>
+                        <span lang="en">Our "Logistics for Wellness" philosophy ensures that high-purity ingredients are delivered in a form factor that fits seamlessly into your life—precise, portable, and powerful.</span>
+                        <span lang="es">Nuestra filosofía de "Logística para el Bienestar" garantiza que los ingredientes de alta pureza se entreguen en un formato que se adapte perfectamente a su vida: preciso, portátil y potente.</span>
+                    </p>
+                    <h2 class="text-2xl font-bold font-serif text-gray-900 mt-12 mb-4">
+                        <span lang="en">Our Research Pillars</span><span lang="es">Nuestros Pilares de Investigación</span>
+                    </h2>
+                    <ul class="list-disc pl-6 space-y-4">
+                        <li>
+                            <span lang="en"><strong>Bio-Availability:</strong> We optimize molecular absorption rates for maximum efficacy.</span>
+                            <span lang="es"><strong>Bio-Disponibilidad:</strong> Optimizamos las tasas de absorción molecular para una máxima eficacia.</span>
+                        </li>
+                        <li>
+                            <span lang="en"><strong>Ethical Sourcing:</strong> All botanicals are sourced from certified organic regenerative farms.</span>
+                            <span lang="es"><strong>Sourcing Ético:</strong> Todos los botánicos provienen de granjas regenerativas orgánicas certificadas.</span>
+                        </li>
+                        <li>
+                            <span lang="en"><strong>Transparency:</strong> View our batch-specific third-party lab results in the Patient Portal.</span>
+                            <span lang="es"><strong>Transparencia:</strong> Vea los resultados de laboratorio de terceros específicos de cada lote en el Portal del Paciente.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. All rights reserved.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-oatmeal border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
+                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
+                    <div class="text-sm text-gray-500 space-y-2">
+                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
+                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
+                    <div class="text-sm text-gray-500 space-y-1">
+                        <p>Monday: 8:30am – 11am</p>
+                        <p>Tuesday: Closed</p>
+                        <p>Wednesday: 5pm – 7pm</p>
+                        <p>Friday: 2pm – 7pm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8">
+                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
+                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="main.js"></script>
 </body>
 </html>

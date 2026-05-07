@@ -3,561 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examen Medico del DOT | HealthySticks</title>
-    <meta name="description" content="Pruebas medicas certificadas y recoleccion de muestras para camioneros y profesionales del transporte.">
+    <title>Examen Médico del DOT | HealthySticks</title>
+    <meta name="description" content="Pruebas médicas certificadas y recolección de muestras para camioneros y profesionales del transporte.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        'trucker-blue': '#0f172a',
+                        'road-gray': '#334155',
+                        'safety-orange': '#f97316',
+                        'industrial-white': '#f8fafc'
+                    },
+                    fontFamily: { 
+                        'rugged': ['"Inter"', 'sans-serif'],
+                        'serif': ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --trucker-blue: #0f172a;
-            --road-gray: #334155;
-            --safety-orange: #f97316;
-            --industrial-white: #f8fafc;
-            --white: #ffffff;
-        }
-
-        /* ===== BASE STYLES ===== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--industrial-white);
-            color: var(--trucker-blue);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
+        .rugged-header {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             font-weight: 900;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+        .road-texture {
+            background-color: #0f172a;
+            background-image: url("https://www.transparenttextures.com/patterns/asphalt-dark.png");
         }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 60px 0;
-        }
-
-        /* ===== HEADER ===== */
-        .site-header {
-            background-color: var(--trucker-blue);
-            color: var(--white);
-            border-bottom: 4px solid var(--safety-orange);
-            padding: 16px 0;
-        }
-
-        .header-inner {
-            display: block;
-            text-align: center;
-        }
-
-        .site-logo {
-            font-size: 22px;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: -1px;
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .site-logo-accent {
-            color: var(--safety-orange);
-        }
-
-        .site-logo-subtitle {
-            font-size: 11px;
-            font-weight: 400;
-            font-style: normal;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-left: 12px;
-            padding-left: 12px;
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--white);
-            padding: 8px 12px;
-            margin: 4px;
-        }
-
-        .nav-link:hover {
-            color: var(--safety-orange);
-        }
-
-        .nav-link-active {
-            color: var(--safety-orange);
-        }
-
-        /* ===== HERO ===== */
-        .hero-section {
-            background-color: var(--trucker-blue);
-            color: var(--white);
-            padding: 80px 0;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background-color: var(--safety-orange);
-            color: var(--trucker-blue);
-            font-size: 12px;
-            font-weight: 900;
-            padding: 8px 16px;
-            margin-bottom: 24px;
-            transform: skewX(-12deg);
-        }
-
-        .hero-badge-text {
-            display: inline-block;
-            transform: skewX(12deg);
-        }
-
-        .hero-title {
-            font-size: 36px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-
-        .hero-title-accent {
-            color: var(--safety-orange);
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 500px;
-            margin-bottom: 40px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .btn-hero {
-            display: inline-block;
-            background-color: var(--safety-orange);
-            color: var(--white);
-            font-size: 16px;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 16px 32px;
-            transform: skewX(-12deg);
-        }
-
-        .btn-hero-text {
-            display: inline-block;
-            transform: skewX(12deg);
-        }
-
-        .btn-hero:hover {
-            background-color: #ea580c;
-        }
-
-        .hero-walkins {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .hero-walkins-icon {
-            color: var(--safety-orange);
-        }
-
-        /* ===== SERVICES GRID ===== */
-        .services-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-left: 8px solid var(--trucker-blue);
-            padding: 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-card-orange {
-            border-left-color: var(--safety-orange);
-        }
-
-        .service-icon {
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
-
-        .service-title {
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-        }
-
-        .service-text {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--road-gray);
-        }
-
-        /* ===== INFO SECTION ===== */
-        .info-section {
-            background-color: var(--road-gray);
-            color: var(--white);
-            padding: 48px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .info-title {
-            font-size: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 32px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--safety-orange);
-            display: inline-block;
-        }
-
-        .info-grid {
-            display: block;
-        }
-
-        .info-content {
-            margin-bottom: 32px;
-        }
-
-        .info-text {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .info-list {
-            list-style: none;
-        }
-
-        .info-list-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 16px;
-        }
-
-        .info-bullet {
-            width: 8px;
-            height: 8px;
-            background-color: var(--safety-orange);
-            flex-shrink: 0;
-        }
-
-        .info-box {
-            background-color: var(--trucker-blue);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 32px;
-        }
-
-        .info-box-title {
-            color: var(--safety-orange);
-            font-size: 14px;
-            font-style: italic;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .info-box-list {
-            list-style: none;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .info-box-list li {
-            margin-bottom: 8px;
-        }
-
-        /* ===== FOOTER ===== */
-        .site-footer {
-            background-color: var(--trucker-blue);
-            color: var(--white);
-            border-top: 8px solid var(--road-gray);
-            padding: 64px 0 32px;
-        }
-
-        .footer-grid {
-            display: block;
-            margin-bottom: 48px;
-        }
-
-        .footer-col {
-            display: block;
-            margin-bottom: 32px;
-        }
-
-        .footer-logo {
-            font-size: 22px;
-            font-weight: 900;
-            font-style: italic;
-            margin-bottom: 16px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            opacity: 0.6;
-        }
-
-        .footer-heading {
-            font-size: 12px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--safety-orange);
-            margin-bottom: 16px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            opacity: 0.7;
-            margin-bottom: 8px;
-        }
-
-        .footer-text a:hover {
-            color: var(--safety-orange);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 32px;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 11px;
-            opacity: 0.4;
-            max-width: 800px;
-            margin: 0 auto 24px;
-        }
-
-        .footer-copyright {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.5;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
-            .header-inner {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .site-logo {
-                margin-bottom: 0;
-            }
-
-            .hero-title {
-                font-size: 56px;
-            }
-
-            .services-grid {
-                display: flex;
-                gap: 24px;
-            }
-
-            .service-card {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .info-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .info-content {
-                flex: 1;
-                margin-bottom: 0;
-            }
-
-            .info-box {
-                flex: 1;
-            }
-
-            .footer-grid {
-                display: flex;
-                gap: 48px;
-            }
-
-            .footer-col {
-                flex: 1;
-                margin-bottom: 0;
-            }
-        }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body>
-
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="../" class="site-logo">
-                    HEALTHY<span class="site-logo-accent">STICKS</span>
-                    <span class="site-logo-subtitle">Examen Medico del DOT</span>
-                </a>
-                <nav>
-                    <a href="../" class="nav-link">Inicio</a>
-                    <a href="./" class="nav-link nav-link-active">Examen Medico del DOT</a>
-                    <a href="../Quiropractica/" class="nav-link">Quiropractica</a>
-                    <a href="../Acupuntura/" class="nav-link">Acupuntura</a>
-                    <a href="../Naturopatia/" class="nav-link">Naturopatia</a>
-                    <a href="../Microneedling/" class="nav-link">Micropuncion</a>
-                    <a href="../Contact-Us/" class="nav-link">Contacto</a>
-                </nav>
-            </div>
+<body class="bg-industrial-white font-rugged text-trucker-blue">
+<body style="display: none;">
+    <header class="fixed top-0 left-0 w-full z-50 bg-trucker-blue text-white border-b-4 border-safety-orange shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../" class="text-2xl font-black italic tracking-tighter">HEALTHY<span class="text-safety-orange">STICKS</span> <span class="text-xs uppercase tracking-widest not-italic ml-2 border-l border-white/20 pl-2">Examen Médico del DOT</span></a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="../" class="text-sm font-bold hover:text-safety-orange transition-colors">Inicio</a>
+                <a href="./" class="text-sm font-bold text-safety-orange">Examen Médico del DOT</a>
+                <a href="../Quiropractica/" class="text-sm font-bold hover:text-safety-orange transition-colors">Quiropráctica</a>
+                <a href="../Acupuntura/" class="text-sm font-bold hover:text-safety-orange transition-colors">Acupuntura</a>
+                <a href="../Naturopatia/" class="text-sm font-bold hover:text-safety-orange transition-colors">Naturopatía</a>
+                <a href="../Microneedling/" class="text-sm font-bold hover:text-safety-orange transition-colors">Micropunción</a>
+                <a href="../Contact-Us/" class="text-sm font-bold hover:text-safety-orange transition-colors">Contacto</a>
+            </nav>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-badge">
-                    <span class="hero-badge-text">EXAMEN MEDICO DEL DOT</span>
-                </div>
-                <h1 class="hero-title">REALICE SUS PRUEBAS<br><span class="hero-title-accent">RAPIDAMENTE.</span></h1>
-                <p class="hero-subtitle">Examenes medicos profesionales y recoleccion de muestras para camioneros y titulares de CDL, sin complicaciones.</p>
-                <div class="hero-actions">
-                    <a href="../Contact-Us/" class="btn-hero">
-                        <span class="btn-hero-text">RESERVAR AHORA</span>
-                    </a>
-                    <div class="hero-walkins">
-                        <span class="hero-walkins-icon">&#10003;</span>
-                        <span>SE ACEPTAN VISITAS SIN CITA</span>
+    <main class="pt-32 pb-20">
+        <!-- Sección Hero -->
+        <section class="road-texture text-white py-20 mb-16 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-trucker-blue to-transparent opacity-80"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl fade-in">
+                    <div class="inline-block bg-safety-orange text-trucker-blue px-4 py-1 font-black mb-6 skew-x-[-12deg]">
+                        EXAMEN MÉDICO DEL DOT
                     </div>
+                    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-none rugged-header">
+                        REALICE SUS PRUEBAS<br><span class="text-safety-orange">RÁPIDAMENTE.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-10 font-bold max-w-xl">
+                        Exámenes médicos profesionales y recolección de muestras para camioneros y titulares de CDL, sin complicaciones.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="../Contact-Us/" class="bg-safety-orange text-white px-8 py-4 text-xl font-black hover:bg-orange-600 transition-all uppercase skew-x-[-12deg]">
+                            <span class="skew-x-[12deg] inline-block">RESERVAR AHORA</span>
+                        </a>
+                        <div class="flex items-center text-gray-400 font-bold">
+                            <svg class="w-6 h-6 mr-2 text-safety-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            SE ACEPTAN VISITAS SIN CITA
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Elemento Decorativo -->
+            <div class="absolute bottom-0 right-0 w-1/3 h-full hidden lg:block opacity-20 pointer-events-none">
+                <svg viewBox="0 0 100 100" class="h-full w-full fill-white">
+                    <path d="M0,100 L50,0 L100,100 Z" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- Cuadrícula de Servicios -->
+        <section class="container mx-auto px-6 mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Físicos de CDL -->
+                <div class="bg-white border-l-8 border-trucker-blue p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">🚛</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">Exámenes Médicos de CDL</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Físicos certificados por el DOT para mantenerle en cumplimiento y en la carretera. Procesamiento rápido y resultados instantáneos.
+                    </p>
+                </div>
+
+                <!-- Pruebas de Drogas -->
+                <div class="bg-white border-l-8 border-safety-orange p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">🧪</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">Pruebas de Drogas y Alcohol</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Recolección de muestras segura y confidencial para el cumplimiento en el lugar de trabajo y pruebas aleatorias.
+                    </p>
+                </div>
+
+                <!-- Pruebas Especializadas -->
+                <div class="bg-white border-l-8 border-trucker-blue p-8 shadow-xl hover:translate-y-[-4px] transition-all">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-2xl font-black uppercase mb-4 tracking-tighter">Evaluaciones Especializadas</h3>
+                    <p class="text-road-gray font-bold leading-tight">
+                        Evaluaciones médicas adaptadas a las exigencias físicas del transporte de larga distancia y la operación de maquinaria pesada.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Services Grid -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">&#128666;</div>
-                        <h3 class="service-title">Examenes Medicos de CDL</h3>
-                        <p class="service-text">Fisicos certificados por el DOT para mantenerle en cumplimiento y en la carretera. Procesamiento rapido y resultados instantaneos.</p>
-                    </div>
-                    <div class="service-card service-card-orange">
-                        <div class="service-icon">&#129514;</div>
-                        <h3 class="service-title">Pruebas de Drogas y Alcohol</h3>
-                        <p class="service-text">Recoleccion de muestras segura y confidencial para el cumplimiento en el lugar de trabajo y pruebas aleatorias.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">&#9881;</div>
-                        <h3 class="service-title">Evaluaciones Especializadas</h3>
-                        <p class="service-text">Evaluaciones medicas adaptadas a las exigencias fisicas del transporte de larga distancia y la operacion de maquinaria pesada.</p>
+        <!-- Sección de Información -->
+        <section class="container mx-auto px-6 max-w-5xl">
+            <div class="bg-road-gray text-white p-12 rounded-lg relative overflow-hidden shadow-2xl">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black uppercase mb-8 tracking-widest border-b-2 border-safety-orange pb-4 inline-block">Servicio Profesional para Profesionales</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <p class="text-lg font-bold mb-6">
+                                Sabemos que su tiempo es dinero. Por eso hemos optimizado nuestro proceso de recolección de muestras y pruebas para que sea lo más eficiente posible.
+                            </p>
+                            <ul class="space-y-4 font-bold text-gray-300">
+                                <li class="flex items-center"><span class="w-2 h-2 bg-safety-orange mr-3"></span> Examinadores Médicos Certificados</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-safety-orange mr-3"></span> Instalaciones que cumplen con el DOT</li>
+                                <li class="flex items-center"><span class="w-2 h-2 bg-safety-orange mr-3"></span> Citas el mismo día</li>
+                            </ul>
+                        </div>
+                        <div class="bg-trucker-blue p-8 border border-white/10">
+                            <h4 class="text-safety-orange font-black uppercase mb-4 italic">Qué Traer:</h4>
+                            <ul class="text-sm space-y-2 opacity-90">
+                                <li>• Licencia de conducir válida</li>
+                                <li>• Certificado médico actual (si está renovando)</li>
+                                <li>• Lista de medicamentos actuales</li>
+                                <li>• Gafas o audífonos (si se utilizan)</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Info Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="info-section">
-                    <h2 class="info-title">Servicio Profesional para Profesionales</h2>
-                    <div class="info-grid">
-                        <div class="info-content">
-                            <p class="info-text">Sabemos que su tiempo es dinero. Por eso hemos optimizado nuestro proceso de recoleccion de muestras y pruebas para que sea lo mas eficiente posible.</p>
-                            <ul class="info-list">
-                                <li class="info-list-item">
-                                    <span class="info-bullet"></span>
-                                    <span>Examinadores Medicos Certificados</span>
-                                </li>
-                                <li class="info-list-item">
-                                    <span class="info-bullet"></span>
-                                    <span>Instalaciones que cumplen con el DOT</span>
-                                </li>
-                                <li class="info-list-item">
-                                    <span class="info-bullet"></span>
-                                    <span>Citas el mismo dia</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="info-box">
-                            <h4 class="info-box-title">Que Traer:</h4>
-                            <ul class="info-box-list">
-                                <li>- Licencia de conducir valida</li>
-                                <li>- Certificado medico actual (si esta renovando)</li>
-                                <li>- Lista de medicamentos actuales</li>
-                                <li>- Gafas o audifonos (si se utilizan)</li>
-                            </ul>
-                        </div>
-                    </div>
+                <!-- Patrón de Fondo Industrial -->
+                <div class="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <svg fill="currentColor" viewBox="0 0 100 100"><rect width="100" height="10" y="10" /><rect width="100" height="10" y="30" /><rect width="100" height="10" y="50" /><rect width="100" height="10" y="70" /><rect width="100" height="10" y="90" /></svg>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">HEALTHY<span class="site-logo-accent">STICKS</span></div>
-                    <p class="footer-description">Healthy Sticks PLLC - Bienestar con raices naturales y ciencia refinada en Lombard, IL.</p>
+    <footer class="py-16 bg-trucker-blue text-white border-t-8 border-road-gray">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="font-black italic text-2xl mb-4">HEALTHY<span class="text-safety-orange">STICKS</span></div>
+                    <p class="text-sm opacity-60 leading-relaxed">Healthy Sticks PLLC- Practice — Bienestar con raíces naturales y ciencia refinada en Lombard, IL.</p>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Contacto</h4>
-                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
-                    <p class="footer-text"><a href="mailto:questions@healthysticks.life">questions@healthysticks.life</a></p>
+                <div>
+                    <h4 class="font-black text-sm uppercase tracking-widest mb-4 text-safety-orange">Contacto</h4>
+                    <div class="text-sm opacity-70 space-y-2">
+                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                        <p><a href="tel:+16304479857" class="hover:text-safety-orange transition-colors">(630) 447-9857</a></p>
+                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-safety-orange transition-colors">questions@healthysticks.life</a></p>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Horario</h4>
-                    <p class="footer-text">Lunes: 8:30am - 11am</p>
-                    <p class="footer-text">Martes: Cerrado</p>
-                    <p class="footer-text">Miercoles: 5pm - 7pm</p>
-                    <p class="footer-text">Viernes: 2pm - 7pm</p>
+                <div>
+                    <h4 class="font-black text-sm uppercase tracking-widest mb-4 text-safety-orange">Horario</h4>
+                    <div class="text-sm opacity-70 space-y-1">
+                        <p>Lunes: 8:30am – 11am</p>
+                        <p>Martes: Cerrado</p>
+                        <p>Miércoles: 5pm – 7pm</p>
+                        <p>Viernes: 2pm – 7pm</p>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">La informacion y los servicios ofrecidos en este sitio web son unicamente para educacion sobre bienestar y apoyo al estilo de vida, y no sustituyen el diagnostico ni el tratamiento medico. Los medicos naturopatas no son proveedores medicos licenciados en Illinois. Nuestra doctora es Medica Naturopata licenciada en el Distrito de Columbia y Quiropractico licenciada en Illinois.</p>
-                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. Todos los derechos reservados. Construido para el camino.</p>
+            <div class="border-t border-white/10 pt-8">
+                <p class="text-xs opacity-40 leading-relaxed max-w-4xl mx-auto text-center mb-6">La información y los servicios ofrecidos en este sitio web son únicamente para educación sobre bienestar y apoyo al estilo de vida, y no sustituyen el diagnóstico ni el tratamiento médico. Consulte a un médico licenciado para todas las preocupaciones médicas, emergencias y atención de rutina. Los médicos naturópatas no son proveedores médicos licenciados en Illinois. Nuestra doctora es Médica Naturópata licenciada en el Distrito de Columbia y Quiropráctico licenciada en Illinois.</p>
+                <p class="text-xs font-bold opacity-50 uppercase tracking-[0.2em] text-center">&copy; 2026 Healthy Sticks PLLC- Practice. Todos los derechos reservados. Construido para el camino.</p>
             </div>
         </div>
     </footer>
 
+    <script src="/main.js"></script>
 </body>
 </html>
