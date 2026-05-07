@@ -17,13 +17,15 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
     <style>
         .fade-in { animation: fadeIn 0.8s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
     </style>
 </head>
 <body class="bg-oatmeal font-sans">
+    
+    <!-- Navigation -->
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="../" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
@@ -32,131 +34,120 @@
                 <a href="../Sample-Collection/" class="text-sm font-medium hover:text-forest-green">DOT Tests</a>
                 <a href="../Chiropractic/" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
                 <a href="../Acupuncture/" class="text-sm font-medium hover:text-forest-green">Acupuncture</a>
-                <a href="../Naturopathy/" class="text-sm font-medium hover:text-forest-green">Naturopathy</a>
                 <a href="./" class="text-sm font-bold text-forest-green">Microneedling</a>
                 <a href="../Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contact</a>
-                <a href="../../" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
             </nav>
         </div>
     </header>
 
     <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-4xl">
+        <div class="container mx-auto px-6 max-w-5xl">
+            
+            <!-- Hero Header -->
             <div class="text-center mb-16 fade-in">
-                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4 text-gray-900">Advanced Microneedling</h1>
-                <p class="text-sm uppercase tracking-[0.3em] text-forest-green font-bold mb-8">Relax Beautiful • Health & Beauty</p>
+                <p class="text-xs uppercase tracking-[0.4em] text-forest-green font-bold mb-4">Relax Beautiful • Health & Beauty</p>
+                <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 text-gray-900">Advanced Microneedling</h1>
                 <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                    Experience the ultimate in skin rejuvenation. Our precision microneedling treatments stimulate collagen production for smoother, firmer, and more youthful-looking skin.
+                    Experience the ultimate in skin rejuvenation. Our precision microneedling treatments combine modern science with ancient wisdom to restore your natural glow.
                 </p>
             </div>
 
-            <div class="bg-white rounded-card shadow-soft-elevation overflow-hidden fade-in mb-20">
+            <!-- Hero Feature -->
+            <div class="bg-white rounded-card shadow-xl overflow-hidden fade-in mb-20">
                 <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="p-10 md:p-16 flex flex-col justify-center">
-                        <h2 class="text-2xl font-bold font-serif mb-6 text-forest-green">How It Works</h2>
+                    <div class="p-10 md:p-16 flex flex-col justify-center bg-white">
+                        <h2 class="text-3xl font-bold font-serif mb-6 text-forest-green">How It Works</h2>
                         <p class="text-gray-600 mb-8 leading-relaxed">
-                            Microneedling uses tiny, sterilized needles to create controlled micro-injuries in the skin. This triggers the body's natural healing process, producing new collagen and elastin to repair and refine the skin's texture.
+                            Microneedling (Collagen Induction Therapy) creates controlled micro-injuries in the skin, triggering the body's natural healing response to produce fresh collagen and elastin.
                         </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
-                                <span>Reduces fine lines and wrinkles</span>
-                            </li>
-                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
-                                <span>Improves skin tone and elasticity</span>
-                            </li>
-                            <li class="flex items-center space-x-3 text-sm font-bold text-gray-700">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>
-                                <span>Minimizes pores and scars</span>
-                            </li>
-                        </ul>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1">✓</span>
+                                <span class="text-sm font-semibold text-gray-700">Reduces fine lines and wrinkles</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1">✓</span>
+                                <span class="text-sm font-semibold text-gray-700">Improves skin tone and elasticity</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1">✓</span>
+                                <span class="text-sm font-semibold text-gray-700">Minimizes pores and acne scars</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-forest-green text-white p-10 md:p-16 flex flex-col justify-center items-center text-center">
-                        <h3 class="text-3xl font-bold font-serif mb-6">Renew Your Glow</h3>
-                        <p class="mb-10 opacity-90">Book a consultation to see if microneedling is right for your skin goals.</p>
-                        <a href="../Contact-Us/" class="bg-white text-forest-green px-12 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
-                            Book Now
+                    <div class="bg-forest-green text-white p-12 flex flex-col justify-center items-center text-center">
+                        <h3 class="text-3xl font-bold font-serif mb-6 italic">Renew Your Glow</h3>
+                        <p class="mb-10 opacity-90 leading-relaxed">Schedule a consultation to customize your rejuvenation plan.</p>
+                        <a href="../Contact-Us/" class="bg-white text-forest-green px-10 py-4 rounded-full text-sm font-bold hover:bg-gray-100 transition-all uppercase tracking-widest shadow-lg">
+                            Book Consultation
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Pricing & Packages Section -->
+            <!-- Pricing Section -->
             <div class="mb-20 fade-in">
-                <h2 class="text-3xl font-bold font-serif text-center mb-12 text-gray-900">Our Packages</h2>
+                <h2 class="text-3xl font-bold font-serif text-center mb-12 text-gray-900">Investment & Packages</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-10 rounded-card shadow-sm border border-gray-100 relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 bg-forest-green text-white text-xs font-bold px-4 py-1 rounded-bl-lg">Most Popular</div>
-                        <h3 class="text-xl font-bold font-serif mb-2">3 Sessions Package</h3>
-                        <p class="text-3xl font-bold text-forest-green mb-4">$500</p>
-                        <ul class="text-sm text-gray-600 space-y-3 mb-8">
-                            <li class="flex items-center space-x-2">
-                                <svg class="h-4 w-4 text-forest-green" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
-                                <span>Complete facial rejuvenation</span>
+                    <!-- Package -->
+                    <div class="bg-white p-10 rounded-card shadow-sm border border-gray-100 relative group hover:border-forest-green transition-colors">
+                        <div class="absolute top-0 right-0 bg-forest-green text-white text-[10px] uppercase tracking-widest font-bold px-4 py-2 rounded-bl-lg">Recommended</div>
+                        <h3 class="text-xl font-bold font-serif mb-2">3 Session Series</h3>
+                        <p class="text-4xl font-bold text-forest-green mb-4">$500</p>
+                        <p class="text-sm text-gray-500 mb-6">Designed for maximum results and sustained collagen building.</p>
+                        <ul class="text-sm text-gray-600 space-y-3 mb-8 border-t border-gray-50 pt-6">
+                            <li class="flex items-center space-x-2 font-bold text-forest-green">
+                                <span>+ Free gift sample with package</span>
                             </li>
-                            <li class="flex items-center space-x-2">
-                                <svg class="h-4 w-4 text-forest-green" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
-                                <span class="font-bold text-forest-green">Free sample with package</span>
-                            </li>
+                            <li>Full facial treatment</li>
+                            <li>Personalized herbal serums</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-10 rounded-card shadow-sm border border-gray-100">
-                        <h3 class="text-xl font-bold font-serif mb-2">Standard Session</h3>
-                        <p class="text-3xl font-bold text-gray-900 mb-4">$200 <span class="text-sm font-normal text-gray-400">/ session</span></p>
-                        <p class="text-sm text-gray-600 mb-8">Single session focused on skin rejuvenation and collagen induction.</p>
+                    <!-- Single -->
+                    <div class="bg-white p-10 rounded-card shadow-sm border border-gray-100 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold font-serif mb-2">Standard Session</h3>
+                            <p class="text-4xl font-bold text-gray-900 mb-4">$200</p>
+                            <p class="text-sm text-gray-500 mb-6">A single session focused on immediate skin refinement and glow.</p>
+                        </div>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest italic pt-6 border-t border-gray-50">Add-on Acupuncture: $45</p>
                     </div>
-                </div>
-                <div class="mt-8 bg-forest-green/5 p-6 rounded-xl border border-forest-green/10 text-center">
-                    <p class="text-forest-green font-bold italic">Add On Acupuncture: $45 per session</p>
                 </div>
             </div>
 
-            <!-- Detailed Approach Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 fade-in">
-                <div>
-                    <h2 class="text-2xl font-bold font-serif mb-6 text-forest-green">Collagen Induction Therapy</h2>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Our microneedling procedures are minimally invasive, promoting collagen production and skin rejuvenation without harsh chemicals or extensive downtime.
+            <!-- Approach Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 fade-in items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold font-serif text-forest-green">Ancient Plumblossom Technique</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        We utilize microneedling tools specifically designed for acupuncturists, based on the ancient <span class="italic font-medium">Plumblossom</span> technique. Unlike standard aesthetician treatments, we focus on the meridian systems to support beauty from the inside out.
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-forest-green text-white p-1 rounded-full mt-1">
-                                <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-900">Backed by research</p>
-                                <p class="text-sm text-gray-500">Clinically proven methods for skin health.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="bg-forest-green text-white p-1 rounded-full mt-1">
-                                <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div>
-                                <p class="font-bold text-gray-900">Tailored to your skin's needs</p>
-                                <p class="text-sm text-gray-500">Customized depth and serums for optimal results.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Every package includes full-body support with acupuncture, customized herbal serums, and Asian bodywork to ensure your skin health reflects your internal wellness.
+                    </p>
                 </div>
-                <div class="bg-white p-10 rounded-card shadow-sm border border-gray-50">
-                    <div class="text-forest-green mb-6">
-                        <svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"></path></svg>
-                        <span class="text-xs uppercase tracking-widest font-bold mt-2 block">Holistic Approach</span>
+                <div class="bg-forest-green/5 p-10 rounded-card border border-forest-green/10">
+                    <div class="flex items-start space-x-4 mb-6">
+                        <div class="bg-forest-green text-white p-2 rounded-full flex-shrink-0 text-xs">01</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Research Backed</h4>
+                            <p class="text-sm text-gray-500">Clinically proven methods for cellular regeneration.</p>
+                        </div>
                     </div>
-                    <h2 class="text-2xl font-bold font-serif mb-6 text-gray-900">Our Unique Approach</h2>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
-                        Based upon the ancient plumblossom technique we use microneedling tool specifically designed for acupuncturists. Using traditional Chinese medicine techniques and principles together with your personal goals we support skin integrity and wellness throughout the body. 
-                    </p>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        We package our services to include full body treatment with acupuncture, herbal serum and Asian bodywork. Our team collaborates with you to achieve lasting beauty from within.
-                    </p>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-forest-green text-white p-2 rounded-full flex-shrink-0 text-xs">02</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">TCM Principles</h4>
+                            <p class="text-sm text-gray-500">Integrating Traditional Chinese Medicine for holistic skin integrity.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="py-16 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
@@ -166,28 +157,21 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
-                    <div class="text-sm text-gray-500 space-y-2">
-                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
-                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
-                    </div>
+                    <p class="text-sm text-gray-500">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
                 </div>
                 <div>
                     <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
-                    <div class="text-sm text-gray-500 space-y-1">
-                        <p>Monday: 8:30am – 11am</p>
-                        <p>Tuesday: Closed</p>
-                        <p>Wednesday: 5pm – 7pm</p>
-                        <p>Friday: 2pm – 7pm</p>
-                    </div>
+                    <p class="text-sm text-gray-500">Mon: 8:30am – 11am | Wed: 5pm – 7pm | Fri: 2pm – 7pm</p>
                 </div>
             </div>
-            <div class="border-t border-gray-100 pt-8">
-                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved.</p>
+            <div class="border-t border-gray-100 pt-8 text-center">
+                <p class="text-[10px] text-gray-400 max-w-3xl mx-auto mb-6 leading-relaxed">
+                    Naturopathic doctors are not licensed medical providers in Illinois. Dr. Alwazan is a licensed Naturopathic Physician in DC and a licensed Chiropractic Physician in Illinois.
+                </p>
+                <p class="text-sm text-gray-500">&copy; 2026 Healthy Sticks PLLC. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <script src="/main.js"></script>
+
 </body>
 </html>

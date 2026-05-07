@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +17,31 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <style>
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
-<body class="bg-oatmeal font-sans">
+
+<body class="bg-oatmeal font-sans text-gray-900">
+
+    <!-- Navigation -->
     <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="../" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
@@ -32,139 +50,182 @@
                 <a href="../Sample-Collection/" class="text-sm font-medium hover:text-forest-green">DOT Tests</a>
                 <a href="../Chiropractic/" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
                 <a href="../Acupuncture/" class="text-sm font-medium hover:text-forest-green">Acupuncture</a>
-                <a href="./" class="text-sm font-bold text-forest-green">Naturopathy</a>
+                <a href="./" class="text-sm font-bold text-forest-green underline underline-offset-8">Naturopathy</a>
                 <a href="../Microneedling/" class="text-sm font-medium hover:text-forest-green">Microneedling</a>
                 <a href="../Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contact</a>
-                <a href="../../" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
             </nav>
         </div>
     </header>
 
     <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-4xl">
+        <div class="container mx-auto px-6 max-w-5xl">
+
+            <!-- Hero -->
             <div class="text-center mb-16 fade-in">
-                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Evidence-Based Naturopathy</h1>
-                <p class="text-lg font-bold text-forest-green mb-8 uppercase tracking-widest italic">"Get natural support for your specific health goals"</p>
+                <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 text-gray-900 leading-tight">Evidence-Based
+                    <br><span class="text-forest-green">Naturopathy</span></h1>
+                <p class="text-sm font-bold text-forest-green mb-8 uppercase tracking-[0.3em] italic">"Nature-rooted,
+                    science-refined wellness"</p>
                 <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                    Naturopathic medicine focuses on identifying and treating the root cause of illness using natural, evidence-based therapies. 
-                    We combine clinical nutrition, botanical medicine, and lifestyle counseling to restore your body's innate ability to heal.
+                    Naturopathic medicine focuses on identifying and treating the root cause of illness using natural,
+                    evidence-based therapies. We combine clinical nutrition, botanical medicine, and lifestyle
+                    counseling to restore your body's innate ability to heal.
                 </p>
             </div>
 
-            </div>
-
             <!-- Principles Section -->
-            <div class="mb-20 fade-in bg-white p-10 md:p-16 rounded-card shadow-sm border border-gray-50">
-                <h2 class="text-3xl font-bold font-serif text-center mb-12 text-forest-green">Principles of Naturopathy</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="mb-20 fade-in bg-white p-10 md:p-16 rounded-card shadow-sm border border-gray-100">
+                <h2 class="text-3xl font-bold font-serif text-center mb-12 text-forest-green">The 6 Principles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                     <div class="space-y-8">
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">The Healing Power of Nature</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Trusting the body's inherent wisdom and its ability to heal itself when given the right support.</p>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>The Healing Power of Nature
+                            </h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Trusting the body's inherent wisdom
+                                and its ability to heal itself when given the right support.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">Identify and Treat the Cause</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Looking beyond symptoms to find and address the underlying reasons for illness.</p>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Identify and Treat the
+                                Cause</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Looking beyond symptoms to find and
+                                address the underlying reasons for illness.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">First Do No Harm</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Utilizing the most natural, least invasive, and least toxic therapies first.</p>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>First Do No Harm</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Utilizing the most natural, least
+                                invasive, and least toxic therapies first.</p>
                         </div>
                     </div>
                     <div class="space-y-8">
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">Doctor as Teacher</h4>
-                            <h4 class="font-bold text-gray-900 mb-2">Identify and Treat the Cause</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Educating and empowering patients to take responsibility for their own health.</p>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Doctor as Teacher</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Educating and empowering patients to
+                                take responsibility for their own health.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">Treat the Whole Person</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Acknowledging the complex interplay of physical, emotional, and environmental factors.</p>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Treat the Whole Person</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Acknowledging the complex interplay of
+                                physical, emotional, and environmental factors.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">Prevention</h4>
-                            <p class="text-sm text-gray-500 leading-relaxed">Emphasizing the importance of proactive care and lifestyle choices to maintain optimal health.</p>
+                            <h4 class="font-bold text-gray-900 mb-2 flex items-center"><span
+                                    class="w-2 h-2 bg-forest-green rounded-full mr-3"></span>Prevention</h4>
+                            <p class="text-sm text-gray-500 leading-relaxed pl-5">Emphasizing proactive care and
+                                lifestyle choices to maintain optimal health.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Focus Areas & Care Description -->
+            <!-- Focus Areas & Description -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 fade-in">
-                <div class="bg-forest-green text-white p-10 rounded-card shadow-lg">
-                    <h2 class="text-2xl font-bold font-serif mb-8 border-b border-white/20 pb-4">Focus Areas</h2>
-                    <ul class="grid grid-cols-1 gap-4">
-                        <li class="flex items-center space-x-3">
-                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
-                            <span class="font-medium">Gut issues</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
-                            <span class="font-medium">Women health</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
-                            <span class="font-medium">Stress & Anxiety</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
-                            <span class="font-medium">Pain management</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
-                            <span class="font-medium">General Wellness</span>
-                        </li>
-                    </ul>
+                <div class="bg-forest-green text-white p-12 rounded-card shadow-lg flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold font-serif mb-8 border-b border-white/20 pb-4 tracking-wide">
+                            Primary Focus Areas</h2>
+                        <ul class="space-y-5">
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Digestive Health & Gut Issues</span>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Women’s Health & Hormones</span>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Stress, Mood & Anxiety Support</span>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Chronic Pain Management</span>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <span
+                                    class="text-forest-green bg-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]">●</span>
+                                <span class="font-medium">Longevity & General Wellness</span>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="mt-12">
-                        <a href="../Contact-Us/" class="bg-white text-forest-green block text-center px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
-                            Book Consultation
+                        <a href="../Contact-Us/"
+                            class="bg-white text-forest-green block text-center px-8 py-4 rounded-full text-sm font-bold hover:bg-oatmeal transition-all uppercase tracking-widest shadow-md">
+                            Start Your Journey
                         </a>
                     </div>
                 </div>
-                <div class="flex flex-col justify-center">
-                    <h2 class="text-2xl font-bold font-serif mb-6 text-forest-green">Naturopathic Care</h2>
+                <div class="flex flex-col justify-center px-4">
+                    <h2 class="text-3xl font-bold font-serif mb-6 text-forest-green leading-tight">Holistic,
+                        Individualized <br>Naturopathic Care</h2>
                     <p class="text-gray-600 leading-relaxed mb-6">
-                        Naturopathy is evidence based natural medicine. Naturopathic care focuses on the whole person. Our doctor works with you to individualize your plan to help reach your specific health goals. 
+                        Treating the whole person means looking at the root cause of the issues and using natural
+                        therapies to help support you on your wellness journey.
                     </p>
                     <p class="text-gray-600 leading-relaxed">
-                        Treating the whole person means looking at the root cause of the issues and using natural therapies to help support you on your wellness journey.
+                        Our doctor works with you to individualize your plan, utilizing specialized testing and natural
+                        protocols to help you reach your specific health goals—whether you're managing a chronic
+                        condition or optimizing your vitality.
                     </p>
+                    <div class="mt-8 pt-8 border-t border-gray-200">
+                        <p class="text-xs italic text-gray-400 leading-relaxed">
+                            "Naturopathic care focuses on the whole person. Our doctor works with you to individualize
+                            your plan to help reach your specific health goals."
+                        </p>
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="py-16 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
-                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted,
+                        science-refined wellness in Lombard, IL.</p>
                 </div>
                 <div>
                     <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
                     <div class="text-sm text-gray-500 space-y-2">
                         <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
-                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
+                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630)
+                                447-9857</a></p>
                     </div>
                 </div>
                 <div>
                     <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
                     <div class="text-sm text-gray-500 space-y-1">
-                        <p>Monday: 8:30am – 11am</p>
-                        <p>Tuesday: Closed</p>
-                        <p>Wednesday: 5pm – 7pm</p>
-                        <p>Friday: 2pm – 7pm</p>
+                        <p>Mon: 8:30am – 11am</p>
+                        <p>Wed: 5pm – 7pm</p>
+                        <p>Fri: 2pm – 7pm</p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-100 pt-8">
-                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved.</p>
+                <p class="text-[10px] text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6 px-4">
+                    Information and services offered on this website are for wellness education and lifestyle support
+                    only and are not a substitute for medical diagnosis or treatment. Naturopathic doctors are not
+                    licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the
+                    District of Columbia and a licensed Chiropractic Physician in Illinois.
+                </p>
+                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights
+                    reserved.</p>
             </div>
         </div>
     </footer>
-    <script src="/main.js"></script>
+
 </body>
+
 </html>

@@ -1,248 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthySticks | Nature-Rooted. Science-Refined.</title>
-    <meta name="description" content="HealthySticks - Simplify your wellness path with science-backed holistic solutions.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
-                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
-                    borderRadius: { 'card': '12px' },
-                    boxShadow: {
-                        'soft-elevation': '0 4px 20px -2px rgba(0, 0, 0, 0.05)'
-                    }
-                }
+    <title>Healthy Sticks | Nutritious Snacking</title>
+
+    <style>
+        /* RESET & BASE STYLES */
+        body,
+        h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* BUILDER-PROOF CONTAINERS */
+        .section-wrapper {
+            width: 100%;
+            padding: 60px 0;
+            display: block;
+            /* Avoiding complex flex for the main stack */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* HERO SECTION - FLATTENED */
+        .hero {
+            background-color: #f4fbf4;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #2d5a27;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* CONTENT COLUMNS - SIMPLE FLEX (NO NESTING) */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+            /* Forces stack on mobile */
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+
+        /* DOCTOR-FRIENDLY BUTTONS */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE TWEAKS */
+        @media (max-width: 375px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-wrapper {
+                padding: 40px 0;
             }
         }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <style>
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-oatmeal font-sans text-gray-900">
 
-    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="./" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="./" class="text-sm font-bold text-forest-green">Home</a>
-                <a href="./Sample-Collection/" class="text-sm font-medium hover:text-forest-green">DOT Tests</a>
-                <a href="./Chiropractic/" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
-                <a href="./Acupuncture/" class="text-sm font-medium hover:text-forest-green">Acupuncture</a>
-                <a href="./Naturopathy/" class="text-sm font-medium hover:text-forest-green">Naturopathy</a>
-                <a href="./Microneedling/" class="text-sm font-medium hover:text-forest-green">Microneedling</a>
-                <a href="./Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contact</a>
-                <a href="./Appointment/" class="text-sm font-medium hover:text-forest-green">Book Appointment</a>
-                <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" rel="noopener noreferrer" class="text-xs font-bold bg-forest-green text-white px-4 py-1.5 rounded-full hover:bg-forest-green/90 transition-all">Patient Login</a>
-                <a href="../" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
-            </nav>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="section-wrapper hero">
+        <div class="container">
+            <!-- EASY EDIT: Header -->
+            <h1>Healthy Sticks: Nutrition in Every Bite</h1>
+            <!-- EASY EDIT: Subtext -->
+            <p>The doctor-approved snack designed for busy lifestyles and balanced diets.</p>
+            <a href="#order" class="cta-button">Order Now</a>
         </div>
-    </header>
+    </section>
 
-    <main class="pt-32 pb-20">
-        <!-- Hero Section -->
-        <section class="container mx-auto px-6 text-center mb-32 fade-in">
-            <h1 class="text-4xl md:text-7xl font-bold font-serif mb-6 text-gray-900 leading-tight">Nature-Rooted.<br>Science-Refined.</h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Simplify your wellness path with HealthySticks. We bridge ancient wisdom and modern precision science to help you thrive.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
-                <a href="./Chiropractic/" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
-                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Chiropractic</h3>
-                    <p class="text-sm text-gray-500 mb-4">Precision spinal adjustments for optimal health.</p>
-                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Learn More →</span>
-                </a>
-                <a href="./Naturopathy/" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
-                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Naturopathy</h3>
-                    <p class="text-sm text-gray-500 mb-4">Evidence-based natural medicine.</p>
-                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Learn More →</span>
-                </a>
-                <a href="./Microneedling/" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
-                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Microneedling</h3>
-                    <p class="text-sm text-gray-500 mb-4">Advanced treatments for skin rejuvenation.</p>
-                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Learn More →</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section class="bg-white py-24 border-y border-gray-50">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Our Story</h2>
-                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
-                        At HealthySticks, we are dedicated to bridging the gap between ancient botanical wisdom and modern precision science. 
-                        Our mission is to simplify your wellness journey with evidence-based solutions that treat the whole person, not just the symptoms.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-                        <div>
-                            <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Holistic Healing</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                We treat the root causes of skin and health issues, not just the symptoms. Our practitioners use acupuncture, herbal medicine, and microneedling to restore harmony within your body, leading to long-lasting results.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Customized Treatments</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Every individual is unique, and so are our treatment plans. We tailor our services to meet your specific needs, ensuring the best possible outcomes for your skin and health.
-                            </p>
-                        </div>
-                    </div>
+    <!-- PRODUCT FEATURES -->
+    <section class="section-wrapper">
+        <div class="container">
+            <div class="row">
+                <!-- FEATURE 1 -->
+                <div class="column">
+                    <img src="https://via.placeholder.com/400x300" alt="Natural Ingredients">
+                    <h2>100% Natural</h2>
+                    <p>No artificial preservatives or added sugars. Just pure, plant-based goodness.</p>
                 </div>
-
-                <!-- The Five Pillars Section -->
-                <div class="bg-oatmeal/50 rounded-card p-10 md:p-16 shadow-inner fade-in">
-                    <h3 class="text-2xl font-bold font-serif text-center mb-12 text-forest-green uppercase tracking-widest">The Five Pillars of Health</h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-2">Nutrition</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-2">Acupuncture</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-2">Herbs</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-1">Tuina</div>
-                            <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">(Body Work)</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-1">Qi Gong</div>
-                            <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">(Body Movement)</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
-                    </div>
-
-                    <p class="text-center text-forest-green font-serif italic text-xl border-t border-gray-100 pt-10">
-                        "The Five Pillars support balance and smooth flow of energy"
-                    </p>
+                <!-- FEATURE 2 -->
+                <div class="column">
+                    <img src="https://via.placeholder.com/400x300" alt="Doctor Approved">
+                    <h2>Doctor Recommended</h2>
+                    <p>Formulated to maintain glucose stability and provide sustained energy levels.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience the Benefits Section -->
-        <section class="py-24 bg-oatmeal">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-5xl font-bold font-serif text-center mb-16 text-gray-900">Experience the Benefits</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="bg-white p-8 rounded-card shadow-sm text-center">
-                        <div class="w-16 h-16 bg-forest-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="h-8 w-8 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Enhanced Skin Appearance</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Reduce fine lines, wrinkles, scars, and hyperpigmentation with our advanced microneedling techniques.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-card shadow-sm text-center">
-                        <div class="w-16 h-16 bg-forest-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="h-8 w-8 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Improved Health</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Boost your immune system, reduce stress, and improve overall vitality with our holistic TCM treatments.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-card shadow-sm text-center">
-                        <div class="w-16 h-16 bg-forest-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="h-8 w-8 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Personalized Attention</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Enjoy a serene and supportive environment where your health and beauty goals are our top priority.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="py-24 bg-white overflow-hidden">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-5xl font-bold font-serif text-center mb-16 text-gray-900">What Our Clients Say</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-oatmeal/30 p-8 rounded-card border border-gray-100 italic text-gray-700 relative">
-                        <span class="absolute top-4 left-4 text-6xl text-forest-green/10 font-serif">"</span>
-                        <p class="relative z-10 mb-6 text-sm">
-                            I had the pleasure of Dr. Alwazan making home visits to treat both my mother and I. She was empathetic, a great listener, and a wealth of knowledge. She provided education during our treatments as well as homework to ensure that her treatments were working. Lastly, her spirit was great and that makes a difference when you are holistically healing your body. I would definitely recommend her services. 10/10.
-                        </p>
-                        <div class="not-italic font-bold text-forest-green text-right text-sm uppercase tracking-widest">— FB</div>
-                    </div>
-                    <div class="bg-oatmeal/30 p-8 rounded-card border border-gray-100 italic text-gray-700 relative">
-                        <span class="absolute top-4 left-4 text-6xl text-forest-green/10 font-serif">"</span>
-                        <p class="relative z-10 mb-6 text-sm">
-                            Dr Tiffani, is one of the best natural doctors that I’ve ever worked with, she is very knowledgeable about her profession and takes the time to really explain to what is going on in your body and how you yourself can heal with natural remedies. Dr Tiffani takes the time to get to know her patients so she can better understand what they need. I highly recommend you have Dr Tiffani on your team because I feel like, if you don’t you might regret it in the long run.
-                        </p>
-                        <div class="not-italic font-bold text-forest-green text-right text-sm uppercase tracking-widest">— ES</div>
-                    </div>
-                    <div class="bg-oatmeal/30 p-8 rounded-card border border-gray-100 italic text-gray-700 relative">
-                        <span class="absolute top-4 left-4 text-6xl text-forest-green/10 font-serif">"</span>
-                        <p class="relative z-10 mb-6 text-sm">
-                            Dr. Alwazan answered my questions concerning the patient’s health. She explained the use of natural medication recommended to improve the patient’s health. Dr. Alwazan has numerous medical degrees and is capable of providing different types of medical care.
-                        </p>
-                        <div class="not-italic font-bold text-forest-green text-right text-sm uppercase tracking-widest">— YB</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Driver Medicals CTA Section -->
-        <section class="py-24 bg-forest-green text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8">Specialized Driver Medicals</h2>
-                <p class="text-lg md:text-xl opacity-90 mb-12 max-w-2xl mx-auto">
-                    We provide certified DOT tests and medical exams for truckers and transport professionals. 
-                    Get back on the road faster with our streamlined, professional service.
-                </p>
-                <a href="./Sample-Collection/" class="bg-white text-forest-green px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
-                    Driver Services
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
-                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
-                    <div class="text-sm text-gray-500 space-y-2">
-                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
-                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
-                    <div class="text-sm text-gray-500 space-y-1">
-                        <p>Monday: 8:30am – 11am</p>
-                        <p>Tuesday: Closed</p>
-                        <p>Wednesday: 5pm – 7pm</p>
-                        <p>Friday: 2pm – 7pm</p>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-100 pt-8">
-                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved.</p>
-            </div>
+    <!-- FOOTER -->
+    <footer class="section-wrapper" style="background: #333; color: #fff; text-align: center;">
+        <div class="container">
+            <p>&copy; 2026 Healthy Sticks. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="/main.js"></script>
 </body>
+
 </html>

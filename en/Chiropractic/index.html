@@ -1,183 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chiropractic Care | HealthySticks</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
-                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
-                    borderRadius: { 'card': '12px' }
-                }
+
+    <style>
+        /* BRANDING VARIABLES */
+        :root {
+            --oatmeal: #F8F5F2;
+            --forest-green: #4A7C59;
+            --text-dark: #111827;
+            --text-light: #6B7280;
+            --white: #ffffff;
+        }
+
+        /* BASE STYLES */
+        body {
+            background-color: var(--oatmeal);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: rgba(248, 245, 242, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--forest-green);
+        }
+
+        /* HERO & CONTENT */
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        /* CARDS */
+        .grid-2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-green {
+            background: var(--forest-green);
+            color: var(--white);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* PRICING TABLE */
+        .pricing-box {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .pricing-header {
+            background: #fafafa;
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .price-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .price-item {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 200px;
+        }
+
+        .price-item.featured {
+            border-color: var(--forest-green);
+            background: rgba(74, 124, 89, 0.05);
+        }
+
+        /* BUTTONS */
+        .btn-book {
+            display: inline-block;
+            background: var(--white);
+            color: var(--forest-green);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-book:hover {
+            background: #f0f0f0;
+        }
+
+        /* LISTS */
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefit-list li::before {
+            content: "✓";
+            color: var(--forest-green);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--white);
+            border-top: 1px solid #eee;
+            padding: 60px 0 30px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            /* Simplified for builder stability */
+            .hero-text h1 {
+                font-size: 2rem;
             }
         }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <style>
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
 </head>
-<body class="bg-oatmeal font-sans">
-    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="../" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="../" class="text-sm font-medium hover:text-forest-green">Home</a>
-                <a href="../Sample-Collection/" class="text-sm font-medium hover:text-forest-green">DOT Tests</a>
-                <a href="./" class="text-sm font-bold text-forest-green">Chiropractic</a>
-                <a href="../Acupuncture/" class="text-sm font-medium hover:text-forest-green">Acupuncture</a>
-                <a href="../Naturopathy/" class="text-sm font-medium hover:text-forest-green">Naturopathy</a>
-                <a href="../Microneedling/" class="text-sm font-medium hover:text-forest-green">Microneedling</a>
-                <a href="../Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contact</a>
-                <a href="../../" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">ES</a>
+
+<body>
+
+    <header>
+        <div class="container nav-flex">
+            <a href="../" style="text-decoration: none; font-size: 24px; font-weight: bold; color: var(--forest-green);"
+                class="font-serif">HealthySticks</a>
+            <nav class="nav-links">
+                <a href="../">Home</a>
+                <a href="../Sample-Collection/">DOT</a>
+                <a href="./" style="color: var(--forest-green); font-weight: bold;">Chiropractic</a>
+                <a href="../Acupuncture/">Acupuncture</a>
+                <a href="../Contact-Us/">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <!-- Hero Header -->
-            <div class="text-center mb-16 fade-in">
-                <h1 class="text-4xl md:text-5xl font-bold font-serif mb-6 text-gray-900 leading-tight">
-                    Personalized Care with Gentle Adjustments
-                </h1>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    We provide personalized care with gentle adjustments to ease pain from various conditions.
+    <main class="section-padding">
+        <div class="container">
+
+            <div class="hero-text">
+                <h1>Personalized Care with <br>Gentle Adjustments</h1>
+                <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
+                    We focus on restoring your body's natural alignment to ease pain and improve daily function.
                 </p>
             </div>
 
-            <!-- Key Benefits -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 fade-in">
-                <div class="bg-white p-8 rounded-card shadow-sm border border-gray-50">
-                    <h2 class="text-2xl font-bold font-serif mb-6 text-forest-green">Key Benefits</h2>
-                    <ul class="space-y-4">
-                        <li class="flex items-center space-x-3">
-                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-gray-700 font-medium">Athletic Injury Recovery</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-gray-700 font-medium">Spinal Alignment</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-gray-700 font-medium">Nervous System Function</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="h-5 w-5 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span class="text-gray-700 font-medium">Stress Reduction</span>
-                        </li>
+            <div class="grid-2">
+                <div class="card">
+                    <h2 style="color: var(--forest-green); margin-top: 0;">Key Benefits</h2>
+                    <ul class="benefit-list">
+                        <li>Athletic Injury Recovery</li>
+                        <li>Spinal Alignment & Posture</li>
+                        <li>Nervous System Optimization</li>
+                        <li>Stress & Tension Reduction</li>
+                        <li>Chronic Pain Management</li>
                     </ul>
                 </div>
-                <div class="bg-forest-green text-white p-8 rounded-card shadow-lg flex flex-col justify-center items-center text-center">
-                    <h2 class="text-2xl font-bold font-serif mb-4">Book Your Session</h2>
-                    <p class="mb-8 opacity-90">Start your journey to better health today.</p>
-                    <a href="../Contact-Us/" class="bg-white text-forest-green px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
-                        BOOK NOW
-                    </a>
+                <div class="card card-green">
+                    <h2 style="margin-top: 0;">Book Your Session</h2>
+                    <p style="opacity: 0.9;">Start your journey to better health today in Lombard, IL.</p>
+                    <a href="../Contact-Us/" class="btn-book">BOOK NOW</a>
                 </div>
             </div>
 
-            <!-- Pricing & First Visit -->
-            <div class="bg-white rounded-card shadow-soft-elevation overflow-hidden fade-in">
-                <div class="p-8 md:p-12 border-b border-gray-100 bg-gray-50/50">
-                    <h2 class="text-3xl font-bold font-serif mb-8 text-center text-gray-900">Patient Specials & Pricing</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-white p-6 rounded-xl border border-forest-green/20 text-center">
-                            <div class="text-sm uppercase tracking-widest text-forest-green font-bold mb-2">New Patient Special</div>
-                            <div class="text-4xl font-bold text-gray-900 mb-2">$99</div>
-                            <div class="text-sm text-gray-500">Includes complete initial exam</div>
+            <!-- Pricing Section -->
+            <div class="pricing-box">
+                <div class="pricing-header">
+                    <h2 style="margin: 0;">Patient Pricing</h2>
+                    <div class="price-grid">
+                        <div class="price-item featured">
+                            <span
+                                style="font-size: 12px; font-weight: bold; color: var(--forest-green); text-transform: uppercase;">New
+                                Patient Special</span>
+                            <div style="font-size: 32px; font-weight: bold; margin: 5px 0;">$99</div>
+                            <span style="font-size: 13px; color: var(--text-light);">Includes Exam & Consultation</span>
                         </div>
-                        <div class="bg-white p-6 rounded-xl border border-gray-100 text-center">
-                            <div class="text-sm uppercase tracking-widest text-gray-400 font-bold mb-2">Returning Patients</div>
-                            <div class="text-4xl font-bold text-gray-900 mb-2">$45</div>
-                            <div class="text-sm text-gray-500">Follow-up adjustment</div>
+                        <div class="price-item">
+                            <span
+                                style="font-size: 12px; font-weight: bold; color: var(--text-light); text-transform: uppercase;">Follow-Up</span>
+                            <div style="font-size: 32px; font-weight: bold; margin: 5px 0;">$45</div>
+                            <span style="font-size: 13px; color: var(--text-light);">Standard Adjustment</span>
                         </div>
                     </div>
                 </div>
-                <div class="p-8 md:p-12">
-                    <h3 class="text-2xl font-bold font-serif mb-8 text-gray-900">Your First Visit Includes:</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <ul class="space-y-4">
-                            <li class="flex items-start space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1 mt-1">
-                                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                </span>
-                                <span class="text-gray-600">History & Consultation</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1 mt-1">
-                                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                </span>
-                                <span class="text-gray-600">Comprehensive Chiropractic Exam</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1 mt-1">
-                                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                </span>
-                                <span class="text-gray-600">Report of Findings</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1 mt-1">
-                                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                </span>
-                                <span class="text-gray-600">Chiropractic Adjustment</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1 mt-1">
-                                    <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                </span>
-                                <span class="text-gray-600">Therapy as Indicated</span>
-                            </li>
-                        </ul>
-                        <div class="bg-oatmeal p-8 rounded-xl flex flex-col justify-center border border-gray-100">
-                            <div class="text-forest-green font-bold text-sm uppercase tracking-widest mb-2">Duration</div>
-                            <div class="text-2xl font-bold text-gray-900">45–60 minutes</div>
-                            <p class="text-sm text-gray-500 mt-4">Please plan accordingly for your initial assessment and treatment session.</p>
+
+                <div style="padding: 40px;">
+                    <h3 style="margin-top: 0;">What to expect on your first visit:</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+                        <div style="flex: 2; min-width: 250px;">
+                            <ul class="benefit-list">
+                                <li>Health History Review</li>
+                                <li>Comprehensive Physical Exam</li>
+                                <li>Report of Clinical Findings</li>
+                                <li>Initial Chiropractic Adjustment</li>
+                                <li>Personalized Treatment Plan</li>
+                            </ul>
+                        </div>
+                        <div
+                            style="flex: 1; min-width: 200px; background: var(--oatmeal); padding: 20px; border-radius: 8px; text-align: center;">
+                            <span
+                                style="font-size: 12px; font-weight: bold; color: var(--forest-green);">DURATION</span>
+                            <div style="font-size: 24px; font-weight: bold;">45–60 Mins</div>
+                            <p style="font-size: 12px; color: var(--text-light); margin-top: 10px;">Please arrive 10
+                                minutes early to complete check-in.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </main>
 
-    <footer class="py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
-                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="font-serif"
+                        style="font-weight: bold; color: var(--forest-green); font-size: 18px; margin-bottom: 15px;">
+                        HealthySticks</div>
+                    <p style="color: var(--text-light); line-height: 1.4;">Nature-rooted, science-refined wellness in
+                        Lombard, IL.</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
-                    <div class="text-sm text-gray-500 space-y-2">
-                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
-                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
-                    </div>
+                <div class="footer-col">
+                    <h4 style="margin-top: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Location
+                    </h4>
+                    <p style="color: var(--text-light);">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
-                    <div class="text-sm text-gray-500 space-y-1">
-                        <p>Monday: 8:30am – 11am</p>
-                        <p>Tuesday: Closed</p>
-                        <p>Wednesday: 5pm – 7pm</p>
-                        <p>Friday: 2pm – 7pm</p>
-                    </div>
+                <div class="footer-col">
+                    <h4 style="margin-top: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Contact
+                    </h4>
+                    <p style="color: var(--text-light);">(630) 447-9857<br>questions@healthysticks.life</p>
                 </div>
             </div>
-            <div class="border-t border-gray-100 pt-8">
-                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Please consult a licensed physician for all medical concerns, emergencies, and routine care. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
-                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. All rights reserved.</p>
+            <div style="border-top: 1px solid #eee; pt-20px; text-align: center; padding-top: 20px;">
+                <p style="font-size: 10px; color: #aaa; max-width: 800px; margin: 0 auto 15px;">
+                    Information offered is for wellness education only. Naturopathic doctors are not licensed medical
+                    providers in Illinois. Dr. Alwazan is a licensed Naturopathic Physician in DC and a licensed
+                    Chiropractic Physician in IL.
+                </p>
+                <p style="color: var(--text-light); margin: 0;">&copy; 2026 Healthy Sticks PLLC. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
-    <script src="/main.js"></script>
+
 </body>
+
 </html>
