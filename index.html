@@ -6,242 +6,880 @@
     <meta name="wb:op" content="ef6bb0f5a2fb6340c7058c04c66edb20"/>
     <title>HealthySticks | Raíces Naturales. Ciencia Refinada.</title>
     <meta name="description" content="HealthySticks - Simplifique su camino hacia el bienestar con soluciones holísticas basadas en la ciencia.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
-                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
-                    borderRadius: { 'card': '12px' },
-                    boxShadow: {
-                        'soft-elevation': '0 4px 20px -2px rgba(0, 0, 0, 0.05)'
-                    }
-                }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --oatmeal: #F8F5F2;
+            --forest-green: #4A7C59;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--oatmeal);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== LAYOUT CONTAINERS ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .container-narrow {
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            background-color: rgba(248, 245, 242, 0.95);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: block;
+            text-align: center;
+        }
+
+        .site-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--forest-green);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .main-nav {
+            display: block;
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+            padding: 8px 12px;
+            margin: 4px;
+        }
+
+        .nav-link:hover {
+            color: var(--forest-green);
+        }
+
+        .nav-link-active {
+            font-weight: 700;
+            color: var(--forest-green);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--forest-green);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin: 4px;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid var(--forest-green);
+            color: var(--forest-green);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 50px;
+            margin: 4px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--forest-green);
+            color: var(--white);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding-top: 48px;
+            padding-bottom: 80px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            text-align: center;
+            padding: 48px 0 64px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 48px;
+        }
+
+        /* ===== SERVICE CARDS ===== */
+        .services-grid {
+            display: block;
+            margin-top: 48px;
+        }
+
+        .service-card {
+            display: block;
+            background-color: var(--white);
+            border: 1px solid var(--gray-50);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card-title {
+            font-size: 20px;
+            color: var(--forest-green);
+            margin-bottom: 8px;
+        }
+
+        .service-card-text {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 16px;
+        }
+
+        .service-card-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--forest-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-50);
+            border-bottom: 1px solid var(--gray-50);
+            padding: 96px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--gray-900);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            color: var(--gray-600);
+            text-align: center;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .feature-block {
+            display: block;
+            margin-bottom: 32px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* ===== FIVE PILLARS SECTION ===== */
+        .pillars-box {
+            background-color: rgba(248, 245, 242, 0.5);
+            border-radius: 12px;
+            padding: 48px 32px;
+        }
+
+        .pillars-title {
+            font-size: 20px;
+            color: var(--forest-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 48px;
+        }
+
+        .pillars-grid {
+            display: block;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .pillar-item {
+            display: inline-block;
+            margin: 16px 24px;
+            text-align: center;
+        }
+
+        .pillar-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pillar-subtitle {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-400);
+        }
+
+        .pillar-line {
+            width: 48px;
+            height: 4px;
+            background-color: rgba(74, 124, 89, 0.2);
+            border-radius: 2px;
+            margin: 8px auto 0;
+        }
+
+        .pillars-quote {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: var(--forest-green);
+            border-top: 1px solid var(--gray-100);
+            padding-top: 40px;
+            margin-top: 40px;
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits-section {
+            background-color: var(--oatmeal);
+            padding: 96px 0;
+        }
+
+        .benefits-grid {
+            display: block;
+        }
+
+        .benefit-card {
+            display: block;
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background-color: rgba(74, 124, 89, 0.1);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: block;
+        }
+
+        .benefit-icon svg {
+            width: 32px;
+            height: 32px;
+            margin-top: 16px;
+            color: var(--forest-green);
+        }
+
+        .benefit-title {
+            font-size: 20px;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .benefit-text {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-section {
+            background-color: var(--white);
+            padding: 96px 0;
+        }
+
+        .testimonials-grid {
+            display: block;
+        }
+
+        .testimonial-card {
+            display: block;
+            background-color: rgba(248, 245, 242, 0.3);
+            border: 1px solid var(--gray-100);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-quote {
+            font-size: 60px;
+            color: rgba(74, 124, 89, 0.1);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin-bottom: -20px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            font-size: 12px;
+            font-weight: 700;
+            font-style: normal;
+            color: var(--forest-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: right;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background-color: var(--forest-green);
+            color: var(--white);
+            padding: 96px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 48px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--forest-green);
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 40px;
+            border-radius: 50px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--gray-100);
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-100);
+            padding: 64px 0;
+        }
+
+        .footer-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .footer-col {
+            display: block;
+            margin-bottom: 32px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gray-900);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .footer-contact-item {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--forest-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-100);
+            padding-top: 32px;
+        }
+
+        .footer-disclaimer {
+            font-size: 12px;
+            color: var(--gray-400);
+            line-height: 1.7;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 24px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--gray-500);
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE - TABLET & DESKTOP ===== */
+        @media (min-width: 768px) {
+            .header-inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .site-logo {
+                margin-bottom: 0;
+            }
+
+            .hero-title {
+                font-size: 56px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .services-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .service-card {
+                width: calc(33.333% - 16px);
+                margin-bottom: 0;
+            }
+
+            .section-title {
+                font-size: 40px;
+            }
+
+            .features-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 48px;
+            }
+
+            .feature-block {
+                width: calc(50% - 24px);
+                margin-bottom: 0;
+            }
+
+            .benefits-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .benefit-card {
+                width: calc(33.333% - 16px);
+                margin-bottom: 0;
+            }
+
+            .testimonials-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .testimonial-card {
+                width: calc(33.333% - 16px);
+                margin-bottom: 0;
+            }
+
+            .cta-title {
+                font-size: 40px;
+            }
+
+            .footer-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 48px;
+            }
+
+            .footer-col {
+                width: calc(33.333% - 32px);
+                margin-bottom: 0;
             }
         }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-    <style>
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ===== ANIMATION ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-<body class="bg-oatmeal font-sans text-gray-900">
+<body>
 
-    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="./" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="./" class="text-sm font-bold text-forest-green">Inicio</a>
-                <a href="./Sample-Collection/" class="text-sm font-medium hover:text-forest-green">Examen Médico del DOT</a>
-                <a href="./Quiropractica/" class="text-sm font-medium hover:text-forest-green">Quiropráctica</a>
-                <a href="./Acupuntura/" class="text-sm font-medium hover:text-forest-green">Acupuntura</a>
-                <a href="./Naturopatia/" class="text-sm font-medium hover:text-forest-green">Naturopatía</a>
-                <a href="./Microneedling/" class="text-sm font-medium hover:text-forest-green">Micropunción</a>
-                <a href="./Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contacto</a>
-                <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" rel="noopener noreferrer" class="text-xs font-bold bg-forest-green text-white px-4 py-1.5 rounded-full hover:bg-forest-green/90 transition-all">Portal del Paciente</a>
-                <a href="./en/" class="text-xs font-bold border border-forest-green px-3 py-1 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
-            </nav>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+
+                <a href="./" class="site-logo">HealthySticks</a>
+
+                <nav class="main-nav">
+                    <a href="./" class="nav-link nav-link-active">Inicio</a>
+                    <a href="./Sample-Collection/" class="nav-link">Examen Medico del DOT</a>
+                    <a href="./Quiropractica/" class="nav-link">Quiropractica</a>
+                    <a href="./Acupuntura/" class="nav-link">Acupuntura</a>
+                    <a href="./Naturopatia/" class="nav-link">Naturopatia</a>
+                    <a href="./Microneedling/" class="nav-link">Micropuncion</a>
+                    <a href="./Contact-Us/" class="nav-link">Contacto</a>
+                    <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" rel="noopener noreferrer" class="btn-primary">Portal del Paciente</a>
+                    <a href="./en/" class="btn-outline">EN</a>
+                </nav>
+
+            </div>
         </div>
     </header>
 
-    <main class="pt-32 pb-20">
-        <!-- Sección Hero -->
-        <section class="container mx-auto px-6 text-center mb-32 fade-in">
-            <h1 class="text-4xl md:text-7xl font-bold font-serif mb-6 text-gray-900 leading-tight">Raíces Naturales.<br>Ciencia Refinada.</h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Simplifique su camino hacia el bienestar con HealthySticks. Unimos la sabiduría antigua y la ciencia de precisión moderna para ayudarle a prosperar.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
-                <a href="./Quiropractica/" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
-                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Quiropráctica</h3>
-                    <p class="text-sm text-gray-500 mb-4">Ajustes espinales de precisión para una salud óptima.</p>
-                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Saber Más →</span>
-                </a>
-                <a href="./Naturopatia/" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
-                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Naturopatía</h3>
-                    <p class="text-sm text-gray-500 mb-4">Medicina natural basada en la evidencia.</p>
-                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Saber Más →</span>
-                </a>
-                <a href="./Microneedling/" class="bg-white p-8 rounded-card shadow-soft-elevation hover:shadow-md transition-all group border border-gray-50">
-                    <h3 class="text-xl font-bold font-serif mb-2 text-forest-green">Micropunción</h3>
-                    <p class="text-sm text-gray-500 mb-4">Tratamientos avanzados para la renovación de la piel.</p>
-                    <span class="text-forest-green text-xs font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform inline-block">Saber Más →</span>
-                </a>
-            </div>
-        </section>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
 
-        <!-- Sección Sobre Nosotros -->
-        <section class="bg-white py-24 border-y border-gray-50">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8 text-gray-900">Nuestra Historia</h2>
-                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
-                        En HealthySticks, nos dedicamos a cerrar la brecha entre la antigua sabiduría botánica y la ciencia de precisión moderna. Nuestra misión es simplificar su viaje de bienestar con soluciones basadas en la evidencia que tratan a la persona en su totalidad, no solo los síntomas.
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-                        <div>
-                            <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Sanación Integral</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Tratamos las causas raíz de los problemas de piel y salud, no solo los síntomas. Nuestros profesionales utilizan acupuntura, medicina herbal y micropunción para restaurar la armonía dentro de su cuerpo, logrando resultados duraderos.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Tratamientos Personalizados</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Cada individuo es único, y también lo son nuestros planes de tratamiento. Adaptamos nuestros servicios para satisfacer sus necesidades específicas, asegurando los mejores resultados posibles para su piel y salud.
-                            </p>
-                        </div>
-                    </div>
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero-section fade-in">
+            <div class="container">
+
+                <h1 class="hero-title">Raices Naturales.<br>Ciencia Refinada.</h1>
+
+                <p class="hero-subtitle">Simplifique su camino hacia el bienestar con HealthySticks. Unimos la sabiduria antigua y la ciencia de precision moderna para ayudarle a prosperar.</p>
+
+                <div class="services-grid">
+
+                    <a href="./Quiropractica/" class="service-card">
+                        <h3 class="service-card-title">Quiropractica</h3>
+                        <p class="service-card-text">Ajustes espinales de precision para una salud optima.</p>
+                        <span class="service-card-link">Saber Mas →</span>
+                    </a>
+
+                    <a href="./Naturopatia/" class="service-card">
+                        <h3 class="service-card-title">Naturopatia</h3>
+                        <p class="service-card-text">Medicina natural basada en la evidencia.</p>
+                        <span class="service-card-link">Saber Mas →</span>
+                    </a>
+
+                    <a href="./Microneedling/" class="service-card">
+                        <h3 class="service-card-title">Micropuncion</h3>
+                        <p class="service-card-text">Tratamientos avanzados para la renovacion de la piel.</p>
+                        <span class="service-card-link">Saber Mas →</span>
+                    </a>
+
                 </div>
 
-                <!-- Sección de Los Cinco Pilares -->
-                <div class="bg-oatmeal/50 rounded-card p-10 md:p-16 shadow-inner fade-in">
-                    <h3 class="text-2xl font-bold font-serif text-center mb-12 text-forest-green uppercase tracking-widest">Los Cinco Pilares de la Salud</h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-2">Nutrición</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section class="about-section">
+            <div class="container-narrow">
+
+                <div class="fade-in">
+
+                    <h2 class="section-title">Nuestra Historia</h2>
+
+                    <p class="section-intro">En HealthySticks, nos dedicamos a cerrar la brecha entre la antigua sabiduria botanica y la ciencia de precision moderna. Nuestra mision es simplificar su viaje de bienestar con soluciones basadas en la evidencia que tratan a la persona en su totalidad, no solo los sintomas.</p>
+
+                    <div class="features-grid">
+
+                        <div class="feature-block">
+                            <h3 class="feature-title">Sanacion Integral</h3>
+                            <p class="feature-text">Tratamos las causas raiz de los problemas de piel y salud, no solo los sintomas. Nuestros profesionales utilizan acupuntura, medicina herbal y micropuncion para restaurar la armonia dentro de su cuerpo, logrando resultados duraderos.</p>
                         </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-2">Acupuntura</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
+
+                        <div class="feature-block">
+                            <h3 class="feature-title">Tratamientos Personalizados</h3>
+                            <p class="feature-text">Cada individuo es unico, y tambien lo son nuestros planes de tratamiento. Adaptamos nuestros servicios para satisfacer sus necesidades especificas, asegurando los mejores resultados posibles para su piel y salud.</p>
                         </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-2">Hierbas</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
+
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-1">Tuina</div>
-                            <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">(Trabajo Corporal)</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-xl font-bold mb-1">Qi Gong</div>
-                            <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">(Movimiento Corporal)</div>
-                            <div class="w-12 h-1 bg-forest-green/20 mx-auto rounded-full"></div>
-                        </div>
-                    </div>
-
-                    <p class="text-center text-forest-green font-serif italic text-xl border-t border-gray-100 pt-10">
-                        "Los Cinco Pilares apoyan el equilibrio y el flujo suave de la energía"
-                    </p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Sección Experimente los Beneficios -->
-        <section class="py-24 bg-oatmeal">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-5xl font-bold font-serif text-center mb-16 text-gray-900">Experimente los Beneficios</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="bg-white p-8 rounded-card shadow-sm text-center">
-                        <div class="w-16 h-16 bg-forest-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="h-8 w-8 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <!-- ===== FIVE PILLARS ===== -->
+                <div class="pillars-box fade-in">
+
+                    <h3 class="pillars-title">Los Cinco Pilares de la Salud</h3>
+
+                    <div class="pillars-grid">
+
+                        <div class="pillar-item">
+                            <div class="pillar-name">Nutricion</div>
+                            <div class="pillar-line"></div>
                         </div>
-                        <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Apariencia de la Piel Mejorada</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Reduzca líneas finas, arrugas, cicatrices e hiperpigmentación con nuestras avanzadas técnicas de micropunción.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-card shadow-sm text-center">
-                        <div class="w-16 h-16 bg-forest-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="h-8 w-8 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+
+                        <div class="pillar-item">
+                            <div class="pillar-name">Acupuntura</div>
+                            <div class="pillar-line"></div>
                         </div>
-                        <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Salud Mejorada</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Refuerce su sistema inmunológico, reduzca el estrés y mejore la vitalidad general con nuestros tratamientos holísticos de MTC.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-card shadow-sm text-center">
-                        <div class="w-16 h-16 bg-forest-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="h-8 w-8 text-forest-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+
+                        <div class="pillar-item">
+                            <div class="pillar-name">Hierbas</div>
+                            <div class="pillar-line"></div>
                         </div>
-                        <h3 class="text-xl font-bold font-serif mb-4 text-forest-green">Atención Personalizada</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Disfrute de un ambiente sereno y de apoyo donde sus objetivos de salud y belleza son nuestra máxima prioridad.</p>
+
+                        <div class="pillar-item">
+                            <div class="pillar-name">Tuina</div>
+                            <div class="pillar-subtitle">(Trabajo Corporal)</div>
+                            <div class="pillar-line"></div>
+                        </div>
+
+                        <div class="pillar-item">
+                            <div class="pillar-name">Qi Gong</div>
+                            <div class="pillar-subtitle">(Movimiento Corporal)</div>
+                            <div class="pillar-line"></div>
+                        </div>
+
                     </div>
+
+                    <p class="pillars-quote">"Los Cinco Pilares apoyan el equilibrio y el flujo suave de la energia"</p>
+
                 </div>
+
             </div>
         </section>
 
-        <!-- Sección de Testimonios -->
-        <section class="py-24 bg-white overflow-hidden">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-5xl font-bold font-serif text-center mb-16 text-gray-900">Lo Que Dicen Nuestros Clientes</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-oatmeal/30 p-8 rounded-card border border-gray-100 italic text-gray-700 relative">
-                        <span class="absolute top-4 left-4 text-6xl text-forest-green/10 font-serif">"</span>
-                        <p class="relative z-10 mb-6 text-sm">
-                            Tuve el placer de que la Dra. Alwazan hiciera visitas domiciliarias para tratarnos a mi madre y a mí. Fue empática, sabe escuchar y tiene un gran conocimiento. Brindó educación durante nuestros tratamientos, así como tareas para asegurar que sus tratamientos estuvieran funcionando. Por último, su espíritu fue grandioso y eso marca la diferencia cuando estás sanando tu cuerpo de manera holística. Definitivamente recomendaría sus servicios. 10/10.
-                        </p>
-                        <div class="not-italic font-bold text-forest-green text-right text-sm uppercase tracking-widest">— FB</div>
+        <!-- ===== BENEFITS SECTION ===== -->
+        <section class="benefits-section">
+            <div class="container">
+
+                <h2 class="section-title fade-in">Experimente los Beneficios</h2>
+
+                <div class="benefits-grid">
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="benefit-title">Apariencia de la Piel Mejorada</h3>
+                        <p class="benefit-text">Reduzca lineas finas, arrugas, cicatrices e hiperpigmentacion con nuestras avanzadas tecnicas de micropuncion.</p>
                     </div>
-                    <div class="bg-oatmeal/30 p-8 rounded-card border border-gray-100 italic text-gray-700 relative">
-                        <span class="absolute top-4 left-4 text-6xl text-forest-green/10 font-serif">"</span>
-                        <p class="relative z-10 mb-6 text-sm">
-                            La Dra. Tiffani es una de las mejores doctoras naturales con las que he trabajado; tiene mucho conocimiento sobre su profesión y se toma el tiempo para explicar realmente lo que está sucediendo en su cuerpo y cómo usted mismo puede sanar con remedios naturales. La Dra. Tiffani se toma el tiempo para conocer a sus pacientes y así poder entender mejor lo que necesitan. Recomiendo mucho tener a la Dra. Tiffani en su equipo porque siento que, si no lo hace, podría arrepentirse a largo plazo.
-                        </p>
-                        <div class="not-italic font-bold text-forest-green text-right text-sm uppercase tracking-widest">— ES</div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <h3 class="benefit-title">Salud Mejorada</h3>
+                        <p class="benefit-text">Refuerce su sistema inmunologico, reduzca el estres y mejore la vitalidad general con nuestros tratamientos holisticos de MTC.</p>
                     </div>
-                    <div class="bg-oatmeal/30 p-8 rounded-card border border-gray-100 italic text-gray-700 relative">
-                        <span class="absolute top-4 left-4 text-6xl text-forest-green/10 font-serif">"</span>
-                        <p class="relative z-10 mb-6 text-sm">
-                            La Dra. Alwazan respondió a mis preguntas sobre la salud del paciente. Explicó el uso de medicamentos naturales recomendados para mejorar la salud del paciente. La Dra. Alwazan tiene numerosos títulos médicos y es capaz de brindar diferentes tipos de atención médica.
-                        </p>
-                        <div class="not-italic font-bold text-forest-green text-right text-sm uppercase tracking-widest">— YB</div>
+
+                    <div class="benefit-card fade-in">
+                        <div class="benefit-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3 class="benefit-title">Atencion Personalizada</h3>
+                        <p class="benefit-text">Disfrute de un ambiente sereno y de apoyo donde sus objetivos de salud y belleza son nuestra maxima prioridad.</p>
                     </div>
+
                 </div>
+
             </div>
         </section>
 
-        <!-- Sección CTA Exámenes para Conductores -->
-        <section class="py-24 bg-forest-green text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8">Exámenes Médicos Especializados</h2>
-                <p class="text-lg md:text-xl opacity-90 mb-12 max-w-2xl mx-auto">
-                    Proporcionamos pruebas médicas certificadas y recolección de muestras para camioneros y profesionales del transporte. 
-                    Vuelva a la carretera más rápido con nuestro servicio profesional y simplificado.
-                </p>
-                <a href="./Sample-Collection/" class="bg-white text-forest-green px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition-all uppercase tracking-widest">
-                    Exámenes Médicos del DOT
-                </a>
+        <!-- ===== TESTIMONIALS SECTION ===== -->
+        <section class="testimonials-section">
+            <div class="container">
+
+                <h2 class="section-title fade-in">Lo Que Dicen Nuestros Clientes</h2>
+
+                <div class="testimonials-grid">
+
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">Tuve el placer de que la Dra. Alwazan hiciera visitas domiciliarias para tratarnos a mi madre y a mi. Fue empatica, sabe escuchar y tiene un gran conocimiento. Brindo educacion durante nuestros tratamientos, asi como tareas para asegurar que sus tratamientos estuvieran funcionando. Por ultimo, su espiritu fue grandioso y eso marca la diferencia cuando estas sanando tu cuerpo de manera holistica. Definitivamente recomendaria sus servicios. 10/10.</p>
+                        <div class="testimonial-author">— FB</div>
+                    </div>
+
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">La Dra. Tiffani es una de las mejores doctoras naturales con las que he trabajado; tiene mucho conocimiento sobre su profesion y se toma el tiempo para explicar realmente lo que esta sucediendo en su cuerpo y como usted mismo puede sanar con remedios naturales. La Dra. Tiffani se toma el tiempo para conocer a sus pacientes y asi poder entender mejor lo que necesitan. Recomiendo mucho tener a la Dra. Tiffani en su equipo porque siento que, si no lo hace, podria arrepentirse a largo plazo.</p>
+                        <div class="testimonial-author">— ES</div>
+                    </div>
+
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">La Dra. Alwazan respondio a mis preguntas sobre la salud del paciente. Explico el uso de medicamentos naturales recomendados para mejorar la salud del paciente. La Dra. Alwazan tiene numerosos titulos medicos y es capaz de brindar diferentes tipos de atencion medica.</p>
+                        <div class="testimonial-author">— YB</div>
+                    </div>
+
+                </div>
+
             </div>
         </section>
+
+        <!-- ===== CTA SECTION ===== -->
+        <section class="cta-section">
+            <div class="container">
+
+                <h2 class="cta-title fade-in">Examenes Medicos Especializados</h2>
+
+                <p class="cta-text fade-in">Proporcionamos pruebas medicas certificadas y recoleccion de muestras para camioneros y profesionales del transporte. Vuelva a la carretera mas rapido con nuestro servicio profesional y simplificado.</p>
+
+                <a href="./Sample-Collection/" class="cta-button fade-in">Examenes Medicos del DOT</a>
+
+            </div>
+        </section>
+
     </main>
 
-    <footer class="py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
-                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Bienestar con raíces naturales y ciencia refinada en Lombard, IL.</p>
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <div class="footer-logo">HealthySticks</div>
+                    <p class="footer-description">Healthy Sticks PLLC- Practice — Bienestar con raices naturales y ciencia refinada en Lombard, IL.</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contacto</h4>
-                    <div class="text-sm text-gray-500 space-y-2">
-                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                        <p><a href="tel:+16304479857" class="hover:text-forest-green transition-colors">(630) 447-9857</a></p>
-                        <p><a href="mailto:questions@healthysticks.life" class="hover:text-forest-green transition-colors">questions@healthysticks.life</a></p>
-                    </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contacto</h4>
+                    <p class="footer-contact-item">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                    <p class="footer-contact-item"><a href="tel:+16304479857">(630) 447-9857</a></p>
+                    <p class="footer-contact-item"><a href="mailto:questions@healthysticks.life">questions@healthysticks.life</a></p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Horario</h4>
-                    <div class="text-sm text-gray-500 space-y-1">
-                        <p>Lunes: 8:30am – 11am</p>
-                        <p>Martes: Cerrado</p>
-                        <p>Miércoles: 5pm – 7pm</p>
-                        <p>Viernes: 2pm – 7pm</p>
-                    </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Horario</h4>
+                    <p class="footer-contact-item">Lunes: 8:30am – 11am</p>
+                    <p class="footer-contact-item">Martes: Cerrado</p>
+                    <p class="footer-contact-item">Miercoles: 5pm – 7pm</p>
+                    <p class="footer-contact-item">Viernes: 2pm – 7pm</p>
                 </div>
+
             </div>
-            <div class="border-t border-gray-100 pt-8">
-                <p class="text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto text-center mb-6">La información y los servicios ofrecidos en este sitio web son únicamente para educación sobre bienestar y apoyo al estilo de vida, y no sustituyen el diagnóstico ni el tratamiento médico. Consulte a un médico licenciado para todas las preocupaciones médicas, emergencias y atención de rutina. Los médicos naturópatas no son proveedores médicos licenciados en Illinois. Nuestra doctora es Médica Naturópata licenciada en el Distrito de Columbia y Quiropráctico licenciada en Illinois.</p>
-                <p class="text-sm text-gray-500 text-center">&copy; 2026 Healthy Sticks PLLC- Practice. Todos los derechos reservados.</p>
+
+            <div class="footer-bottom">
+                <p class="footer-disclaimer">La informacion y los servicios ofrecidos en este sitio web son unicamente para educacion sobre bienestar y apoyo al estilo de vida, y no sustituyen el diagnostico ni el tratamiento medico. Consulte a un medico licenciado para todas las preocupaciones medicas, emergencias y atencion de rutina. Los medicos naturopaticos no son proveedores medicos licenciados en Illinois. Nuestra doctora es Medica Naturopata licenciada en el Distrito de Columbia y Quiropractico licenciada en Illinois.</p>
+                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC- Practice. Todos los derechos reservados.</p>
             </div>
+
         </div>
     </footer>
 
-    <script src="/main.js"></script>
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(function(el) {
+                observer.observe(el);
+            });
+        });
+    </script>
+
 </body>
 </html>
