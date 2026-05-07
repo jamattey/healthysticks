@@ -1,221 +1,631 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidado Quiropráctico | HealthySticks</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
-                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
-                    borderRadius: { 'card': '16px' },
-                    boxShadow: { 'soft': '0 4px 20px -2px rgba(74, 124, 89, 0.08)' }
-                }
-            }
-        }
-    </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
+    <title>Cuidado Quiropractico | HealthySticks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --oatmeal: #F8F5F2;
+            --forest-green: #4A7C59;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+        }
+
+        /* ===== BASE STYLES ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--oatmeal);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            background-color: rgba(248, 245, 242, 0.95);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: block;
+            text-align: center;
+        }
+
+        .site-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--forest-green);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            padding: 8px 12px;
+            margin: 4px;
+        }
+
+        .nav-link:hover {
+            color: var(--forest-green);
+        }
+
+        .nav-link-active {
+            font-weight: 700;
+            color: var(--forest-green);
+        }
+
+        .btn-lang {
+            display: inline-block;
+            border: 1px solid var(--forest-green);
+            color: var(--forest-green);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin: 4px;
+        }
+
+        .btn-lang:hover {
+            background-color: var(--forest-green);
+            color: var(--white);
+        }
+
+        /* ===== HERO ===== */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .hero-tagline {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .hero-quote {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== BENEFITS & CTA GRID ===== */
+        .benefits-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .benefits-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--gray-100);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            margin-bottom: 24px;
+        }
+
+        .benefits-title {
+            font-size: 22px;
+            color: var(--forest-green);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .benefits-list {
+            display: block;
+        }
+
+        .benefit-item {
+            margin-bottom: 20px;
+        }
+
+        .benefit-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .benefit-desc {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .cta-card {
+            background-color: var(--forest-green);
+            color: var(--white);
+            padding: 48px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .cta-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .cta-text {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--forest-green);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 40px;
+            border-radius: 50px;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--oatmeal);
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing-box {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gray-100);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .pricing-header {
+            background-color: var(--gray-50);
+            padding: 48px;
+            border-bottom: 1px solid var(--gray-100);
+            text-align: center;
+        }
+
+        .pricing-header-title {
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
+
+        .pricing-cards {
+            display: block;
+        }
+
+        .price-card {
+            border: 1px solid var(--gray-100);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 12px;
+        }
+
+        .price-card-featured {
+            border-color: var(--forest-green);
+            background-color: rgba(74, 124, 89, 0.05);
+        }
+
+        .price-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--forest-green);
+            margin-bottom: 8px;
+        }
+
+        .price-label-gray {
+            color: var(--gray-400);
+        }
+
+        .price-value {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .price-desc {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        .pricing-content {
+            padding: 48px;
+        }
+
+        .pricing-content-title {
+            font-size: 22px;
+            margin-bottom: 24px;
+        }
+
+        .expect-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .expect-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .expect-number {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(74, 124, 89, 0.1);
+            color: var(--forest-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .expect-text {
+            font-size: 15px;
+            color: var(--gray-600);
+        }
+
+        .expect-text strong {
+            color: var(--gray-900);
+        }
+
+        .duration-box {
+            background-color: var(--oatmeal);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--gray-100);
+        }
+
+        .duration-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--forest-green);
+            margin-bottom: 8px;
+        }
+
+        .duration-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .duration-note {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--gray-500);
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-100);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .footer-col {
+            display: block;
+            margin-bottom: 32px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--gray-500);
+        }
+
+        .footer-heading {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .footer-hours {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--gray-500);
+            padding-bottom: 4px;
+            margin-bottom: 4px;
+            border-bottom: 1px solid var(--gray-50);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-100);
+            padding-top: 32px;
+            text-align: center;
+        }
+
+        .footer-disclaimer {
+            font-size: 11px;
+            color: var(--gray-400);
+            max-width: 800px;
+            margin: 0 auto 24px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 768px) {
+            .header-inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .site-logo {
+                margin-bottom: 0;
             }
-        }
 
-        .animate-fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
+            .hero-title {
+                font-size: 48px;
+            }
 
-        .stagger-1 {
-            animation-delay: 0.1s;
-        }
+            .benefits-grid {
+                display: flex;
+                gap: 24px;
+            }
 
-        .stagger-2 {
-            animation-delay: 0.2s;
-        }
+            .benefits-card {
+                flex: 1;
+                margin-bottom: 0;
+            }
 
-        html {
-            scroll-behavior: smooth;
+            .cta-card {
+                flex: 1;
+                margin-bottom: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .benefits-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .benefit-item {
+                width: calc(50% - 12px);
+                margin-bottom: 0;
+            }
+
+            .pricing-cards {
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+            }
+
+            .price-card {
+                min-width: 200px;
+                margin: 0;
+            }
+
+            .pricing-content-inner {
+                display: flex;
+                gap: 48px;
+                align-items: flex-start;
+            }
+
+            .expect-section {
+                flex: 2;
+            }
+
+            .duration-box {
+                flex: 1;
+            }
+
+            .footer-grid {
+                display: flex;
+                gap: 48px;
+            }
+
+            .footer-col {
+                flex: 1;
+                margin-bottom: 0;
+            }
         }
     </style>
 </head>
+<body>
 
-<body class="bg-oatmeal font-sans text-gray-800 antialiased">
-
-    <!-- Header Modular -->
-    <header class="fixed top-0 inset-x-0 z-50 bg-oatmeal/95 backdrop-blur-md border-b border-gray-200/50">
-        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="../"
-                class="text-2xl font-bold font-serif text-forest-green hover:opacity-80 transition-opacity">HealthySticks</a>
-
-            <nav class="hidden lg:flex items-center gap-x-8">
-                <a href="../" class="text-sm font-medium hover:text-forest-green transition-colors">Inicio</a>
-                <a href="../Sample-Collection/"
-                    class="text-sm font-medium hover:text-forest-green transition-colors">DOT</a>
-                <a href="./"
-                    class="text-sm font-bold text-forest-green border-b-2 border-forest-green pb-1">Quiropráctica</a>
-                <a href="../Acupuntura/"
-                    class="text-sm font-medium hover:text-forest-green transition-colors">Acupuntura</a>
-                <a href="../Naturopatia/"
-                    class="text-sm font-medium hover:text-forest-green transition-colors">Naturopatía</a>
-                <a href="../Contact-Us/"
-                    class="text-sm font-medium hover:text-forest-green transition-colors">Contacto</a>
-                <a href="../en/"
-                    class="ml-4 text-xs font-bold border border-forest-green px-4 py-1.5 rounded-full text-forest-green hover:bg-forest-green hover:text-white transition-all">EN</a>
-            </nav>
-
-            <button class="lg:hidden p-2 text-forest-green">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="../" class="site-logo">HealthySticks</a>
+                <nav>
+                    <a href="../" class="nav-link">Inicio</a>
+                    <a href="../Sample-Collection/" class="nav-link">DOT</a>
+                    <a href="./" class="nav-link nav-link-active">Quiropractica</a>
+                    <a href="../Acupuntura/" class="nav-link">Acupuntura</a>
+                    <a href="../Naturopatia/" class="nav-link">Naturopatia</a>
+                    <a href="../Contact-Us/" class="nav-link">Contacto</a>
+                    <a href="../en/" class="btn-lang">EN</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main class="pt-32 pb-24">
+    <!-- MAIN CONTENT -->
+    <main>
         <!-- Hero Section -->
-        <section class="container mx-auto px-6 max-w-5xl text-center mb-20 animate-fade-in">
-            <span class="inline-block text-xs uppercase tracking-[0.4em] text-forest-green font-bold mb-4">Alineación •
-                Alivio • Movilidad</span>
-            <h1 class="text-4xl md:text-6xl font-bold font-serif mb-8 text-gray-900 leading-tight">Cuidado Quiropráctico
-                con un Enfoque Suave</h1>
-            <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto italic">
-                "Restaurando la función de su sistema nervioso para que pueda volver a lo que ama."
-            </p>
+        <section class="hero-section">
+            <div class="container">
+                <p class="hero-tagline">Alineacion - Alivio - Movilidad</p>
+                <h1 class="hero-title">Cuidado Quiropractico con un Enfoque Suave</h1>
+                <p class="hero-quote">"Restaurando la funcion de su sistema nervioso para que pueda volver a lo que ama."</p>
+            </div>
         </section>
 
-        <!-- Grid de Beneficios y CTA -->
-        <section class="container mx-auto px-6 max-w-6xl mb-24 animate-fade-in stagger-1">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Beneficios -->
-                <div class="bg-white p-10 md:p-12 rounded-card shadow-soft border border-gray-100">
-                    <h2 class="text-2xl font-bold font-serif mb-8 text-forest-green flex items-center gap-3">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Beneficios del Ajuste
-                    </h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-gray-900">Salud Atlética</h4>
-                            <p class="text-sm text-gray-500">Recuperación optimizada y prevención de lesiones
-                                deportivas.</p>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-gray-900">Alineación</h4>
-                            <p class="text-sm text-gray-500">Corrección de desequilibrios espinales y mejora postural.
-                            </p>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-gray-900">Sistema Nervioso</h4>
-                            <p class="text-sm text-gray-500">Mejora la comunicación entre el cerebro y el cuerpo.</p>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-gray-900">Bienestar Mental</h4>
-                            <p class="text-sm text-gray-500">Reducción del estrés físico reflejado en el sistema
-                                nervioso.</p>
+        <!-- Benefits & CTA Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefits-card">
+                        <h2 class="benefits-title">
+                            <span>&#10003;</span>
+                            Beneficios del Ajuste
+                        </h2>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <div class="benefit-name">Salud Atletica</div>
+                                <p class="benefit-desc">Recuperacion optimizada y prevencion de lesiones deportivas.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-name">Alineacion</div>
+                                <p class="benefit-desc">Correccion de desequilibrios espinales y mejora postural.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-name">Sistema Nervioso</div>
+                                <p class="benefit-desc">Mejora la comunicacion entre el cerebro y el cuerpo.</p>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-name">Bienestar Mental</div>
+                                <p class="benefit-desc">Reduccion del estres fisico reflejado en el sistema nervioso.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- CTA Card -->
-                <div
-                    class="bg-forest-green text-white p-10 md:p-12 rounded-card shadow-lg flex flex-col justify-center relative overflow-hidden">
-                    <div class="relative z-10">
-                        <h2 class="text-3xl font-bold font-serif mb-4">Recupere su Vitalidad</h2>
-                        <p class="mb-10 text-white/80 text-lg">Sesiones personalizadas diseñadas para su anatomía y
-                            nivel de comodidad únicos.</p>
-                        <a href="../Contact-Us/"
-                            class="inline-block w-full bg-white text-forest-green text-center py-4 rounded-full font-bold hover:bg-oatmeal transition-all active:scale-95 shadow-md uppercase tracking-widest">
-                            RESERVAR AHORA
-                        </a>
-                    </div>
-                    <!-- Decoración visual -->
-                    <div class="absolute -bottom-10 -right-10 opacity-10">
-                        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"></path>
-                        </svg>
+                    <div class="cta-card">
+                        <h2 class="cta-title">Recupere su Vitalidad</h2>
+                        <p class="cta-text">Sesiones personalizadas disenadas para su anatomia y nivel de comodidad unicos.</p>
+                        <a href="../Contact-Us/" class="btn-cta">Reservar Ahora</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Precios y Experiencia -->
-        <section class="container mx-auto px-6 max-w-5xl animate-fade-in stagger-2">
-            <div class="bg-white rounded-card shadow-soft overflow-hidden border border-gray-100">
-                <div class="p-8 md:p-16 border-b border-gray-100 bg-gray-50/30">
-                    <h2 class="text-3xl font-bold font-serif mb-12 text-center text-gray-900">Inversión en su Salud</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div
-                            class="bg-white p-8 rounded-2xl border-2 border-forest-green/20 text-center transition-transform hover:scale-[1.02]">
-                            <span
-                                class="text-xs font-bold text-forest-green uppercase tracking-widest mb-2 block">Primera
-                                Visita</span>
-                            <div class="text-5xl font-bold text-gray-900 mb-2">$99</div>
-                            <p class="text-sm text-gray-500">Evaluación inicial completa y primer ajuste.</p>
-                        </div>
-                        <div
-                            class="bg-white p-8 rounded-2xl border border-gray-100 text-center transition-transform hover:scale-[1.02]">
-                            <span
-                                class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Seguimiento</span>
-                            <div class="text-5xl font-bold text-gray-900 mb-2">$45</div>
-                            <p class="text-sm text-gray-500">Ajuste de mantenimiento y terapia indicada.</p>
+        <!-- Pricing Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="pricing-box">
+                    <div class="pricing-header">
+                        <h2 class="pricing-header-title">Inversion en su Salud</h2>
+                        <div class="pricing-cards">
+                            <div class="price-card price-card-featured">
+                                <div class="price-label">Primera Visita</div>
+                                <div class="price-value">$99</div>
+                                <p class="price-desc">Evaluacion inicial completa y primer ajuste.</p>
+                            </div>
+                            <div class="price-card">
+                                <div class="price-label price-label-gray">Seguimiento</div>
+                                <div class="price-value">$45</div>
+                                <p class="price-desc">Ajuste de mantenimiento y terapia indicada.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="p-8 md:p-16">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold font-serif mb-6 text-gray-900">Su Primera Sesión</h3>
-                            <ul class="space-y-4">
-                                <li class="flex gap-4">
-                                    <span
-                                        class="flex-shrink-0 w-6 h-6 bg-forest-green/10 text-forest-green rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                                    <p class="text-gray-600"><strong class="text-gray-900">Consulta Profunda:</strong>
-                                        Revisión de su historia clínica y objetivos.</p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <span
-                                        class="flex-shrink-0 w-6 h-6 bg-forest-green/10 text-forest-green rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                                    <p class="text-gray-600"><strong class="text-gray-900">Examen Físico:</strong>
-                                        Evaluación quiropráctica integral.</p>
-                                </li>
-                                <li class="flex gap-4">
-                                    <span
-                                        class="flex-shrink-0 w-6 h-6 bg-forest-green/10 text-forest-green rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                                    <p class="text-gray-600"><strong class="text-gray-900">Plan de Acción:</strong>
-                                        Informe de hallazgos y tratamiento inmediato.</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="bg-oatmeal p-10 rounded-2xl border border-gray-100 text-center">
-                            <div
-                                class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-forest-green">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+                    <div class="pricing-content">
+                        <div class="pricing-content-inner">
+                            <div class="expect-section">
+                                <h3 class="pricing-content-title">Su Primera Sesion</h3>
+                                <ul class="expect-list">
+                                    <li class="expect-item">
+                                        <span class="expect-number">1</span>
+                                        <p class="expect-text"><strong>Consulta Profunda:</strong> Revision de su historia clinica y objetivos.</p>
+                                    </li>
+                                    <li class="expect-item">
+                                        <span class="expect-number">2</span>
+                                        <p class="expect-text"><strong>Examen Fisico:</strong> Evaluacion quiropractica integral.</p>
+                                    </li>
+                                    <li class="expect-item">
+                                        <span class="expect-number">3</span>
+                                        <p class="expect-text"><strong>Plan de Accion:</strong> Informe de hallazgos y tratamiento inmediato.</p>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="text-sm font-bold uppercase tracking-widest text-forest-green mb-1">Duración
-                                estimada</div>
-                            <div class="text-3xl font-bold text-gray-900 mb-4">45–60 min</div>
-                            <p class="text-xs text-gray-500 italic">Recomendamos llegar 10 minutos antes para completar
-                                su registro cómodamente.</p>
+                            <div class="duration-box">
+                                <div class="duration-label">Duracion estimada</div>
+                                <div class="duration-value">45-60 min</div>
+                                <p class="duration-note">Recomendamos llegar 10 minutos antes para completar su registro comodamente.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,51 +633,33 @@
         </section>
     </main>
 
-    <!-- Footer Modular -->
-    <footer class="bg-white border-t border-gray-100 pt-20 pb-10">
-        <div class="container mx-auto px-6 text-center md:text-left">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <div>
-                    <div class="font-serif font-bold text-forest-green text-2xl mb-6">HealthySticks</div>
-                    <p class="text-sm text-gray-500 leading-relaxed italic">"Bienestar con raíces naturales y ciencia
-                        refinada en Lombard, IL."</p>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">HealthySticks</div>
+                    <p class="footer-description">"Bienestar con raices naturales y ciencia refinada en Lombard, IL."</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-xs uppercase tracking-[0.2em] mb-6">Ubicación</h4>
-                    <address class="text-sm text-gray-500 not-italic space-y-2">
-                        <p>929 S Main St, Suite 101<br>Lombard, IL 60148</p>
-                        <p class="pt-2"><a href="tel:+16304479857"
-                                class="hover:text-forest-green transition-colors font-medium">(630) 447-9857</a></p>
-                    </address>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Ubicacion</h4>
+                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                    <p class="footer-text"><a href="tel:+16304479857">(630) 447-9857</a></p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-xs uppercase tracking-[0.2em] mb-6">Horario Clínico</h4>
-                    <div class="text-sm text-gray-500 space-y-2">
-                        <p class="flex justify-between md:justify-start md:gap-4 border-b border-gray-50 pb-1">
-                            <span>Lun:</span> <span>8:30am – 11am</span></p>
-                        <p
-                            class="flex justify-between md:justify-start md:gap-4 border-b border-gray-100 pb-1 font-medium text-gray-400">
-                            <span>Mar:</span> <span>Cerrado</span></p>
-                        <p class="flex justify-between md:justify-start md:gap-4 border-b border-gray-50 pb-1">
-                            <span>Mié:</span> <span>5pm – 7pm</span></p>
-                        <p class="flex justify-between md:justify-start md:gap-4 border-b border-gray-50 pb-1">
-                            <span>Vie:</span> <span>2pm – 7pm</span></p>
-                    </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Horario Clinico</h4>
+                    <div class="footer-hours"><span>Lun:</span> <span>8:30am - 11am</span></div>
+                    <div class="footer-hours"><span>Mar:</span> <span>Cerrado</span></div>
+                    <div class="footer-hours"><span>Mie:</span> <span>5pm - 7pm</span></div>
+                    <div class="footer-hours"><span>Vie:</span> <span>2pm - 7pm</span></div>
                 </div>
             </div>
-
-            <div class="border-t border-gray-100 pt-10">
-                <p class="text-[10px] md:text-xs text-gray-400 leading-relaxed max-w-4xl mx-auto mb-8">
-                    La información y los servicios ofrecidos son únicamente para educación sobre bienestar. Nuestra
-                    doctora es Médica Naturópata licenciada en el Distrito de Columbia y Quiropráctico licenciada en
-                    Illinois.
-                </p>
-                <p class="text-sm text-gray-500 uppercase tracking-widest">&copy; 2026 Healthy Sticks PLLC. Todos los
-                    derechos reservados.</p>
+            <div class="footer-bottom">
+                <p class="footer-disclaimer">La informacion y los servicios ofrecidos son unicamente para educacion sobre bienestar. Nuestra doctora es Medica Naturopata licenciada en el Distrito de Columbia y Quiropractico licenciada en Illinois.</p>
+                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
 </body>
-
 </html>

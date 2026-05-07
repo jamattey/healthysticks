@@ -4,171 +4,659 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microneedling | HealthySticks</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 'oatmeal': '#F8F5F2', 'forest-green': '#4A7C59' },
-                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] },
-                    borderRadius: { 'card': '12px' }
-                }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --oatmeal: #F8F5F2;
+            --forest-green: #4A7C59;
+            --white: #ffffff;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+        }
+
+        /* ===== BASE STYLES ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--oatmeal);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            background-color: rgba(248, 245, 242, 0.95);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: block;
+            text-align: center;
+        }
+
+        .site-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--forest-green);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-600);
+            padding: 8px 12px;
+            margin: 4px;
+        }
+
+        .nav-link:hover {
+            color: var(--forest-green);
+        }
+
+        .nav-link-active {
+            font-weight: 700;
+            color: var(--forest-green);
+        }
+
+        .btn-lang {
+            display: inline-block;
+            border: 1px solid var(--forest-green);
+            color: var(--forest-green);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin: 4px;
+        }
+
+        .btn-lang:hover {
+            background-color: var(--forest-green);
+            color: var(--white);
+        }
+
+        /* ===== HERO ===== */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .hero-tagline {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== FEATURE SPLIT ===== */
+        .feature-split {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 48px;
+        }
+
+        .feature-content {
+            padding: 48px;
+        }
+
+        .feature-title {
+            font-size: 28px;
+            color: var(--forest-green);
+            margin-bottom: 24px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: var(--gray-600);
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(74, 124, 89, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--forest-green);
+            font-size: 12px;
+        }
+
+        .feature-list-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .feature-cta {
+            background-color: var(--forest-green);
+            color: var(--white);
+            padding: 64px 48px;
+            text-align: center;
+        }
+
+        .feature-cta-title {
+            font-size: 28px;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .feature-cta-text {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--forest-green);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 40px;
+            border-radius: 50px;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--gray-100);
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-section {
+            margin-bottom: 48px;
+        }
+
+        .pricing-title {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .pricing-grid {
+            display: block;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 24px;
+            border: 1px solid var(--gray-100);
+            position: relative;
+        }
+
+        .pricing-card-featured {
+            border-color: var(--forest-green);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background-color: var(--forest-green);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 4px;
+        }
+
+        .pricing-card-title {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .pricing-card-subtitle {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        .pricing-price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .pricing-price-regular {
+            color: var(--gray-900);
+        }
+
+        .pricing-features {
+            list-style: none;
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .pricing-features li {
+            margin-bottom: 8px;
+        }
+
+        .pricing-gift {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--forest-green);
+        }
+
+        .pricing-note {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-style: italic;
+            color: var(--gray-400);
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        /* ===== APPROACH SECTION ===== */
+        .approach-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .approach-content {
+            margin-bottom: 32px;
+        }
+
+        .approach-title {
+            font-size: 28px;
+            color: var(--forest-green);
+            margin-bottom: 24px;
+        }
+
+        .approach-text {
+            font-size: 16px;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .approach-box {
+            background-color: rgba(74, 124, 89, 0.05);
+            border: 1px solid rgba(74, 124, 89, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .approach-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .approach-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .approach-step-number {
+            width: 32px;
+            height: 32px;
+            background-color: var(--forest-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .approach-step-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .approach-step-text {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-100);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .footer-col {
+            display: block;
+            margin-bottom: 32px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .footer-heading {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-100);
+            padding-top: 32px;
+            text-align: center;
+        }
+
+        .footer-disclaimer {
+            font-size: 11px;
+            color: var(--gray-400);
+            max-width: 800px;
+            margin: 0 auto 24px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 768px) {
+            .header-inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .site-logo {
+                margin-bottom: 0;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .feature-split {
+                display: flex;
+            }
+
+            .feature-content {
+                flex: 1;
+            }
+
+            .feature-cta {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .pricing-grid {
+                display: flex;
+                gap: 24px;
+            }
+
+            .pricing-card {
+                flex: 1;
+                margin-bottom: 0;
+            }
+
+            .approach-grid {
+                display: flex;
+                gap: 48px;
+                align-items: center;
+            }
+
+            .approach-content {
+                flex: 1;
+                margin-bottom: 0;
+            }
+
+            .approach-box {
+                flex: 1;
+            }
+
+            .footer-grid {
+                display: flex;
+                gap: 48px;
+            }
+
+            .footer-col {
+                flex: 1;
+                margin-bottom: 0;
             }
         }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="bg-oatmeal font-sans">
-    
-    <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-oatmeal/90 backdrop-blur-sm border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="../" class="text-2xl font-bold font-serif text-forest-green">HealthySticks</a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="../" class="text-sm font-medium hover:text-forest-green">Home</a>
-                <a href="../Sample-Collection/" class="text-sm font-medium hover:text-forest-green">DOT Tests</a>
-                <a href="../Chiropractic/" class="text-sm font-medium hover:text-forest-green">Chiropractic</a>
-                <a href="../Acupuncture/" class="text-sm font-medium hover:text-forest-green">Acupuncture</a>
-                <a href="./" class="text-sm font-bold text-forest-green">Microneedling</a>
-                <a href="../Contact-Us/" class="text-sm font-medium hover:text-forest-green">Contact</a>
-            </nav>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="../" class="site-logo">HealthySticks</a>
+                <nav>
+                    <a href="../" class="nav-link">Home</a>
+                    <a href="../Sample-Collection/" class="nav-link">DOT Tests</a>
+                    <a href="../Chiropractic/" class="nav-link">Chiropractic</a>
+                    <a href="../Acupuncture/" class="nav-link">Acupuncture</a>
+                    <a href="./" class="nav-link nav-link-active">Microneedling</a>
+                    <a href="../Contact-Us/" class="nav-link">Contact</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main class="pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-5xl">
-            
-            <!-- Hero Header -->
-            <div class="text-center mb-16 fade-in">
-                <p class="text-xs uppercase tracking-[0.4em] text-forest-green font-bold mb-4">Relax Beautiful • Health & Beauty</p>
-                <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 text-gray-900">Advanced Microneedling</h1>
-                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                    Experience the ultimate in skin rejuvenation. Our precision microneedling treatments combine modern science with ancient wisdom to restore your natural glow.
-                </p>
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <p class="hero-tagline">Relax Beautiful - Health &amp; Beauty</p>
+                <h1 class="hero-title">Advanced Microneedling</h1>
+                <p class="hero-subtitle">Experience the ultimate in skin rejuvenation. Our precision microneedling treatments combine modern science with ancient wisdom to restore your natural glow.</p>
             </div>
+        </section>
 
-            <!-- Hero Feature -->
-            <div class="bg-white rounded-card shadow-xl overflow-hidden fade-in mb-20">
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="p-10 md:p-16 flex flex-col justify-center bg-white">
-                        <h2 class="text-3xl font-bold font-serif mb-6 text-forest-green">How It Works</h2>
-                        <p class="text-gray-600 mb-8 leading-relaxed">
-                            Microneedling (Collagen Induction Therapy) creates controlled micro-injuries in the skin, triggering the body's natural healing response to produce fresh collagen and elastin.
-                        </p>
-                        <div class="grid grid-cols-1 gap-4">
-                            <div class="flex items-center space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1">✓</span>
-                                <span class="text-sm font-semibold text-gray-700">Reduces fine lines and wrinkles</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1">✓</span>
-                                <span class="text-sm font-semibold text-gray-700">Improves skin tone and elasticity</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="bg-forest-green/10 text-forest-green rounded-full p-1">✓</span>
-                                <span class="text-sm font-semibold text-gray-700">Minimizes pores and acne scars</span>
-                            </div>
-                        </div>
+        <!-- Feature Split Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="feature-split">
+                    <div class="feature-content">
+                        <h2 class="feature-title">How It Works</h2>
+                        <p class="feature-text">Microneedling (Collagen Induction Therapy) creates controlled micro-injuries in the skin, triggering the body&apos;s natural healing response to produce fresh collagen and elastin.</p>
+                        <ul class="feature-list">
+                            <li class="feature-list-item">
+                                <span class="feature-check">&#10003;</span>
+                                <span class="feature-list-text">Reduces fine lines and wrinkles</span>
+                            </li>
+                            <li class="feature-list-item">
+                                <span class="feature-check">&#10003;</span>
+                                <span class="feature-list-text">Improves skin tone and elasticity</span>
+                            </li>
+                            <li class="feature-list-item">
+                                <span class="feature-check">&#10003;</span>
+                                <span class="feature-list-text">Minimizes pores and acne scars</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="bg-forest-green text-white p-12 flex flex-col justify-center items-center text-center">
-                        <h3 class="text-3xl font-bold font-serif mb-6 italic">Renew Your Glow</h3>
-                        <p class="mb-10 opacity-90 leading-relaxed">Schedule a consultation to customize your rejuvenation plan.</p>
-                        <a href="../Contact-Us/" class="bg-white text-forest-green px-10 py-4 rounded-full text-sm font-bold hover:bg-gray-100 transition-all uppercase tracking-widest shadow-lg">
-                            Book Consultation
-                        </a>
+                    <div class="feature-cta">
+                        <h3 class="feature-cta-title">Renew Your Glow</h3>
+                        <p class="feature-cta-text">Schedule a consultation to customize your rejuvenation plan.</p>
+                        <a href="../Contact-Us/" class="btn-cta">Book Consultation</a>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Pricing Section -->
-            <div class="mb-20 fade-in">
-                <h2 class="text-3xl font-bold font-serif text-center mb-12 text-gray-900">Investment & Packages</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Package -->
-                    <div class="bg-white p-10 rounded-card shadow-sm border border-gray-100 relative group hover:border-forest-green transition-colors">
-                        <div class="absolute top-0 right-0 bg-forest-green text-white text-[10px] uppercase tracking-widest font-bold px-4 py-2 rounded-bl-lg">Recommended</div>
-                        <h3 class="text-xl font-bold font-serif mb-2">3 Session Series</h3>
-                        <p class="text-4xl font-bold text-forest-green mb-4">$500</p>
-                        <p class="text-sm text-gray-500 mb-6">Designed for maximum results and sustained collagen building.</p>
-                        <ul class="text-sm text-gray-600 space-y-3 mb-8 border-t border-gray-50 pt-6">
-                            <li class="flex items-center space-x-2 font-bold text-forest-green">
-                                <span>+ Free gift sample with package</span>
-                            </li>
+        <!-- Pricing Section -->
+        <section class="section-padding pricing-section">
+            <div class="container">
+                <h2 class="pricing-title">Investment &amp; Packages</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card pricing-card-featured">
+                        <span class="pricing-badge">Recommended</span>
+                        <h3 class="pricing-card-title">3 Session Series</h3>
+                        <p class="pricing-card-subtitle">Designed for maximum results</p>
+                        <p class="pricing-price">$500</p>
+                        <ul class="pricing-features">
+                            <li>+ Free gift sample with package</li>
                             <li>Full facial treatment</li>
                             <li>Personalized herbal serums</li>
                         </ul>
+                        <p class="pricing-gift">Sustained collagen building</p>
                     </div>
-                    <!-- Single -->
-                    <div class="bg-white p-10 rounded-card shadow-sm border border-gray-100 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold font-serif mb-2">Standard Session</h3>
-                            <p class="text-4xl font-bold text-gray-900 mb-4">$200</p>
-                            <p class="text-sm text-gray-500 mb-6">A single session focused on immediate skin refinement and glow.</p>
-                        </div>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest italic pt-6 border-t border-gray-50">Add-on Acupuncture: $45</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Approach Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 fade-in items-center">
-                <div class="space-y-6">
-                    <h2 class="text-3xl font-bold font-serif text-forest-green">Ancient Plumblossom Technique</h2>
-                    <p class="text-gray-600 leading-relaxed">
-                        We utilize microneedling tools specifically designed for acupuncturists, based on the ancient <span class="italic font-medium">Plumblossom</span> technique. Unlike standard aesthetician treatments, we focus on the meridian systems to support beauty from the inside out.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        Every package includes full-body support with acupuncture, customized herbal serums, and Asian bodywork to ensure your skin health reflects your internal wellness.
-                    </p>
-                </div>
-                <div class="bg-forest-green/5 p-10 rounded-card border border-forest-green/10">
-                    <div class="flex items-start space-x-4 mb-6">
-                        <div class="bg-forest-green text-white p-2 rounded-full flex-shrink-0 text-xs">01</div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">Research Backed</h4>
-                            <p class="text-sm text-gray-500">Clinically proven methods for cellular regeneration.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-forest-green text-white p-2 rounded-full flex-shrink-0 text-xs">02</div>
-                        <div>
-                            <h4 class="font-bold text-gray-900">TCM Principles</h4>
-                            <p class="text-sm text-gray-500">Integrating Traditional Chinese Medicine for holistic skin integrity.</p>
-                        </div>
+                    <div class="pricing-card">
+                        <h3 class="pricing-card-title">Standard Session</h3>
+                        <p class="pricing-card-subtitle">Single treatment</p>
+                        <p class="pricing-price pricing-price-regular">$200</p>
+                        <p class="pricing-card-subtitle">A single session focused on immediate skin refinement and glow.</p>
+                        <p class="pricing-note">Add-on Acupuncture: $45</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <!-- Approach Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="approach-grid">
+                    <div class="approach-content">
+                        <h2 class="approach-title">Ancient Plumblossom Technique</h2>
+                        <p class="approach-text">We utilize microneedling tools specifically designed for acupuncturists, based on the ancient Plumblossom technique. Unlike standard aesthetician treatments, we focus on the meridian systems to support beauty from the inside out.</p>
+                        <p class="approach-text">Every package includes full-body support with acupuncture, customized herbal serums, and Asian bodywork to ensure your skin health reflects your internal wellness.</p>
+                    </div>
+                    <div class="approach-box">
+                        <div class="approach-step">
+                            <span class="approach-step-number">01</span>
+                            <div>
+                                <div class="approach-step-title">Research Backed</div>
+                                <p class="approach-step-text">Clinically proven methods for cellular regeneration.</p>
+                            </div>
+                        </div>
+                        <div class="approach-step">
+                            <span class="approach-step-number">02</span>
+                            <div>
+                                <div class="approach-step-title">TCM Principles</div>
+                                <p class="approach-step-text">Integrating Traditional Chinese Medicine for holistic skin integrity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="py-16 bg-white border-t border-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="font-serif font-bold text-forest-green text-xl mb-4">HealthySticks</div>
-                    <p class="text-sm text-gray-500 leading-relaxed">Healthy Sticks PLLC- Practice — Nature-rooted, science-refined wellness in Lombard, IL.</p>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">HealthySticks</div>
+                    <p class="footer-description">Healthy Sticks PLLC - Nature-rooted, science-refined wellness in Lombard, IL.</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Contact</h4>
-                    <p class="text-sm text-gray-500">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <p class="footer-text">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-900 text-sm uppercase tracking-widest mb-4">Hours</h4>
-                    <p class="text-sm text-gray-500">Mon: 8:30am – 11am | Wed: 5pm – 7pm | Fri: 2pm – 7pm</p>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Hours</h4>
+                    <p class="footer-text">Mon: 8:30am - 11am | Wed: 5pm - 7pm | Fri: 2pm - 7pm</p>
                 </div>
             </div>
-            <div class="border-t border-gray-100 pt-8 text-center">
-                <p class="text-[10px] text-gray-400 max-w-3xl mx-auto mb-6 leading-relaxed">
-                    Naturopathic doctors are not licensed medical providers in Illinois. Dr. Alwazan is a licensed Naturopathic Physician in DC and a licensed Chiropractic Physician in Illinois.
-                </p>
-                <p class="text-sm text-gray-500">&copy; 2026 Healthy Sticks PLLC. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p class="footer-disclaimer">Naturopathic doctors are not licensed medical providers in Illinois. Dr. Alwazan is a licensed Naturopathic Physician in DC and a licensed Chiropractic Physician in Illinois.</p>
+                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. All rights reserved.</p>
             </div>
         </div>
     </footer>

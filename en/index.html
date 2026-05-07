@@ -1,142 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthy Sticks | Nutritious Snacking</title>
-
+    <title>HealthySticks | Nature-Rooted. Science-Refined.</title>
+    <meta name="description" content="HealthySticks - Simplify your path to wellness with holistic, science-based solutions.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* RESET & BASE STYLES */
-        body,
-        h1,
-        h2,
-        p {
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --oatmeal: #F8F5F2;
+            --forest-green: #4A7C59;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
         }
 
-        /* BUILDER-PROOF CONTAINERS */
-        .section-wrapper {
-            width: 100%;
-            padding: 60px 0;
-            display: block;
-            /* Avoiding complex flex for the main stack */
+        /* ===== TYPOGRAPHY ===== */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--oatmeal);
         }
 
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== LAYOUT CONTAINERS ===== */
         .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 24px;
+            padding-right: 24px;
         }
 
-        /* HERO SECTION - FLATTENED */
-        .hero {
-            background-color: #f4fbf4;
+        .container-narrow {
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            background-color: rgba(248, 245, 242, 0.95);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: block;
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            color: #2d5a27;
-            margin-bottom: 20px;
+        .site-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--forest-green);
+            display: block;
+            margin-bottom: 16px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 30px;
+        .main-nav {
+            display: block;
         }
 
-        /* CONTENT COLUMNS - SIMPLE FLEX (NO NESTING) */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
+        .nav-link {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+            padding: 8px 12px;
+            margin: 4px;
         }
 
-        .column {
-            flex: 1;
-            min-width: 300px;
-            /* Forces stack on mobile */
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 8px;
+        .nav-link:hover {
+            color: var(--forest-green);
         }
 
-        /* DOCTOR-FRIENDLY BUTTONS */
+        .nav-link-active {
+            font-weight: 700;
+            color: var(--forest-green);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--forest-green);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin: 4px;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid var(--forest-green);
+            color: var(--forest-green);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 50px;
+            margin: 4px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--forest-green);
+            color: var(--white);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding-top: 48px;
+            padding-bottom: 80px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            text-align: center;
+            padding: 48px 0 64px;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 48px;
+        }
+
+        /* ===== SERVICE CARDS ===== */
+        .services-grid {
+            display: block;
+            margin-top: 48px;
+        }
+
+        .service-card {
+            display: block;
+            background-color: var(--white);
+            border: 1px solid var(--gray-50);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card-title {
+            font-size: 20px;
+            color: var(--forest-green);
+            margin-bottom: 8px;
+        }
+
+        .service-card-text {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 16px;
+        }
+
+        .service-card-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--forest-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-50);
+            border-bottom: 1px solid var(--gray-50);
+            padding: 96px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--gray-900);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            color: var(--gray-600);
+            text-align: center;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .feature-block {
+            display: block;
+            margin-bottom: 32px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background-color: var(--forest-green);
+            color: var(--white);
+            padding: 96px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 48px;
+        }
+
         .cta-button {
             display: inline-block;
-            padding: 15px 30px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            background-color: var(--white);
+            color: var(--forest-green);
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 16px 40px;
+            border-radius: 50px;
         }
 
-        /* RESPONSIVE TWEAKS */
-        @media (max-width: 375px) {
-            .hero h1 {
-                font-size: 1.8rem;
+        .cta-button:hover {
+            background-color: var(--gray-100);
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-100);
+            padding: 64px 0;
+        }
+
+        .footer-grid {
+            display: block;
+            margin-bottom: 48px;
+        }
+
+        .footer-col {
+            display: block;
+            margin-bottom: 32px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gray-900);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .footer-contact-item {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--forest-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-100);
+            padding-top: 32px;
+        }
+
+        .footer-disclaimer {
+            font-size: 12px;
+            color: var(--gray-400);
+            line-height: 1.7;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 24px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--gray-500);
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE - TABLET & DESKTOP ===== */
+        @media (min-width: 768px) {
+            .header-inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
-            .section-wrapper {
-                padding: 40px 0;
+            .site-logo {
+                margin-bottom: 0;
+            }
+
+            .hero-title {
+                font-size: 56px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .services-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .service-card {
+                width: calc(33.333% - 16px);
+                margin-bottom: 0;
+            }
+
+            .section-title {
+                font-size: 40px;
+            }
+
+            .features-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 48px;
+            }
+
+            .feature-block {
+                width: calc(50% - 24px);
+                margin-bottom: 0;
+            }
+
+            .cta-title {
+                font-size: 40px;
+            }
+
+            .footer-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 48px;
+            }
+
+            .footer-col {
+                width: calc(33.333% - 32px);
+                margin-bottom: 0;
             }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- HERO SECTION -->
-    <section class="section-wrapper hero">
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
         <div class="container">
-            <!-- EASY EDIT: Header -->
-            <h1>Healthy Sticks: Nutrition in Every Bite</h1>
-            <!-- EASY EDIT: Subtext -->
-            <p>The doctor-approved snack designed for busy lifestyles and balanced diets.</p>
-            <a href="#order" class="cta-button">Order Now</a>
-        </div>
-    </section>
+            <div class="header-inner">
 
-    <!-- PRODUCT FEATURES -->
-    <section class="section-wrapper">
-        <div class="container">
-            <div class="row">
-                <!-- FEATURE 1 -->
-                <div class="column">
-                    <img src="https://via.placeholder.com/400x300" alt="Natural Ingredients">
-                    <h2>100% Natural</h2>
-                    <p>No artificial preservatives or added sugars. Just pure, plant-based goodness.</p>
-                </div>
-                <!-- FEATURE 2 -->
-                <div class="column">
-                    <img src="https://via.placeholder.com/400x300" alt="Doctor Approved">
-                    <h2>Doctor Recommended</h2>
-                    <p>Formulated to maintain glucose stability and provide sustained energy levels.</p>
-                </div>
+                <a href="./" class="site-logo">HealthySticks</a>
+
+                <nav class="main-nav">
+                    <a href="./" class="nav-link nav-link-active">Home</a>
+                    <a href="./Sample-Collection/" class="nav-link">DOT Physical</a>
+                    <a href="./Chiropractic/" class="nav-link">Chiropractic</a>
+                    <a href="./Acupuncture/" class="nav-link">Acupuncture</a>
+                    <a href="./Naturopathy/" class="nav-link">Naturopathy</a>
+                    <a href="./Microneedling/" class="nav-link">Microneedling</a>
+                    <a href="./Contact-Us/" class="nav-link">Contact</a>
+                    <a href="https://phr.charmtracker.com/login.sas?FACILITY_ID=d1c1a0dc62345265cbf15745b302714b326ff9d7a68e1c9f98ee2e5ce9d5cc8ac81b440bc8a53a00" target="_blank" rel="noopener noreferrer" class="btn-primary">Patient Portal</a>
+                    <a href="../" class="btn-outline">ES</a>
+                </nav>
+
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- FOOTER -->
-    <footer class="section-wrapper" style="background: #333; color: #fff; text-align: center;">
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero-section">
+            <div class="container">
+
+                <h1 class="hero-title">Nature-Rooted.<br>Science-Refined.</h1>
+
+                <p class="hero-subtitle">Simplify your path to wellness with HealthySticks. We unite ancient wisdom and modern precision science to help you thrive.</p>
+
+                <div class="services-grid">
+
+                    <a href="./Chiropractic/" class="service-card">
+                        <h3 class="service-card-title">Chiropractic</h3>
+                        <p class="service-card-text">Precision spinal adjustments for optimal health.</p>
+                        <span class="service-card-link">Learn More →</span>
+                    </a>
+
+                    <a href="./Naturopathy/" class="service-card">
+                        <h3 class="service-card-title">Naturopathy</h3>
+                        <p class="service-card-text">Evidence-based natural medicine.</p>
+                        <span class="service-card-link">Learn More →</span>
+                    </a>
+
+                    <a href="./Microneedling/" class="service-card">
+                        <h3 class="service-card-title">Microneedling</h3>
+                        <p class="service-card-text">Advanced skin renewal treatments.</p>
+                        <span class="service-card-link">Learn More →</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section class="about-section">
+            <div class="container-narrow">
+
+                <h2 class="section-title">Our Story</h2>
+
+                <p class="section-intro">At HealthySticks, we are dedicated to bridging the gap between ancient botanical wisdom and modern precision science. Our mission is to simplify your wellness journey with evidence-based solutions that treat the whole person, not just symptoms.</p>
+
+                <div class="features-grid">
+
+                    <div class="feature-block">
+                        <h3 class="feature-title">Holistic Healing</h3>
+                        <p class="feature-text">We treat root causes of skin and health issues, not just symptoms. Our practitioners use acupuncture, herbal medicine, and microneedling to restore harmony within your body, achieving long-lasting results.</p>
+                    </div>
+
+                    <div class="feature-block">
+                        <h3 class="feature-title">Personalized Treatments</h3>
+                        <p class="feature-text">Every individual is unique, and so are our treatment plans. We tailor our services to meet your specific needs, ensuring the best possible outcomes for your skin and health.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== CTA SECTION ===== -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Begin Your Wellness Journey</h2>
+                <p class="cta-text">Schedule a consultation today and discover how our integrated approach can help you achieve your health goals.</p>
+                <a href="./Contact-Us/" class="cta-button">Book Appointment</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 Healthy Sticks. All Rights Reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">HealthySticks</div>
+                    <p class="footer-description">Healthy Sticks PLLC - Nature-rooted, science-refined wellness in Lombard, IL.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <p class="footer-contact-item">929 S Main St, Suite 101<br>Lombard, IL 60148</p>
+                    <p class="footer-contact-item"><a href="tel:+16304479857">(630) 447-9857</a></p>
+                    <p class="footer-contact-item"><a href="mailto:questions@healthysticks.life">questions@healthysticks.life</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Hours</h4>
+                    <p class="footer-contact-item">Monday: 8:30am - 11am</p>
+                    <p class="footer-contact-item">Tuesday: Closed</p>
+                    <p class="footer-contact-item">Wednesday: 5pm - 7pm</p>
+                    <p class="footer-contact-item">Friday: 2pm - 7pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-disclaimer">Information and services offered on this website are for wellness education and lifestyle support only and are not a substitute for medical diagnosis or treatment. Naturopathic doctors are not licensed medical providers in Illinois. Our doctor is a licensed Naturopathic Physician in the District of Columbia and a licensed Chiropractic Physician in Illinois.</p>
+                <p class="footer-copyright">&copy; 2026 Healthy Sticks PLLC. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
 </body>
-
 </html>
